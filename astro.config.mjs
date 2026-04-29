@@ -8,6 +8,6 @@ export default defineConfig({
   site: "https://solidplan.ai",
   base: "/",
   vite: {
-    plugins: [tailwindcss()],
+    plugins: /** @type {any} */ ([tailwindcss()]),
   },
 });
