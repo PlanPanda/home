@@ -1,79 +1,105 @@
 ---
-const APP_LOGIN = 'https://app.solidplan.ai/login';
-const APP_SIGNUP = 'https://app.solidplan.ai/signup';
+const APP_LOGIN = "https://app.solidplan.ai/login";
+const APP_SIGNUP = "https://app.solidplan.ai/signup";
 
 const COMMON_FEATURES = [
-  'บันทึกนัดหมายพื้นฐาน',
-  'จัดเก็บไฟล์ของลูกค้า',
-  'สถิติผลงานแบบละเอียด',
-  'ระบบจัดการทีม (Soon)',
-  'ปฏิทินกิจกรรม (Soon)',
-  'ใช้งานบน iPad/Desktop',
+  "บันทึกนัดหมายพื้นฐาน",
+  "จัดเก็บไฟล์ของลูกค้า",
+  "สถิติผลงานแบบละเอียด",
+  "ระบบจัดการทีม (Soon)",
+  "ปฏิทินกิจกรรม (Soon)",
+  "ใช้งานบน iPad/Desktop",
 ];
 
 const PLANS = [
   {
-    name: 'Trial',
-    price: '฿0',
-    period: '/เดือน',
-    description: 'เริ่มต้นสร้างระบบ',
-    customerLimit: 'สูงสุด 10 ราย',
-    customerFeature: 'จัดการลูกค้า 10 ราย',
-    theme: 'bg-surface-card text-ink',
-    checkColor: 'text-muted',
-    buttonClass: 'bg-ink text-white',
-    limitClass: 'font-bold opacity-60 pb-4 mb-4 border-b border-current/20',
-    shadowClass: '',
+    name: "Trial",
+    price: "฿0",
+    period: "/เดือน",
+    description: "เริ่มต้นสร้างระบบ",
+    customerLimit: "สูงสุด 10 ราย",
+    customerFeature: "จัดการลูกค้า 10 ราย",
+    theme: "bg-surface-card text-ink",
+    checkColor: "text-muted",
+    buttonClass: "bg-ink text-white",
+    limitClass: "font-bold opacity-60 pb-4 mb-4 border-b border-current/20",
+    shadowClass: "",
     badge: null,
   },
   {
-    name: 'Starter',
-    price: '฿399',
-    period: '/เดือน',
-    description: 'สำหรับตัวแทนเริ่มโต',
-    customerLimit: 'สูงสุด 200 ราย',
-    customerFeature: 'จัดการลูกค้า 200 ราย',
-    theme: 'bg-brand-pink text-white',
-    checkColor: 'opacity-60',
-    buttonClass: 'bg-white text-ink',
-    limitClass: 'font-bold pb-4 mb-4 border-b border-white/20',
-    shadowClass: '',
+    name: "Starter",
+    price: "฿399",
+    period: "/เดือน",
+    description: "สำหรับตัวแทนเริ่มโต",
+    customerLimit: "สูงสุด 200 ราย",
+    customerFeature: "จัดการลูกค้า 200 ราย",
+    theme: "bg-brand-pink text-white",
+    checkColor: "opacity-60",
+    buttonClass: "bg-white text-ink",
+    limitClass: "font-bold pb-4 mb-4 border-b border-white/20",
+    shadowClass: "",
     badge: null,
   },
   {
-    name: 'Pro',
-    price: '฿599',
-    period: '/เดือน',
-    description: 'ระบบที่ดีที่สุดเพื่อมืออาชีพ',
-    customerLimit: 'สูงสุด 1,000 ราย',
-    customerFeature: 'จัดการลูกค้า 1,000 ราย',
-    theme: 'bg-brand-teal text-white',
-    checkColor: 'text-brand-mint',
-    buttonClass: 'bg-canvas text-ink',
-    limitClass: 'font-bold pb-4 mb-4 border-b border-white/20',
-    shadowClass: 'shadow-[0_20px_40px_rgba(26,58,58,0.2)]',
-    badge: 'Recommended',
+    name: "Pro",
+    price: "฿599",
+    period: "/เดือน",
+    description: "ระบบที่ดีที่สุดเพื่อมืออาชีพ",
+    customerLimit: "สูงสุด 1,000 ราย",
+    customerFeature: "จัดการลูกค้า 1,000 ราย",
+    theme: "bg-brand-teal text-white",
+    checkColor: "text-brand-mint",
+    buttonClass: "bg-canvas text-ink",
+    limitClass: "font-bold pb-4 mb-4 border-b border-white/20",
+    shadowClass: "shadow-[0_20px_40px_rgba(26,58,58,0.2)]",
+    badge: "Recommended",
   },
 ];
 ---
 
 <!-- ===== NAV ===== -->
-<nav class="sticky top-0 z-50 bg-canvas/85 backdrop-blur-xl border-b border-hairline/50">
+<nav
+  class="sticky top-0 z-50 bg-canvas/85 backdrop-blur-xl border-b border-hairline/50"
+>
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <a href="/" class="flex items-center gap-2.5 no-underline text-ink">
-      <img src="/favicon/web-app-manifest-512x512.png" alt="Solid Plan" width="32" height="32" class="rounded-lg" />
+      <img
+        src="/favicon/web-app-manifest-512x512.png"
+        alt="Solid Plan"
+        width="32"
+        height="32"
+        class="rounded-lg"
+      />
       <span class="text-lg font-bold tracking-tight">Solid Plan</span>
     </a>
 
     <div class="hidden md:flex items-center gap-8">
-      <a href="#features" class="text-sm font-medium text-muted hover:text-ink transition no-underline">ฟีเจอร์</a>
-      <a href="#pricing" class="text-sm font-medium text-muted hover:text-ink transition no-underline">ราคา</a>
-      <a href="#showcase" class="text-sm font-medium text-muted hover:text-ink transition no-underline">iPad App</a>
+      <a
+        href="#features"
+        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
+        >ฟีเจอร์</a
+      >
+      <a
+        href="#pricing"
+        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
+        >ราคา</a
+      >
+      <a
+        href="#showcase"
+        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
+        >iPad App</a
+      >
     </div>
 
     <div class="hidden md:flex items-center gap-4">
-      <a href={APP_LOGIN} class="text-sm font-semibold text-ink no-underline">เข้าสู่ระบบ</a>
-      <a href={APP_SIGNUP} class="bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-xl no-underline hover:bg-ink/80 transition active:scale-95">ทดลองใช้ฟรี</a>
+      <a href={APP_LOGIN} class="text-sm font-semibold text-ink no-underline"
+        >เข้าสู่ระบบ</a
+      >
+      <a
+        href={APP_SIGNUP}
+        class="bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-xl no-underline hover:bg-ink/80 transition active:scale-95"
+        >ทดลองใช้ฟรี</a
+      >
     </div>
 
     <button class="md:hidden p-1" id="menuToggle" aria-label="เปิดเมนู">
@@ -82,40 +108,72 @@ const PLANS = [
   </div>
 
   <!-- Mobile Menu -->
-  <div class="hidden md:hidden flex-col px-6 pb-4 gap-1 border-t border-hairline/50" id="mobileMenu">
-    <a href="#features" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">ฟีเจอร์</a>
-    <a href="#pricing" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">ราคา</a>
-    <a href="#showcase" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">iPad App</a>
-    <a href={APP_SIGNUP} class="mt-3 bg-ink text-white text-sm font-semibold px-5 py-3 rounded-xl text-center no-underline">ทดลองใช้ฟรี</a>
+  <div
+    class="hidden md:hidden flex-col px-6 pb-4 gap-1 border-t border-hairline/50"
+    id="mobileMenu"
+  >
+    <a
+      href="#features"
+      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
+      >ฟีเจอร์</a
+    >
+    <a
+      href="#pricing"
+      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
+      >ราคา</a
+    >
+    <a
+      href="#showcase"
+      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
+      >iPad App</a
+    >
+    <a
+      href={APP_SIGNUP}
+      class="mt-3 bg-ink text-white text-sm font-semibold px-5 py-3 rounded-xl text-center no-underline"
+      >ทดลองใช้ฟรี</a
+    >
   </div>
 </nav>
 
 <!-- ===== HERO ===== -->
-<section 
+<section
   class="relative overflow-hidden bg-cover bg-position-[10%_center] md:bg-position-[60%_center] lg:bg-right bg-no-repeat"
   style="background-image: url('/images/home_bg_w.png');"
 >
   <!-- Gradient: left readability + bottom fade to canvas -->
-  <div class="absolute inset-0 bg-linear-to-r from-canvas via-canvas/85 md:via-canvas/20 to-transparent"></div>
-  <div class="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-canvas to-transparent"></div>
+  <div
+    class="absolute inset-0 bg-linear-to-r from-canvas via-canvas/85 md:via-canvas/20 to-transparent"
+  >
+  </div>
+  <div
+    class="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-canvas to-transparent"
+  >
+  </div>
   <!-- Mobile-only blur to soften background image behind text -->
-  <div class="absolute inset-0 backdrop-blur-[2px] md:backdrop-blur-[0px]"></div>
+  <div class="absolute inset-0 backdrop-blur-[2px] md:backdrop-blur-[0px]">
+  </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-28 md:pt-32 md:pb-36">
+  <div
+    class="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-28 md:pt-32 md:pb-36"
+  >
     <div class="grid md:grid-cols-12 gap-12 items-center">
       <div class="md:col-span-6">
-        <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm font-medium text-body mb-8">
+        <div
+          class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm font-medium text-body mb-8"
+        >
           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
           สำหรับตัวแทนประกันภัยมืออาชีพ
         </div>
 
-        <h1 class="text-[44px] md:text-[64px] font-bold leading-[1.1] tracking-tight mb-6">
+        <h1
+          class="text-[44px] md:text-[64px] font-bold leading-[1.1] tracking-tight mb-6"
+        >
           รายได้ที่ดี
           <br class="lg:hidden" />
           <span class="text-brand-pink">มาจากระบบ</span>
           <br class="lg:hidden" />
           <br class="hidden lg:block" />
-          ไม่ใช่ดวง
+          และโชคช่วยนิดหน่อย
         </h1>
 
         <p class="text-lg md:text-xl text-body leading-relaxed mb-10 max-w-xl">
@@ -124,11 +182,17 @@ const PLANS = [
         </p>
 
         <div class="flex flex-col lg:flex-row gap-4">
-          <a href={APP_SIGNUP} class="bg-ink text-white text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2 no-underline hover:bg-ink/80 transition active:scale-95">
+          <a
+            href={APP_SIGNUP}
+            class="bg-ink text-white text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2 no-underline hover:bg-ink/80 transition active:scale-95"
+          >
             เริ่มต้นใช้งานฟรี
             <i class="fa-solid fa-chevron-right text-sm"></i>
           </a>
-          <a href="#" class="text-ink text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2.5 no-underline hover:bg-white/50 transition">
+          <a
+            href="#showcase"
+            class="text-ink text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2.5 no-underline hover:bg-white/50 transition"
+          >
             <i class="fa-solid fa-play text-sm"></i>
             รู้จักเราเพิ่มเติม
           </a>
@@ -142,102 +206,164 @@ const PLANS = [
 </section>
 
 <!-- ===== FEATURES ===== -->
-<section id="features" class="max-w-7xl mx-auto px-6 pb-28 md:pb-36 scroll-mt-20">
+<section
+  id="features"
+  class="max-w-7xl mx-auto px-6 pb-28 md:pb-36 scroll-mt-20"
+>
   <div class="grid md:grid-cols-3 gap-6">
     <!-- Customer Management -->
-    <div class="bg-brand-pink text-white p-10 rounded-3xl flex flex-col justify-between min-h-[420px]">
+    <div
+      class="bg-brand-pink text-white p-10 rounded-3xl flex flex-col justify-between min-h-[420px]"
+    >
       <div>
-        <div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+        >
           <i class="fa-solid fa-users text-xl"></i>
         </div>
-        <h3 class="text-2xl font-semibold mb-4 leading-tight">จัดการลูกค้า (CRM)</h3>
+        <h3 class="text-2xl font-semibold mb-4 leading-tight">
+          จัดการลูกค้า (CRM)
+        </h3>
         <p class="opacity-90 leading-relaxed">
-          เก็บข้อมูลลูกค้าอย่างเป็นระเบียบ พร้อมระบบวิเคราะห์ความต้องการแบบละเอียด ช่วยให้ปิดการขายได้ง่ายขึ้น
+          เก็บข้อมูลลูกค้าอย่างเป็นระเบียบ
+          พร้อมระบบวิเคราะห์ความต้องการแบบละเอียด ช่วยให้ปิดการขายได้ง่ายขึ้น
         </p>
       </div>
       <div class="mt-8 pt-8 border-t border-white/20">
-        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-70">Customer Insights</span>
+        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-70"
+          >Customer Insights</span
+        >
       </div>
     </div>
 
     <!-- Smart Planning -->
-    <div class="bg-brand-teal text-white p-10 rounded-3xl flex flex-col justify-between min-h-[420px]">
+    <div
+      class="bg-brand-teal text-white p-10 rounded-3xl flex flex-col justify-between min-h-[420px]"
+    >
       <div>
-        <div class="bg-white/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="bg-white/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+        >
           <i class="fa-solid fa-calendar-days text-xl"></i>
         </div>
-        <h3 class="text-2xl font-semibold mb-4 leading-tight">วางแผนงานแม่นยำ</h3>
+        <h3 class="text-2xl font-semibold mb-4 leading-tight">
+          วางแผนงานแม่นยำ
+        </h3>
         <p class="opacity-80 leading-relaxed">
-          จัดตารางนัดหมายและติดตามผลงานในหน้าเดียว เห็นเป้าหมาย FYP/FYC ชัดเจนในทุกสัปดาห์
+          จัดตารางนัดหมายและติดตามผลงานในหน้าเดียว เห็นเป้าหมาย FYP/FYC
+          ชัดเจนในทุกสัปดาห์
         </p>
       </div>
       <div class="mt-8 pt-8 border-t border-white/10">
-        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-60">Planning & Results</span>
+        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-60"
+          >Planning & Results</span
+        >
       </div>
     </div>
 
     <!-- Team Management -->
-    <div class="bg-brand-lavender text-ink p-10 rounded-3xl flex flex-col justify-between min-h-[420px]">
+    <div
+      class="bg-brand-lavender text-ink p-10 rounded-3xl flex flex-col justify-between min-h-[420px]"
+    >
       <div>
-        <div class="bg-white/40 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+        <div
+          class="bg-white/40 w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+        >
           <i class="fa-solid fa-chart-simple text-xl"></i>
         </div>
-        <h3 class="text-2xl font-semibold mb-4 leading-tight">บริหารทีมอย่างโปร</h3>
+        <h3 class="text-2xl font-semibold mb-4 leading-tight">
+          บริหารทีมอย่างโปร
+        </h3>
         <p class="opacity-80 leading-relaxed">
-          เชื่อมต่อกับลูกทีม ติดตามความคืบหน้า และแชร์ข้อมูลกันได้อย่างปลอดภัยในระบบเดียว
+          เชื่อมต่อกับลูกทีม ติดตามความคืบหน้า
+          และแชร์ข้อมูลกันได้อย่างปลอดภัยในระบบเดียว
         </p>
       </div>
       <div class="mt-8 pt-8 border-t border-black/10">
-        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-50">Team Management</span>
+        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-50"
+          >Team Management</span
+        >
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== PRICING ===== -->
-<section id="pricing" class="max-w-7xl mx-auto px-6 py-28 border-t border-black/5 scroll-mt-20">
+<section
+  id="pricing"
+  class="max-w-7xl mx-auto px-6 py-28 border-t border-black/5 scroll-mt-20"
+>
   <div class="text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">เลือกระบบที่ใช่สำหรับคุณ</h2>
+    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
+      เลือกระบบที่ใช่สำหรับคุณ
+    </h2>
     <p class="text-lg text-muted">ลงทุนกับระบบที่ช่วยให้คุณโตอย่างยั่งยืน</p>
   </div>
 
   <div class="grid md:grid-cols-3 gap-8">
-    {PLANS.map((plan) => (
-      <div class={`${plan.theme} p-10 rounded-3xl flex flex-col relative ${plan.shadowClass}`}>
-        {plan.badge && (
-          <div class="absolute top-10 right-10 bg-brand-ochre text-ink text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full">{plan.badge}</div>
-        )}
-        <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
-        <div class="flex items-baseline gap-1 mb-1">
-          <span class="text-4xl font-bold">{plan.price}</span>
-          <span class="text-sm opacity-70">{plan.period}</span>
+    {
+      PLANS.map((plan) => (
+        <div
+          class={`${plan.theme} p-10 rounded-3xl flex flex-col relative ${plan.shadowClass}`}
+        >
+          {plan.badge && (
+            <div class="absolute top-10 right-10 bg-brand-ochre text-ink text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full">
+              {plan.badge}
+            </div>
+          )}
+          <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
+          <div class="flex items-baseline gap-1 mb-1">
+            <span class="text-4xl font-bold">{plan.price}</span>
+            <span class="text-sm opacity-70">{plan.period}</span>
+          </div>
+          <p class="text-sm opacity-80 mb-8">{plan.description}</p>
+          <div class={plan.limitClass}>{plan.customerLimit}</div>
+          <ul class="space-y-4 flex-1 mb-10">
+            <li class="flex items-center gap-3 text-sm">
+              <i class={`fa-solid fa-check ${plan.checkColor} shrink-0`} />
+              {plan.customerFeature}
+            </li>
+            {COMMON_FEATURES.map((feature) => (
+              <li class="flex items-center gap-3 text-sm">
+                <i class={`fa-solid fa-check ${plan.checkColor} shrink-0`} />
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={APP_SIGNUP}
+            class={`${plan.buttonClass} py-4 rounded-xl font-bold text-center no-underline active:scale-95 transition`}
+          >
+            เลือกแผนนี้
+          </a>
         </div>
-        <p class="text-sm opacity-80 mb-8">{plan.description}</p>
-        <div class={plan.limitClass}>{plan.customerLimit}</div>
-        <ul class="space-y-4 flex-1 mb-10">
-          <li class="flex items-center gap-3 text-sm"><i class={`fa-solid fa-check ${plan.checkColor} shrink-0`}></i>{plan.customerFeature}</li>
-          {COMMON_FEATURES.map((feature) => (
-            <li class="flex items-center gap-3 text-sm"><i class={`fa-solid fa-check ${plan.checkColor} shrink-0`}></i>{feature}</li>
-          ))}
-        </ul>
-        <a href={APP_SIGNUP} class={`${plan.buttonClass} py-4 rounded-xl font-bold text-center no-underline active:scale-95 transition`}>เลือกแผนนี้</a>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </section>
 
 <!-- ===== SHOWCASE ===== -->
 <section id="showcase" class="bg-surface-strong py-28 px-6 scroll-mt-20">
   <div class="max-w-5xl mx-auto text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">Solid Plan บน iPad</h2>
+    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+      Solid Plan บน iPad
+    </h2>
     <p class="text-lg text-muted max-w-2xl mx-auto">
-      ประสบการณ์การใช้งานที่ออกแบบมาเพื่อการออกไปพบลูกค้า พกพาสะดวก ข้อมูลครบครันในมือคุณ
+      ประสบการณ์การใช้งานที่ออกแบบมาเพื่อการออกไปพบลูกค้า พกพาสะดวก
+      ข้อมูลครบครันในมือคุณ
     </p>
   </div>
   <div class="max-w-4xl mx-auto">
-    <div class="bg-[#1a1a1a] rounded-3xl p-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
+    <div
+      class="bg-[#1a1a1a] rounded-3xl p-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+    >
       <div class="rounded-2xl overflow-hidden">
-        <img src="/images/dashboard_customer_ipad.png" alt="Solid Plan บน iPad" class="w-full h-auto block" loading="lazy" />
+        <img
+          src="/images/dashboard_customer_ipad.png"
+          alt="Solid Plan บน iPad"
+          class="w-full h-auto block"
+          loading="lazy"
+        />
       </div>
     </div>
   </div>
@@ -245,13 +371,20 @@ const PLANS = [
 
 <!-- ===== CTA BAND ===== -->
 <section id="signup" class="max-w-7xl mx-auto px-6 py-28 scroll-mt-20">
-  <div class="bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden">
-    <h2 class="text-4xl md:text-[56px] font-semibold mb-8 tracking-tight leading-tight">
+  <div
+    class="bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden"
+  >
+    <h2
+      class="text-4xl md:text-[56px] font-semibold mb-8 tracking-tight leading-tight"
+    >
       สร้างระบบความสำเร็จ
-      <br/>
+      <br />
       <em class="not-italic text-brand-pink">ให้ธุรกิจประกันของคุณวันนี้</em>
     </h2>
-    <a href={APP_SIGNUP} class="bg-ink text-white text-lg font-bold px-10 py-5 rounded-2xl inline-block no-underline hover:scale-105 transition active:scale-95">
+    <a
+      href={APP_SIGNUP}
+      class="bg-ink text-white text-lg font-bold px-10 py-5 rounded-2xl inline-block no-underline hover:scale-105 transition active:scale-95"
+    >
       สมัครใช้งาน Solid Plan ฟรี
     </a>
     <p class="mt-6 text-muted italic">"รายได้ที่ดี มาจากระบบ ไม่ใช่ดวง"</p>
@@ -264,44 +397,124 @@ const PLANS = [
     <div class="grid md:grid-cols-4 gap-12 mb-20">
       <div>
         <div class="flex items-center gap-2 mb-6">
-          <img src="/favicon/web-app-manifest-512x512.png" alt="Solid Plan" width="24" height="24" class="rounded-md" />
+          <img
+            src="/favicon/web-app-manifest-512x512.png"
+            alt="Solid Plan"
+            width="24"
+            height="24"
+            class="rounded-md"
+          />
           <span class="text-lg font-bold tracking-tight">Solid Plan</span>
         </div>
         <p class="text-sm text-muted leading-relaxed">
           เครื่องมือจัดการงานขายและทีมงาน
-          <br/>สำหรับตัวแทนประกันยุคใหม่
+          <br />สำหรับตัวแทนประกันยุคใหม่
         </p>
       </div>
       <div>
-        <h5 class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4">สินค้า</h5>
+        <h5
+          class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4"
+        >
+          สินค้า
+        </h5>
         <ul class="space-y-3 text-sm font-medium list-none p-0 m-0">
-          <li><a href="#features" class="text-ink no-underline hover:opacity-70 transition">ฟีเจอร์</a></li>
-          <li><a href="#pricing" class="text-ink no-underline hover:opacity-70 transition">ราคา</a></li>
-          <li><a href="#showcase" class="text-ink no-underline hover:opacity-70 transition">iPad App</a></li>
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">Roadmap</a></li>
+          <li>
+            <a
+              href="#features"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >ฟีเจอร์</a
+            >
+          </li>
+          <li>
+            <a
+              href="#pricing"
+              class="text-ink no-underline hover:opacity-70 transition">ราคา</a
+            >
+          </li>
+          <li>
+            <a
+              href="#showcase"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >iPad App</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >Roadmap</a
+            >
+          </li>
         </ul>
       </div>
       <div>
-        <h5 class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4">บริษัท</h5>
+        <h5
+          class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4"
+        >
+          บริษัท
+        </h5>
         <ul class="space-y-3 text-sm font-medium list-none p-0 m-0">
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">เกี่ยวกับเรา</a></li>
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">ร่วมงานกับเรา</a></li>
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">นโยบายความเป็นส่วนตัว</a></li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >เกี่ยวกับเรา</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >ร่วมงานกับเรา</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >นโยบายความเป็นส่วนตัว</a
+            >
+          </li>
         </ul>
       </div>
       <div>
-        <h5 class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4">ช่วยเหลือ</h5>
+        <h5
+          class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4"
+        >
+          ช่วยเหลือ
+        </h5>
         <ul class="space-y-3 text-sm font-medium list-none p-0 m-0">
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">ศูนย์ช่วยเหลือ</a></li>
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">คู่มือการใช้งาน</a></li>
-          <li><a href="#" class="text-ink no-underline hover:opacity-70 transition">ติดต่อเรา</a></li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >ศูนย์ช่วยเหลือ</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >คู่มือการใช้งาน</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-ink no-underline hover:opacity-70 transition"
+              >ติดต่อเรา</a
+            >
+          </li>
         </ul>
       </div>
     </div>
-    <div class="pt-8 border-t border-black/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-soft font-medium">
+    <div
+      class="pt-8 border-t border-black/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-soft font-medium"
+    >
       <p>&copy; 2024 Solid Plan. รายได้ที่ดี มาจากระบบ.</p>
       <div class="flex gap-6">
-        <a href="#" class="no-underline hover:opacity-70 transition">Facebook</a>
+        <a href="#" class="no-underline hover:opacity-70 transition">Facebook</a
+        >
         <a href="#" class="no-underline hover:opacity-70 transition">Line OA</a>
       </div>
     </div>
@@ -310,18 +523,18 @@ const PLANS = [
 
 <!-- ===== MOBILE MENU SCRIPT ===== -->
 <script>
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('mobileMenu');
+  const toggle = document.getElementById("menuToggle");
+  const menu = document.getElementById("mobileMenu");
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      menu.classList.toggle('flex');
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
     });
-    menu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex');
-      })
+    menu.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+      }),
     );
   }
 </script>
