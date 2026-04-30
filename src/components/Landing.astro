@@ -92,12 +92,14 @@ const PLANS = [
 
 <!-- ===== HERO ===== -->
 <section 
-  class="relative overflow-hidden bg-cover bg-right bg-no-repeat"
+  class="relative overflow-hidden bg-cover bg-position-[10%_center] md:bg-position-[60%_center] lg:bg-right bg-no-repeat"
   style="background-image: url('/images/home_bg.png');"
 >
   <!-- Gradient: left readability + bottom fade to canvas -->
-  <div class="absolute inset-0 bg-linear-to-r from-canvas via-canvas/20 to-transparent"></div>
-  <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-canvas to-transparent"></div>
+  <div class="absolute inset-0 bg-linear-to-r from-canvas via-canvas/85 md:via-canvas/20 to-transparent"></div>
+  <div class="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-canvas to-transparent"></div>
+  <!-- Mobile-only blur to soften background image behind text -->
+  <div class="absolute inset-0 backdrop-blur-[2px] md:backdrop-blur-[0px]"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-28 md:pt-32 md:pb-36">
     <div class="grid md:grid-cols-12 gap-12 items-center">
@@ -109,8 +111,10 @@ const PLANS = [
 
         <h1 class="text-[44px] md:text-[64px] font-bold leading-[1.1] tracking-tight mb-6">
           รายได้ที่ดี
+          <br class="lg:hidden" />
           <span class="text-brand-pink">มาจากระบบ</span>
-          <br/>
+          <br class="lg:hidden" />
+          <br class="hidden lg:block" />
           ไม่ใช่ดวง
         </h1>
 
@@ -119,7 +123,7 @@ const PLANS = [
           เพื่อให้คุณโตอย่างเป็นระบบ ออกแบบมาเพื่อตัวแทนประกันมืออาชีพโดยเฉพาะ
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col lg:flex-row gap-4">
           <a href={APP_SIGNUP} class="bg-ink text-white text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2 no-underline hover:bg-ink/80 transition active:scale-95">
             เริ่มต้นใช้งานฟรี
             <i class="fa-solid fa-chevron-right text-sm"></i>
@@ -241,7 +245,7 @@ const PLANS = [
 
 <!-- ===== CTA BAND ===== -->
 <section id="signup" class="max-w-7xl mx-auto px-6 py-28 scroll-mt-20">
-  <div class="bg-surface-soft rounded-[40px] p-12 md:p-24 text-center relative overflow-hidden">
+  <div class="bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden">
     <h2 class="text-4xl md:text-[56px] font-semibold mb-8 tracking-tight leading-tight">
       สร้างระบบความสำเร็จ
       <br/>
