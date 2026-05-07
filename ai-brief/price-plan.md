@@ -1,0 +1,75 @@
+# Design Brief: Price Plan Feature
+
+## 1. Feature Summary
+
+A pricing section on the landing page that sells three daily-prepaid tiers (Trial, Starter, Pro) to Thai life insurance agents. The core proposition is not the tiers themselves — it's the **mobile-top-up flexibility**: prepaid daily, no contracts, downgrade anytime. The design must make this model feel simple, trustworthy, and modern — not like clunky enterprise SaaS billing.
+
+## 2. Primary User Action
+
+An invited agent should **understand the pricing model in under 5 seconds** and feel confident that the Pro plan (฿20/day) is a low-risk, high-value investment they can adjust anytime.
+
+## 3. Design Direction
+
+- **Color strategy**: **Committed** — the brand pink (`#ff4d8b`) carries the CTA and recommended-plan energy. Cream canvas (`#fffaf0`) keeps the surface warm and approachable. This is a brand moment, not a restrained product surface.
+- **Theme scene sentence**: A Thai insurance agent sitting in a cafe on their iPad, invited by a colleague, casually exploring whether this CRM is worth switching to — they want to feel smart, not sold to, in bright daylight.
+- **Anchor references**:
+  - **Apple's pricing pages** for clarity and calm hierarchy
+  - **Thai mobile carrier top-up apps** (e.g., TrueMoney, MyAIS) for the familiar prepaid mental model
+  - **Notion's pricing** for transparent feature comparison without intimidation
+
+## 4. Scope
+
+- **Fidelity**: Production-ready
+- **Breadth**: One section on `Landing.astro` — pricing cards + explanation + CTA
+- **Interactivity**: Static display with hover states, highlighted recommended tier, smooth scroll-to or modal CTA
+- **Time intent**: Ship-ready
+
+## 5. Layout Strategy
+
+- **Headline first**: Lead with the flexibility story ("Pay daily. Change anytime. No lock-in.") — not the tier names.
+- **Three cards, horizontal on desktop, stacked on iPad/mobile**: Trial (left), Starter (center, highlighted as recommended), Pro (right).
+- **Visual hierarchy**: Price per day is the biggest number. Customer limit is secondary. Feature list is minimal — because there's only one real feature dimension (customer count).
+- **Trust signal**: A small "Like topping up your phone" metaphor + icon to anchor the prepaid concept.
+- **Above 1000 customers**: A "More than 3,000 customers? Contact us" micro-CTA below the cards, not a fourth tier.
+
+## 6. Key States
+
+| State | What the user sees/feels |
+|---|---|
+| **Default** | Three cards, Starter highlighted with brand pink accent. Clear daily price. |
+| **Hover (desktop)** | Card lifts slightly, CTA button darkens. |
+| **Tap (iPad)** | Card presses subtly, CTA clearly tappable. |
+| **Empty/No selection** | N/A — this is display-only, no form state. |
+| **Contact us** | Clear micro-CTA for 3000+ customers, reassuring they won't be forced into Pro. |
+
+## 7. Interaction Model
+
+- Agent scrolls to the pricing section.
+- Reads the headline → grasps the prepaid model instantly.
+- Scans three cards left-to-right. Starter is visually primary.
+- Taps CTA on chosen plan → either scrolls to signup form or opens a simple modal.
+- No checkout flow here — this is landing-page persuasion, not billing.
+
+## 8. Content Requirements
+
+- **Headline**: "Pay daily. Change anytime. No lock-in."
+- **Subheadline**: "Like topping up your mobile — top up, use, adjust. Downgrade tomorrow if today doesn't fit."
+- **Tier cards**:
+  - Trial: "0฿ / day" — "Up to 10 customers" — CTA: "Start Free"
+  - Starter: "10฿ / day" — "Up to 200 customers" — CTA: "Get Started" — Badge: "Most Popular"
+  - Pro: "20฿ / day" — "Up to 1,000 customers" — CTA: "Go Pro"
+- **Trust line**: "฿300/month for Starter. Switch plans any day. No contracts."
+- **Enterprise CTA**: "Managing more than 3,000 customers? Let's talk."
+
+## 9. Recommended References
+
+- spatial-design.md — card rhythm and spacing
+- typography.md — price hierarchy (big number, small /day)
+- interaction-design.md — hover/tap feedback on cards
+- color-and-contrast.md — committed color strategy on cream canvas
+
+## 10. Open Questions
+
+- Should the CTA scroll to an inline signup form, or open a modal with plan pre-selected?
+- Is there a free-trial duration for the Trial tier, or is it free forever at 10 customers?
+- Do you want an annual equivalent shown (e.g., "~฿300/mo") or keep it strictly daily?

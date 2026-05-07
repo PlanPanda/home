@@ -14,45 +14,33 @@ const COMMON_FEATURES = [
 const PLANS = [
   {
     name: "Trial",
-    price: "฿0",
-    period: "/เดือน",
-    description: "เริ่มต้นสร้างระบบ",
+    price: "0",
+    priceMonthly: "0",
+    period: "/วัน",
+    description: "เริ่มต้นใช้งานฟรี",
     customerLimit: "สูงสุด 10 ราย",
-    customerFeature: "จัดการลูกค้า 10 ราย",
-    theme: "bg-surface-card text-ink",
-    checkColor: "text-muted",
-    buttonClass: "bg-ink text-white",
-    limitClass: "font-bold opacity-60 pb-4 mb-4 border-b border-current/20",
-    shadowClass: "",
+    highlighted: false,
     badge: null,
   },
   {
     name: "Starter",
-    price: "฿399",
-    period: "/เดือน",
+    price: "10",
+    priceMonthly: "~300",
+    period: "/วัน",
     description: "สำหรับตัวแทนเริ่มโต",
     customerLimit: "สูงสุด 200 ราย",
-    customerFeature: "จัดการลูกค้า 200 ราย",
-    theme: "bg-brand-pink text-white",
-    checkColor: "opacity-60",
-    buttonClass: "bg-white text-ink",
-    limitClass: "font-bold pb-4 mb-4 border-b border-white/20",
-    shadowClass: "",
-    badge: null,
+    highlighted: true,
+    badge: "แนะนำ",
   },
   {
     name: "Pro",
-    price: "฿599",
-    period: "/เดือน",
+    price: "20",
+    priceMonthly: "~600",
+    period: "/วัน",
     description: "ระบบที่ดีที่สุดเพื่อมืออาชีพ",
     customerLimit: "สูงสุด 1,000 ราย",
-    customerFeature: "จัดการลูกค้า 1,000 ราย",
-    theme: "bg-brand-teal text-white",
-    checkColor: "text-brand-mint",
-    buttonClass: "bg-canvas text-ink",
-    limitClass: "font-bold pb-4 mb-4 border-b border-white/20",
-    shadowClass: "shadow-[0_20px_40px_rgba(26,58,58,0.2)]",
-    badge: "Recommended",
+    highlighted: false,
+    badge: null,
   },
 ];
 ---
@@ -188,7 +176,7 @@ const PLANS = [
         <img
           src="/images/comic_w.png"
           alt="ตัวแทนประกันมืออาชีพกับ Solid Plan"
-          class="w-full h-135 lg:h-140 object-cover object-top drop-shadow-lg lg:drop-shadow"
+          class="w-full h-135 lg:h-140 object-cover object-top drop-shadow-lg lg:drop-shadow-none"
           loading="eager"
         />
       </div>
@@ -284,52 +272,105 @@ const PLANS = [
   id="pricing"
   class="max-w-7xl mx-auto px-6 py-28 border-t border-black/5 scroll-mt-20"
 >
-  <div class="text-center mb-16">
+  <!-- Headline -->
+  <div class="text-center mb-6">
     <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
-      เลือกระบบที่ใช่สำหรับคุณ
+      เริ่มใช้ฟรีก่อน ค่อยเลือกแผนทีหลัง
     </h2>
-    <p class="text-lg text-muted">ลงทุนกับระบบที่ช่วยให้คุณโตอย่างยั่งยืน</p>
+    <p class="text-lg text-muted max-w-2xl mx-auto">
+      สมัครใช้งานฟรีได้ทันที ไม่ต้องจ่ายเงินก่อน เมื่อพร้อมค่อยเลือกแพ็กเกจที่ใช่
+    </p>
   </div>
 
-  <div class="grid md:grid-cols-3 gap-8">
+  <!-- Trust pills -->
+  <div class="flex flex-wrap justify-center gap-3 mb-16">
+    <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
+      <i class="fa-solid fa-rocket text-brand-pink"></i>
+      <span>สมัครฟรี ไม่ต้องใช้บัตรเครดิต</span>
+    </div>
+    <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
+      <i class="fa-solid fa-mobile-screen text-brand-pink"></i>
+      <span>เติมเงินรายวัน เหมือนมือถือ</span>
+    </div>
+    <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
+      <i class="fa-solid fa-arrow-right-arrow-left text-brand-pink"></i>
+      <span>เปลี่ยนแผนได้ทุกวัน</span>
+    </div>
+  </div>
+
+  <!-- Pricing Cards -->
+  <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
     {
       PLANS.map((plan) => (
         <div
-          class={`${plan.theme} p-10 rounded-3xl flex flex-col relative ${plan.shadowClass}`}
+          class={`relative bg-white rounded-3xl p-8 flex flex-col border-2 transition-all duration-300 ${
+            plan.highlighted
+              ? "border-brand-pink shadow-[0_8px_40px_rgba(255,77,139,0.12)] md:-mt-4 md:mb-4"
+              : "border-transparent shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:border-hairline"
+          }`}
         >
           {plan.badge && (
-            <div class="absolute top-10 right-10 bg-brand-ochre text-ink text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-pink text-white text-xs font-bold tracking-wide uppercase px-4 py-1.5 rounded-full">
               {plan.badge}
             </div>
           )}
-          <h3 class="text-2xl font-bold mb-2">{plan.name}</h3>
-          <div class="flex items-baseline gap-1 mb-1">
-            <span class="text-4xl font-bold">{plan.price}</span>
-            <span class="text-sm opacity-70">{plan.period}</span>
+
+          <h3 class="text-xl font-bold text-ink mb-1">{plan.name}</h3>
+          <p class="text-sm text-muted mb-6">{plan.description}</p>
+
+          <!-- Price -->
+          <div class="mb-2">
+            <div class="flex items-baseline gap-1">
+              <span class="text-5xl md:text-6xl font-bold text-ink tracking-tight">฿{plan.price}</span>
+              <span class="text-lg text-muted">{plan.period}</span>
+            </div>
+            <p class="text-sm text-muted-soft mt-1">
+              {plan.priceMonthly !== "0" ? `ประมาณ ฿${plan.priceMonthly}/เดือน` : "ใช้งานฟรีไม่จำกัดเวลา"}
+            </p>
           </div>
-          <p class="text-sm opacity-80 mb-8">{plan.description}</p>
-          <div class={plan.limitClass}>{plan.customerLimit}</div>
-          <ul class="space-y-4 flex-1 mb-10">
-            <li class="flex items-center gap-3 text-sm">
-              <i class={`fa-solid fa-check ${plan.checkColor} shrink-0`} />
-              {plan.customerFeature}
-            </li>
+
+          <!-- Customer limit -->
+          <div class="py-4 mb-6 border-t border-b border-hairline">
+            <div class="flex items-center gap-2 text-body font-medium">
+              <i class="fa-solid fa-users text-brand-pink text-sm"></i>
+              <span>{plan.customerLimit}</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-3 flex-1 mb-8">
             {COMMON_FEATURES.map((feature) => (
-              <li class="flex items-center gap-3 text-sm">
-                <i class={`fa-solid fa-check ${plan.checkColor} shrink-0`} />
-                {feature}
+              <li class="flex items-start gap-3 text-sm text-body">
+                <i class="fa-solid fa-check text-brand-pink text-xs mt-0.5 shrink-0" />
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
+
+          <!-- CTA -->
           <a
             href={APP_SIGNUP}
-            class={`${plan.buttonClass} py-4 rounded-xl font-bold text-center no-underline active:scale-95 transition`}
+            class={`py-3.5 px-6 rounded-xl font-semibold text-center no-underline transition active:scale-95 ${
+              plan.highlighted
+                ? "bg-brand-pink text-white hover:bg-brand-pink/90"
+                : "bg-ink text-white hover:bg-ink/80"
+            }`}
           >
-            เลือกแผนนี้
+            สมัครใช้งานฟรี
           </a>
         </div>
       ))
     }
+  </div>
+
+  <!-- Enterprise CTA -->
+  <div class="text-center mt-12">
+    <p class="text-muted">
+      จัดการลูกค้ามากกว่า 3,000 ราย?{" "}
+      <a href="#" class="text-brand-pink font-semibold no-underline hover:underline">
+        ติดต่อทีมงานของเรา
+      </a>
+    </p>
   </div>
 </section>
 
