@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const APP_SIGNUP = "https://app.solidplan.ai/signup";
+
+const STANDARDS = [
+  {
+    name: "SOC 2 Type II",
+    image: "/images/aicpa.svg",
+    meaning:
+      "ข้อมูลของคุณจัดเก็บบนโครงสร้างพื้นฐานที่ผ่านการตรวจสอบความปลอดภัยจากผู้ประเมินภายนอกอย่างสม่ำเสมอ",
+  },
+  {
+    name: "HIPAA",
+    image: "/images/hippa.svg",
+    meaning:
+      "ระบบจัดเก็บข้อมูลอยู่บน infrastructure ที่ compliant กับแนวทางคุ้มครองข้อมูลอ่อนไหวระดับเดียวกับภาคการแพทย์",
+  },
+  {
+    name: "GDPR",
+    image: "/images/gdpr.svg",
+    meaning:
+      "ออกแบบตามหลักสิทธิความเป็นส่วนตัวของเจ้าของข้อมูลอย่างโปร่งใส และตรวจสอบได้",
+  },
+];
+---
+
+<Layout>
+  <main class="min-h-screen bg-canvas">
+    <section class="max-w-6xl mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-14">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-muted no-underline hover:text-ink transition"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        กลับสู่หน้าแรก
+      </a>
+
+      <div class="mt-8 md:mt-10">
+        <p
+          class="text-xs font-bold tracking-[0.15em] uppercase text-muted-soft mb-4"
+        >
+          Security & Privacy
+        </p>
+        <h1
+          class="text-4xl md:text-6xl font-semibold tracking-tight leading-tight mb-6"
+        >
+          คำมั่นสัญญาในการปกป้อง
+          <br class="hidden md:block" />
+          ความสัมพันธ์ของคุณกับลูกค้า
+        </h1>
+        <p class="text-lg md:text-xl text-body max-w-3xl leading-relaxed">
+          Solid Plan สร้างขึ้นเพื่อช่วยให้คุณดูแลลูกค้าอย่างมั่นใจ
+          ความปลอดภัยของข้อมูลจึงไม่ใช่แค่เรื่องเทคนิค
+          แต่คือความรับผิดชอบต่อความไว้วางใจ ที่ลูกค้ามอบให้คุณในทุกบทสนทนา
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pb-8 md:pb-10">
+      <div class="bg-white rounded-3xl p-8 md:p-10 border border-hairline/60">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+          Who can see my data?
+        </h2>
+        <p class="text-lg text-body leading-relaxed mb-5">
+          ไม่มีใครเห็นข้อมูลลูกค้าของคุณได้ นอกจากคุณและทีมที่คุณอนุญาต
+        </p>
+        <p class="text-muted leading-relaxed">
+          เราจำกัดสิทธิการเข้าถึงข้อมูลตามบทบาทของผู้ใช้งาน
+          และบันทึกการเข้าถึงไว้เพื่อการตรวจสอบ
+          คุณจึงควบคุมได้เสมอว่าใครเข้าถึงข้อมูลอะไรได้บ้าง
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8 md:py-10">
+      <div
+        class="bg-surface-soft rounded-3xl p-8 md:p-10 border border-hairline/60"
+      >
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+          What happens if...?
+        </h2>
+        <p class="text-lg text-body leading-relaxed mb-5">
+          ข้อมูลของคุณถูกสำรองไว้ทุกวันในที่ปลอดภัย หากเกิดเหตุไม่คาดฝัน
+          ข้อมูลของคุณจะไม่สูญหาย
+        </p>
+        <p class="text-muted leading-relaxed">
+          เรามีขั้นตอนกู้คืนข้อมูลและทดสอบความพร้อมอย่างต่อเนื่อง
+          เพื่อให้ธุรกิจของคุณเดินหน้าต่อได้ แม้ในสถานการณ์ที่ไม่คาดคิด
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pt-8 pb-14 md:pt-10 md:pb-20">
+      <div class="rounded-3xl p-8 md:p-10 border border-hairline/60 bg-white">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-3">
+          Compliance
+        </h2>
+        <p class="text-muted mb-8 leading-relaxed">
+          โครงสร้างพื้นฐานที่ปกป้องข้อมูลคุณ ไม่ได้มีไว้เพียงเพื่อแสดง
+          แต่มีไว้เพื่อให้คุณมั่นใจได้ว่าการดูแลข้อมูลลูกค้า
+          เป็นระบบและตรวจสอบได้จริง
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 md:gap-5">
+          {
+            STANDARDS.map((standard) => (
+              <article class="rounded-2xl border border-hairline/60 bg-surface-card p-6">
+                <img
+                  src={standard.image}
+                  alt={`${standard.name} compliance badge`}
+                  class="h-10 mb-4 opacity-70"
+                />
+                <h3 class="text-lg font-bold tracking-tight mb-2 text-ink">
+                  {standard.name}
+                </h3>
+                <p class="text-sm text-body leading-relaxed">
+                  {standard.meaning}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pb-24">
+      <div
+        class="bg-surface-strong rounded-4xl p-8 md:p-10 text-center border border-hairline/60"
+      >
+        <h2
+          class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5"
+        >
+          เราปกป้องความลับของลูกค้าคุณ
+          <br class="hidden md:block" />
+          ด้วยมาตรฐานที่โลกยอมรับ
+        </h2>
+        <p class="text-body text-lg max-w-3xl mx-auto leading-relaxed mb-7">
+          เพื่อให้คุณสร้างความสัมพันธ์ได้อย่างสบายใจในทุกขั้นตอนของการขายและการดูแลลูกค้า
+        </p>
+        <a
+          href={APP_SIGNUP}
+          class="bg-ink text-white text-base font-semibold px-8 py-4 rounded-2xl inline-flex items-center gap-2 no-underline hover:bg-ink/80 transition"
+        >
+          เริ่มต้นใช้งานฟรี
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </a>
+        <p class="mt-4 text-sm text-muted">
+          เรามีนโยบายชัดเจนที่จะไม่ขาย หรือ แบ่งปันข้อมูลลูกค้า เพื่อให้ข้อมูลของคุณ เป็นของคุณเสมอ
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>

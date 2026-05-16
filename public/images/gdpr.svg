@@ -1,0 +1,47 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document -->
+  <path d="M28 18C28 14.6863 30.6863 12 34 12H82L100 30V98C100 101.314 97.3137 104 94 104H34C30.6863 104 28 101.314 28 98V18Z"
+        stroke="black"
+        stroke-width="6"
+        stroke-linejoin="round"/>
+
+  <!-- Fold -->
+  <path d="M82 12V24C82 27.3137 84.6863 30 88 30H100"
+        stroke="black"
+        stroke-width="6"
+        stroke-linejoin="round"/>
+
+  <!-- GDPR Text -->
+  <text x="42" y="52"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="700"
+        fill="black">
+    GDPR
+  </text>
+
+  <!-- Lines -->
+  <path d="M42 66H76"
+        stroke="black"
+        stroke-width="5"
+        stroke-linecap="round"/>
+
+  <path d="M42 78H68"
+        stroke="black"
+        stroke-width="5"
+        stroke-linecap="round"/>
+
+  <!-- Shield -->
+  <path d="M86 70L102 76V88C102 97 95.5 104 86 108C76.5 104 70 97 70 88V76L86 70Z"
+        fill="white"
+        stroke="black"
+        stroke-width="5"
+        stroke-linejoin="round"/>
+
+  <!-- Check -->
+  <path d="M79 88L84 93L94 82"
+        stroke="black"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
