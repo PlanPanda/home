@@ -45,9 +45,104 @@ const PLANS = [
 ];
 ---
 
+<style is:global>
+  /* ===== OVERDRIVE: Animated Hero Gradient Mesh ===== */
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(255, 77, 139, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(255, 140, 105, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(160, 140, 255, 0.05) 0%, transparent 50%);
+    animation: meshShift 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes meshShift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(2%, -1%) scale(1.05); }
+    50% { transform: translate(-1%, 2%) scale(1); }
+    75% { transform: translate(-2%, -1%) scale(1.03); }
+  }
+
+  /* ===== OVERDRIVE: Scroll Reveal ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== OVERDRIVE: Spring Hover ===== */
+  .spring-hover {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .spring-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+
+  /* ===== OVERDRIVE: Breathing Glow ===== */
+  .plan-highlighted {
+    animation: breatheGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes breatheGlow {
+    0%, 100% { box-shadow: 0 8px 40px rgba(255, 77, 139, 0.12); }
+    50% { box-shadow: 0 8px 60px rgba(255, 77, 139, 0.22), 0 0 80px rgba(255, 77, 139, 0.06); }
+  }
+
+  /* ===== OVERDRIVE: iPad Float ===== */
+  .ipad-float {
+    animation: ipadFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes ipadFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* ===== OVERDRIVE: Nav Scroll ===== */
+  .nav-solid {
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ===== OVERDRIVE: Reduced Motion ===== */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-gradient,
+    .plan-highlighted,
+    .ipad-float {
+      animation: none !important;
+    }
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .spring-hover,
+    .feature-card {
+      transition: none !important;
+    }
+    .spring-hover:hover,
+    .feature-card:hover {
+      transform: none !important;
+    }
+  }
+</style>
+
 <!-- ===== NAV ===== -->
 <nav
-  class="sticky top-0 z-50 bg-canvas/85 backdrop-blur-xl border-b border-hairline/50"
+  class="sticky top-0 z-50 bg-canvas/85 backdrop-blur-xl border-b border-hairline/50 transition-shadow duration-300"
+  data-nav
 >
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <a href="/" class="flex items-center gap-2.5 no-underline text-ink">
@@ -125,12 +220,12 @@ const PLANS = [
 
 <!-- ===== HERO ===== -->
 <section class="relative overflow-hidden">
-  <!-- Soft decorative blobs -->
+  <div class="hero-gradient" aria-hidden="true"></div>
   <div
     class="relative z-10 max-w-7xl mx-auto px-6 pt-14 pb-20 md:pt-28 md:pb-32"
   >
     <div class="grid md:grid-cols-12 gap-8 items-center">
-      <div class="md:col-span-7 order-2 md:order-1">
+      <div class="md:col-span-7 order-2 md:order-1" data-parallax-content>
         <div
           class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm font-medium text-body mb-8"
         >
@@ -172,7 +267,7 @@ const PLANS = [
         </div>
       </div>
 
-      <div class="hidden md:block md:col-span-5 order-2">
+      <div class="hidden md:block md:col-span-5 order-2" data-parallax-image>
         <img
           src="/images/comic_w.png"
           alt="ตัวแทนประกันมืออาชีพกับ Solid Plan"
@@ -192,7 +287,8 @@ const PLANS = [
   <div class="grid md:grid-cols-3 gap-6">
     <!-- Customer Management -->
     <div
-      class="bg-brand-pink text-white p-10 rounded-3xl flex flex-col justify-between min-h-105"
+      class="bg-brand-pink text-white p-10 rounded-3xl flex flex-col justify-between min-h-105 reveal spring-hover feature-card"
+      data-reveal-delay="0"
     >
       <div>
         <div
@@ -217,7 +313,8 @@ const PLANS = [
 
     <!-- Smart Planning -->
     <div
-      class="bg-brand-teal text-white p-10 rounded-3xl flex flex-col justify-between min-h-105"
+      class="bg-brand-teal text-white p-10 rounded-3xl flex flex-col justify-between min-h-105 reveal spring-hover feature-card"
+      data-reveal-delay="100"
     >
       <div>
         <div
@@ -242,7 +339,8 @@ const PLANS = [
 
     <!-- Team Management -->
     <div
-      class="bg-brand-lavender text-ink p-10 rounded-3xl flex flex-col justify-between min-h-105"
+      class="bg-brand-lavender text-ink p-10 rounded-3xl flex flex-col justify-between min-h-105 reveal spring-hover feature-card"
+      data-reveal-delay="200"
     >
       <div>
         <div
@@ -273,7 +371,7 @@ const PLANS = [
   class="max-w-7xl mx-auto px-6 py-28 border-t border-black/5 scroll-mt-20"
 >
   <!-- Headline -->
-  <div class="text-center mb-6">
+  <div class="text-center mb-6 reveal">
     <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
       เริ่มใช้ฟรีก่อน ค่อยเลือกแผนทีหลัง
     </h2>
@@ -283,7 +381,7 @@ const PLANS = [
   </div>
 
   <!-- Trust pills -->
-  <div class="flex flex-wrap justify-center gap-3 mb-16">
+  <div class="flex flex-wrap justify-center gap-3 mb-16 reveal" data-reveal-delay="100">
     <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
       <i class="fa-solid fa-rocket text-brand-pink"></i>
       <span>สมัครฟรี ไม่ต้องใช้บัตรเครดิต</span>
@@ -301,13 +399,14 @@ const PLANS = [
   <!-- Pricing Cards -->
   <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
     {
-      PLANS.map((plan) => (
+      PLANS.map((plan, i) => (
         <div
-          class={`relative bg-white rounded-3xl p-8 flex flex-col border-2 transition-all duration-300 ${
+          class={`reveal spring-hover relative bg-white rounded-3xl p-8 flex flex-col border-2 transition-all duration-300 ${
             plan.highlighted
-              ? "border-brand-pink shadow-[0_8px_40px_rgba(255,77,139,0.12)] md:-mt-4 md:mb-4"
+              ? "plan-highlighted border-brand-pink shadow-[0_8px_40px_rgba(255,77,139,0.12)] md:-mt-4 md:mb-4"
               : "border-transparent shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:border-hairline"
           }`}
+          data-reveal-delay={String(i * 100)}
         >
           {plan.badge && (
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-pink text-white text-xs font-bold tracking-wide uppercase px-4 py-1.5 rounded-full">
@@ -364,7 +463,7 @@ const PLANS = [
   </div>
 
   <!-- Enterprise CTA -->
-  <div class="text-center mt-12">
+  <div class="text-center mt-12 reveal">
     <p class="text-muted">
       จัดการลูกค้ามากกว่า 3,000 ราย?{" "}
       <a href="#" class="text-brand-pink font-semibold no-underline hover:underline">
@@ -387,7 +486,7 @@ const PLANS = [
   </div>
   <div class="max-w-4xl mx-auto">
     <div
-      class="bg-[#1a1a1a] rounded-3xl p-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+      class="ipad-float bg-[#1a1a1a] rounded-3xl p-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
     >
       <div class="rounded-2xl overflow-hidden">
         <img
@@ -404,7 +503,7 @@ const PLANS = [
 <!-- ===== CTA BAND ===== -->
 <section id="signup" class="max-w-7xl mx-auto px-6 py-28 scroll-mt-20">
   <div
-    class="bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden"
+    class="reveal bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden"
   >
     <h2
       class="text-4xl md:text-[56px] font-semibold mb-8 tracking-tight leading-tight"
@@ -545,7 +644,7 @@ const PLANS = [
     >
       <p>&copy; 2024 Solid Plan. รายได้ที่ดี มาจากระบบ.</p>
       <div class="flex gap-6">
-        <a href="#" class="no-underline hover:opacity-70 transition">Facebook</a
+        <a href="https://www.facebook.com/solidplanai" target="_blank" rel="noopener noreferrer" class="no-underline hover:opacity-70 transition">Facebook</a
         >
         <a href="#" class="no-underline hover:opacity-70 transition">Line OA</a>
       </div>
@@ -553,8 +652,9 @@ const PLANS = [
   </div>
 </footer>
 
-<!-- ===== MOBILE MENU SCRIPT ===== -->
+<!-- ===== SCRIPTS ===== -->
 <script>
+  // ===== MOBILE MENU =====
   const toggle = document.getElementById("menuToggle");
   const menu = document.getElementById("mobileMenu");
   if (toggle && menu) {
@@ -605,5 +705,88 @@ const PLANS = [
     }
 
     tick();
+  })();
+
+  // ===== OVERDRIVE: Scroll Reveal =====
+  (() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReduced) return;
+
+    const reveals = document.querySelectorAll(".reveal");
+    if (!reveals.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = (entry.target as HTMLElement).dataset.revealDelay || 0;
+            setTimeout(
+              () => entry.target.classList.add("revealed"),
+              Number(delay),
+            );
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+  })();
+
+  // ===== OVERDRIVE: Nav Scroll =====
+  (() => {
+    const nav = document.querySelector("[data-nav]");
+    if (!nav) return;
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          nav.classList.toggle("nav-solid", window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+  })();
+
+  // ===== OVERDRIVE: Hero Parallax =====
+  (() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReduced) return;
+
+    const content = document.querySelector("[data-parallax-content]") as HTMLElement | null;
+    const image = document.querySelector("[data-parallax-image]") as HTMLElement | null;
+    if (!content && !image) return;
+
+    const anchor = content ?? image;
+    if (!anchor) return;
+    const heroSection = anchor.closest("section");
+    if (!heroSection) return;
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const heroHeight = heroSection.offsetHeight;
+          if (scrollY < heroHeight) {
+            if (content)
+              content.style.transform = `translateY(${scrollY * 0.08}px)`;
+            if (image)
+              image.style.transform = `translateY(${scrollY * 0.15}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
   })();
 </script>
