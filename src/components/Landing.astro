@@ -13,35 +13,35 @@ const COMMON_FEATURES = [
 
 const PLANS = [
   {
-    name: "Trial",
-    price: "0",
-    priceMonthly: "0",
-    period: "/วัน",
-    description: "เริ่มต้นใช้งานฟรี",
-    customerLimit: "สูงสุด 10 ราย",
+    name: "Starter",
+    price: "450",
+    priceDaily: "15",
+    period: "/เดือน",
+    description: "สำหรับตัวแทนเริ่มโต",
+    customerLimit: "สูงสุด 200 ราย",
     highlighted: false,
     badge: null,
   },
   {
-    name: "Starter",
-    price: "10",
-    priceMonthly: "~300",
-    period: "/วัน",
-    description: "สำหรับตัวแทนเริ่มโต",
-    customerLimit: "สูงสุด 200 ราย",
+    name: "Growth",
+    price: "900",
+    priceDaily: "30",
+    period: "/เดือน",
+    description: "สำหรับตัวแทนขยายธุรกิจ",
+    customerLimit: "สูงสุด 500 ราย",
     highlighted: true,
     badge: "แนะนำ",
   },
   {
     name: "Pro",
-    price: "20",
-    priceMonthly: "~600",
-    period: "/วัน",
-    description: "ระบบที่ดีที่สุดสำหรับมืออาชีพ",
-    customerLimit: "สูงสุด 1,000 ราย",
+    price: "1800",
+    priceDaily: "60",
+    period: "/เดือน",
+    description: "สำหรับทีมมืออาชีพ",
+    customerLimit: "สูงสุด 2,000 ราย",
     highlighted: false,
     badge: null,
-  },
+  }
 ];
 ---
 
@@ -487,7 +487,7 @@ const PLANS = [
               <span class="text-lg text-muted">{plan.period}</span>
             </div>
             <p class="text-sm text-muted-soft mt-1">
-              {plan.priceMonthly !== "0" ? `ประมาณ ฿${plan.priceMonthly}/เดือน` : "ใช้งานฟรีไม่จำกัดเวลา"}
+              {plan.priceDaily !== "0" ? `หักเงินรายวัน ฿${plan.priceDaily}/วัน` : "ใช้งานฟรีไม่จำกัดเวลา"}
             </p>
           </div>
 

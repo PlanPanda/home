@@ -2,11 +2,11 @@
 
 ## 1. Feature Summary
 
-A pricing section on the landing page that sells three daily-prepaid tiers (Trial, Starter, Pro) to Thai life insurance agents. The core proposition is not the tiers themselves — it's the **mobile-top-up flexibility**: prepaid daily, no contracts, downgrade anytime. The design must make this model feel simple, trustworthy, and modern — not like clunky enterprise SaaS billing.
+A pricing section on the landing page that sells four prepaid tiers (Starter, Growth, Pro, Enterprise) to Thai life insurance agents. The core proposition is not the tiers themselves — it's the **mobile-top-up flexibility**: prepaid daily, no contracts, downgrade anytime. The design must make this model feel simple, trustworthy, and modern — not like clunky enterprise SaaS billing.
 
 ## 2. Primary User Action
 
-An invited agent should **understand the pricing model in under 5 seconds** and feel confident that the Pro plan (฿20/day) is a low-risk, high-value investment they can adjust anytime.
+An invited agent should **understand the pricing model in under 5 seconds** and feel confident that the Growth plan (฿30/day) is a low-risk, high-value investment they can adjust anytime.
 
 ## 3. Design Direction
 
@@ -27,26 +27,26 @@ An invited agent should **understand the pricing model in under 5 seconds** and 
 ## 5. Layout Strategy
 
 - **Headline first**: Lead with the flexibility story ("Pay daily. Change anytime. No lock-in.") — not the tier names.
-- **Three cards, horizontal on desktop, stacked on iPad/mobile**: Trial (left), Starter (center, highlighted as recommended), Pro (right).
-- **Visual hierarchy**: Price per day is the biggest number. Customer limit is secondary. Feature list is minimal — because there's only one real feature dimension (customer count).
+- **Four cards, horizontal on desktop, stacked on iPad/mobile**: Starter (left), Growth (center-left, highlighted as recommended), Pro (center-right), Enterprise (right).
+- **Visual hierarchy**: Price per month is the biggest number. Daily deduction note shows transparency. Customer limit is secondary. Feature list is minimal — because there's only one real feature dimension (customer count).
 - **Trust signal**: A small "Like topping up your phone" metaphor + icon to anchor the prepaid concept.
-- **Above 1000 customers**: A "More than 3,000 customers? Contact us" micro-CTA below the cards, not a fourth tier.
+- **1000+ customers**: The Enterprise tier handles customers over 1,000.
 
 ## 6. Key States
 
-| State | What the user sees/feels |
-|---|---|
-| **Default** | Three cards, Starter highlighted with brand pink accent. Clear daily price. |
-| **Hover (desktop)** | Card lifts slightly, CTA button darkens. |
-| **Tap (iPad)** | Card presses subtly, CTA clearly tappable. |
-| **Empty/No selection** | N/A — this is display-only, no form state. |
-| **Contact us** | Clear micro-CTA for 3000+ customers, reassuring they won't be forced into Pro. |
+| State                  | What the user sees/feels                                                  |
+| ---------------------- | ------------------------------------------------------------------------- |
+| **Default**            | Four cards, Growth highlighted with brand pink accent. Clear daily price. |
+| **Hover (desktop)**    | Card lifts slightly, CTA button darkens.                                  |
+| **Tap (iPad)**         | Card presses subtly, CTA clearly tappable.                                |
+| **Empty/No selection** | N/A — this is display-only, no form state.                                |
+| **Contact us**         | Clear micro-CTA for 1000+ customers, Enterprise option available.         |
 
 ## 7. Interaction Model
 
 - Agent scrolls to the pricing section.
 - Reads the headline → grasps the prepaid model instantly.
-- Scans three cards left-to-right. Starter is visually primary.
+- Scans four cards left-to-right. Growth is visually primary.
 - Taps CTA on chosen plan → either scrolls to signup form or opens a simple modal.
 - No checkout flow here — this is landing-page persuasion, not billing.
 
@@ -55,11 +55,12 @@ An invited agent should **understand the pricing model in under 5 seconds** and 
 - **Headline**: "Pay daily. Change anytime. No lock-in."
 - **Subheadline**: "Like topping up your mobile — top up, use, adjust. Downgrade tomorrow if today doesn't fit."
 - **Tier cards**:
-  - Trial: "0฿ / day" — "Up to 10 customers" — CTA: "Start Free"
-  - Starter: "10฿ / day" — "Up to 200 customers" — CTA: "Get Started" — Badge: "Most Popular"
-  - Pro: "20฿ / day" — "Up to 1,000 customers" — CTA: "Go Pro"
-- **Trust line**: "฿300/month for Starter. Switch plans any day. No contracts."
-- **Enterprise CTA**: "Managing more than 3,000 customers? Let's talk."
+  - Starter: "฿450 / เดือน" — "Up to 200 customers" — CTA: "Get Started" — Note: "หักเงินรายวัน ฿15/วัน"
+  - Growth: "฿900 / เดือน" — "Up to 500 customers" — CTA: "Get Growth" — Badge: "Most Popular" — Note: "หักเงินรายวัน ฿30/วัน"
+  - Pro: "฿1,800 / เดือน" — "Up to 1,000 customers" — CTA: "Go Pro" — Note: "หักเงินรายวัน ฿60/วัน"
+  - Enterprise: "฿5,400 / เดือน" — "More than 1,000 customers" — CTA: "Go Enterprise" — Note: "หักเงินรายวัน ฿180/วัน"
+- **Trust line**: "฿450/month for Starter. Switch plans any day. No contracts."
+- **Enterprise CTA**: "Managing more than 1,000 customers? Let's talk."
 
 ## 9. Recommended References
 
