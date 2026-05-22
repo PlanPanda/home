@@ -2,7 +2,8 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 @theme {
-  --font-sans: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:
+    "Inter", "Sarabun", -apple-system, BlinkMacSystemFont, sans-serif;
 
   --color-canvas: #fffaf0;
   --color-surface-soft: #faf5e8;
@@ -19,4 +20,8 @@
   --color-brand-peach: #ffb084;
   --color-brand-ochre: #e8b94a;
   --color-brand-mint: #a4d4c5;
+}
+
+a[href] {
+  cursor: pointer;
 }
