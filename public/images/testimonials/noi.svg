@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs><linearGradient id="gradNoi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#EF4444"/></linearGradient></defs>
+  <rect width="128" height="128" rx="32" ry="32" fill="url(#gradNoi)" />
+  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Sarabun, sans-serif" font-size="44" fill="#fff">นอ</text>
+</svg>

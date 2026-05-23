@@ -139,108 +139,7 @@ const PLANS = [
   }
 </style>
 
-<!-- ===== NAV ===== -->
-<nav
-  class="sticky top-0 z-50 bg-canvas/85 backdrop-blur-xl border-b border-hairline/50 transition-shadow duration-300"
-  data-nav
->
-  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 no-underline text-ink">
-      <img
-        src="/favicon/web-app-manifest-512x512.png"
-        alt="Solid Plan"
-        width="32"
-        height="32"
-        class="rounded-lg"
-      />
-      <span class="text-lg font-bold tracking-tight">Solid Plan</span>
-    </a>
-
-    <div class="hidden md:flex items-center gap-8">
-      <a
-        href="#features"
-        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
-        >ฟีเจอร์</a
-      >
-      <a
-        href="#trust"
-        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
-        >ความไว้วางใจ</a
-      >
-      <a
-        href="#pricing"
-        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
-        >ราคา</a
-      >
-      <a
-        href="#showcase"
-        class="text-sm font-medium text-muted hover:text-ink transition no-underline"
-        >iPad App</a
-      >
-      <a
-        href="https://docs.solidplan.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm font-medium text-muted hover:text-ink transition no-underline inline-flex items-center gap-1"
-        >คู่มือ <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a
-      >
-    </div>
-
-    <div class="hidden md:flex items-center gap-4">
-      <a href={APP_LOGIN} class="text-sm font-semibold text-ink no-underline"
-        >เข้าสู่ระบบ</a
-      >
-      <a
-        href={APP_SIGNUP}
-        class="bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-xl no-underline hover:bg-ink/80 transition active:scale-95"
-        >ทดลองใช้ฟรี</a
-      >
-    </div>
-
-    <button class="md:hidden p-1" id="menuToggle" aria-label="เปิดเมนู">
-      <i class="fa-solid fa-bars text-lg"></i>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div
-    class="hidden md:hidden flex-col px-6 pb-4 gap-1 border-t border-hairline/50"
-    id="mobileMenu"
-  >
-    <a
-      href="#features"
-      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
-      >ฟีเจอร์</a
-    >
-    <a
-      href="#trust"
-      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
-      >ความไว้วางใจ</a
-    >
-    <a
-      href="#pricing"
-      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
-      >ราคา</a
-    >
-    <a
-      href="#showcase"
-      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30"
-      >iPad App</a
-    >
-    <a
-      href="https://docs.solidplan.ai"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30 inline-flex items-center gap-1"
-      >คู่มือ <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a
-    >
-    <a
-      href={APP_SIGNUP}
-      class="mt-3 bg-ink text-white text-sm font-semibold px-5 py-3 rounded-xl text-center no-underline"
-      >ทดลองใช้ฟรี</a
-    >
-  </div>
-</nav>
+<!-- shared nav moved to Layout.astro -->
 
 <!-- ===== HERO ===== -->
 <section class="relative overflow-hidden">
@@ -582,6 +481,43 @@ const PLANS = [
 </section>
 
 <!-- ===== CTA BAND ===== -->
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials" class="max-w-7xl mx-auto px-6 py-20 scroll-mt-20">
+  <div class="text-center mb-8">
+    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-2">เสียงจากผู้ใช้จริง</h2>
+    <p class="text-lg text-muted max-w-2xl mx-auto">เรื่องราวความสำเร็จจากตัวแทนที่ใช้ Solid Plan</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-3xl p-6 shadow-sm reveal">
+      <img src="/images/testimonials/ice.svg" alt="ไอซ์ ชัญญ์ธนัน ว." class="w-16 h-16 rounded-full mb-4 mx-auto" />
+      <p class="text-body mb-4">“ตั้งแต่ใช้ Solidplan.ai ได้เห็นภาพการทำงานของส่วนตัวและของทีม ยอดขายชัด วางแผนได้ดีขึ้นมาก การติดตามลูกค้าเป็นระบบ ดูมืออาชีพค่ะ”</p>
+      <div class="mt-4 text-center">
+        <div class="font-bold">ไอซ์ ชัญญ์ธนัน ว.</div>
+        <div class="text-xs text-muted">ตัวแทนเอไอเอ</div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 shadow-sm reveal" data-reveal-delay="80">
+      <img src="/images/testimonials/skip.svg" alt="สกิป สุภาวดี ช." class="w-16 h-16 rounded-full mb-4 mx-auto" />
+      <p class="text-body mb-4">“เมื่อก่อนหลุด Follow-up บ่อยมาก แต่พอใช้ Solidplan.ai งานทุกอย่างเป็นระบบขึ้นทันที ทั้งดูทีม ดูยอด และปิดการขายได้ง่ายขึ้นกว่าเดิมมาก”</p>
+      <div class="mt-4 text-center">
+        <div class="font-bold">สกิป สุภาวดี ช.</div>
+        <div class="text-xs text-muted">ตัวแทนเอไอเอ</div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 shadow-sm reveal" data-reveal-delay="160">
+      <img src="/images/testimonials/noi.svg" alt="หน่อย ศศิวิมล ค." class="w-16 h-16 rounded-full mb-4 mx-auto" />
+      <p class="text-body mb-4">“Solidplan.ai ทำให้บริหารตัวเองได้ในที่เดียว พอมีระบบที่ดี ชีวิตทำงานง่ายขึ้น”</p>
+      <div class="mt-4 text-center">
+        <div class="font-bold">หน่อย ศศิวิมล ค.</div>
+        <div class="text-xs text-muted">ตัวแทนเอไอเอ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="signup" class="max-w-7xl mx-auto px-6 py-28 scroll-mt-20">
   <div
     class="reveal bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden"
