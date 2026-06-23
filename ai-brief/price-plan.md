@@ -10,7 +10,7 @@ An invited agent should **understand the pricing model in under 5 seconds** and 
 
 ## 3. Design Direction
 
-- **Color strategy**: **Committed** — the brand pink (`#ff4d8b`) carries the CTA and recommended-plan energy. Cream canvas (`#fffaf0`) keeps the surface warm and approachable. This is a brand moment, not a restrained product surface.
+- **Color strategy**: **Committed** — the voltage orange accent (`#FF4800`) carries the CTA and recommended-plan energy. Paper-warm canvas (`#F9F8F6`) keeps the surface warm and approachable. Pricing tier cards sit on pure white (`#FFFFFF`) to lift off the canvas. This is a brand moment, not a restrained product surface.
 - **Theme scene sentence**: A Thai insurance agent sitting in a cafe on their iPad, invited by a colleague, casually exploring whether this CRM is worth switching to — they want to feel smart, not sold to, in bright daylight.
 - **Anchor references**:
   - **Apple's pricing pages** for clarity and calm hierarchy
@@ -36,7 +36,7 @@ An invited agent should **understand the pricing model in under 5 seconds** and 
 
 | State                  | What the user sees/feels                                                  |
 | ---------------------- | ------------------------------------------------------------------------- |
-| **Default**            | Four cards, Growth highlighted with brand pink accent. Clear daily price. |
+| **Default**            | Four cards on white, Growth highlighted with orange accent. Clear daily price. |
 | **Hover (desktop)**    | Card lifts slightly, CTA button darkens.                                  |
 | **Tap (iPad)**         | Card presses subtly, CTA clearly tappable.                                |
 | **Empty/No selection** | N/A — this is display-only, no form state.                                |
@@ -67,7 +67,7 @@ An invited agent should **understand the pricing model in under 5 seconds** and 
 - spatial-design.md — card rhythm and spacing
 - typography.md — price hierarchy (big number, small /day)
 - interaction-design.md — hover/tap feedback on cards
-- color-and-contrast.md — committed color strategy on cream canvas
+- color-and-contrast.md — committed color strategy on paper-warm canvas
 
 ## 10. Open Questions
 
