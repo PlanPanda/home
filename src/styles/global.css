@@ -25,3 +25,16 @@
 a[href] {
   cursor: pointer;
 }
+
+.legal-content { color: var(--color-body); line-height: 1.8; overflow-wrap: anywhere; }
+.legal-content h1, .legal-content h2 { color: var(--color-ink); font-weight: 700; line-height: 1.25; }
+.legal-content h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; }
+.legal-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; }
+.legal-content p, .legal-content ul, .legal-content ol, .legal-content table { margin: 0 0 1rem; }
+.legal-content ul { list-style: disc; padding-left: 1.5rem; }
+.legal-content ol { list-style: decimal; padding-left: 1.5rem; }
+.legal-content li { margin-bottom: .4rem; }
+.legal-content a { color: var(--color-brand-teal); text-decoration: underline; }
+.legal-content table { display: block; overflow-x: auto; border-collapse: collapse; }
+.legal-content th, .legal-content td { border: 1px solid var(--color-hairline); padding: .75rem; min-width: 10rem; text-align: left; vertical-align: top; }
+.legal-content hr { border: 0; border-top: 1px solid var(--color-hairline); margin: 2rem 0; }
