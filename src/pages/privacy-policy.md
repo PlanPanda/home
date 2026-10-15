@@ -1,103 +1,71 @@
 ---
 layout: ../layouts/LegalLayout.astro
+title: นโยบายความเป็นส่วนตัว — Solid Plan
 ---
 
-# SolidPlan Privacy Policy
+# นโยบายความเป็นส่วนตัว
 
-**Effective date:** [Insert date]
-**Last updated:** [Insert date]
+**สถานะ:** ร่างสำหรับตรวจสอบ
 
-This Privacy Policy explains how [SolidPlan Legal Entity Name] ("**SolidPlan**," "**we**," "**us**") collects, uses, discloses, and protects personal data in connection with solidplan.ai and related apps (the "**Service**"), in accordance with Thailand's Personal Data Protection Act B.E. 2562 (2019) ("**PDPA**").
+**ปรับปรุงร่าง:** 14 ตุลาคม 2569
 
-## 1. Two Kinds of Personal Data We Handle
+**วันที่มีผลใช้บังคับ:** ยังไม่กำหนด
 
-Because SolidPlan is a platform used by insurance agents to manage their own clients, this Policy covers two distinct roles, and it matters which one applies to you:
+Solid Plan ให้บริการโดย **Apirak Panatkool** ติดต่อ [apirak@solidplan.ai](mailto:apirak@solidplan.ai) ร่างนี้อธิบายข้อมูลที่เกี่ยวข้องกับบริการและแนวทางที่เสนอสำหรับการดูแลข้อมูลส่วนบุคคล รายละเอียดที่ระบุว่ารอการยืนยันยังไม่ใช่คำรับรองหรือเงื่อนไขที่ประกาศใช้
 
-| | **Agent / Subscriber Data** | **End Client Data** |
-|---|---|---|
-| Who it's about | You, the licensed agent, and your team members who use SolidPlan | Your prospects and clients — the people whose information you, the Agent, enter into SolidPlan |
-| Who decides why/how it's processed | **SolidPlan** (we are the **Data Controller**) | **You, the Agent** (you are the **Data Controller**; **SolidPlan acts as your Data Processor**) |
-| Governed by | This Policy, in our own right | This Policy, describing how we process it **on your instructions** — your own client-facing privacy notice governs your relationship with your End Clients |
+## 1. ข้อมูลของผู้ใช้และข้อมูลของลูกค้า
 
-If you are an **Agent**: you are responsible for telling your End Clients how their data will be used, and for obtaining any consent the PDPA requires (particularly for Sensitive Data such as health information) before entering their data into SolidPlan. We can help you understand what the platform does with that data, but we cannot obtain that consent for you.
+บริการเกี่ยวข้องกับข้อมูลสองกลุ่ม คือข้อมูลของตัวแทนที่สมัครใช้ Solid Plan และข้อมูลลูกค้าที่ตัวแทนนำเข้าหรือบันทึก เช่น ข้อมูลติดต่อ กรมธรรม์ และประวัติการติดต่อ
 
-If you are an **End Client** of one of our Agent customers and have questions about your data, please contact that Agent or agency directly first; SolidPlan will support them in responding to your request as their processor.
+แนวทางบทบาทที่เสนอคือ ผู้ให้บริการรับผิดชอบข้อมูลบัญชีผู้ใช้สำหรับการให้บริการ ส่วนตัวแทนเป็นผู้กำหนดวัตถุประสงค์การใช้ข้อมูลลูกค้าที่ตนนำเข้า และ Solid Plan ประมวลผลเพื่อให้บริการตามคำสั่งของตัวแทน ต้องตรวจและยืนยันบทบาท ขอบเขตการประมวลผล และข้อตกลงที่เกี่ยวข้องก่อนประกาศใช้
 
-## 2. Personal Data We Collect
+## 2. ประเภทข้อมูลที่เกี่ยวข้อง
 
-**a) About Agents/Subscribers (we are Controller):**
-- Account data: name, email, phone number, password, company/agency name, insurance license number
-- Billing data: billing address, Wallet top-up and transaction history (we do not store full card numbers — these are handled by our payment processor)
-- Usage data: log-ins, device/browser type, IP address, pages and features used, iPad/desktop app diagnostics
-- Communications: support tickets, emails, and messages you send us
+- ข้อมูลบัญชีและการติดต่อกับผู้ให้บริการ เช่น ชื่อ อีเมล และข้อความขอความช่วยเหลือ
+- ข้อมูลลูกค้าที่ผู้ใช้บันทึก เช่น ชื่อ ช่องทางติดต่อ และวันสำคัญ
+- ไฟล์กรมธรรม์และข้อมูลที่อ่านจากไฟล์ เช่น แบบประกัน ความคุ้มครอง เบี้ยประกัน และสัญญาเพิ่มเติม
+- ประวัติการติดต่อ นัดหมาย และคำสั่งที่ผู้ใช้ส่งให้ผู้ช่วย AI
 
-**b) About End Clients, entered by Agents (we are Processor, acting on the Agent's instructions):**
-- Identity and contact data: name, national ID number, date of birth, address, phone, email
-- Financial data: income, expenses, assets, premium and payment schedules used for retirement/financial-gap calculations
-- Policy data: policy numbers, coverage, beneficiaries, underwriting notes
-- **Sensitive Data**: health or medical information relevant to life/health insurance underwriting, and any other special category of data under PDPA Section 26 that an Agent chooses to record. We treat this category with additional safeguards (see Section 6).
+รายการนี้เป็นขอบเขตจากการทำงานของผลิตภัณฑ์ ต้องตรวจเพิ่มว่าระบบเก็บข้อมูลอุปกรณ์ บันทึกการใช้งาน ข้อมูลการชำระเงิน หรือข้อมูลประเภทอื่นจริงหรือไม่ รวมถึงระบุรายการคุกกี้ก่อนประกาศใช้
 
-## 3. How and Why We Use Personal Data
+## 3. วัตถุประสงค์และฐานการประมวลผล
 
-We process Agent/Subscriber data to: provide and maintain your account and the Service; process Wallet top-ups and daily usage deductions; provide customer support; send service, security, and billing notices; improve and secure the Service; and comply with legal obligations (e.g., tax records).
+แนวทางที่เสนอคือใช้ข้อมูลเพื่อจัดการบัญชี แสดงและจัดระเบียบข้อมูลลูกค้า อ่านกรมธรรม์ ค้นหาและสรุปข้อมูล เตรียมการเพิ่ม/แก้ไข/ลบตามคำสั่ง และให้ความช่วยเหลือด้านบริการ
 
-We process End Client data **only as instructed by the Agent who entered it**, to: display and organize it within that Agent's account; run the financial/retirement calculations and policy-tracking features the Agent uses; back up and secure the data; and provide technical support to the Agent. We do not use End Client data for our own marketing, and we do not sell personal data.
+ต้องระบุฐานการประมวลผลที่เหมาะสมสำหรับแต่ละวัตถุประสงค์ รวมถึงการจัดการข้อมูลอ่อนไหว เช่น ข้อมูลสุขภาพ ก่อนประกาศใช้ ผู้ใช้ควรตรวจสิทธิและฐานการใช้ข้อมูลของตนก่อนนำข้อมูลลูกค้าเข้าสู่บริการ
 
-**Legal bases** (PDPA Section 24): performance of our contract with you (Agent account data); our legitimate interests in operating and securing the Service (usage/security data), balanced against your rights; compliance with legal obligations (e.g., accounting records); and, for Sensitive Data, explicit consent — which, per Section 1 above, the Agent is responsible for obtaining from the End Client before entry into the Service.
+## 4. ผู้ช่วย AI และผู้ให้บริการที่เกี่ยวข้อง
 
-## 4. Who We Share Data With
+ข้อมูลที่ยืนยันแล้วคือ Solid Plan ใช้ **Railway** สำหรับโฮสติ้ง และเรียกโมเดลผ่าน **OpenRouter** การอ่านเอกสารและตอบคำถามอาจส่งข้อความหรือเนื้อหาเอกสารที่เกี่ยวข้องไปยังผู้ให้บริการโมเดลที่เลือกใช้
 
-We share personal data only as needed to run the Service:
+การเพิ่ม แก้ไข และลบข้อมูลด้วยผู้ช่วย AI ต้องให้ผู้ใช้ยืนยันก่อนดำเนินการ การยืนยันการเปลี่ยนข้อมูลเป็นคนละเรื่องกับการส่งข้อมูลให้โมเดลประมวลผล
 
-- **Sub-processors / service providers**: cloud hosting and infrastructure providers, payment processors, email/SMS delivery providers, customer-support tools, and analytics providers, each bound by contractual confidentiality and data-protection obligations.
-- **Within your team**: if you invite team members to your account, they can see the data available to their role.
-- **Legal and safety reasons**: to comply with a legal obligation, enforce our Terms, or protect the rights, property, or safety of SolidPlan, our users, or the public.
-- **Business transfers**: if SolidPlan is involved in a merger, acquisition, or asset sale, personal data may be transferred as part of that transaction, subject to this Policy or a policy providing at least equivalent protection.
+ต้องตรวจและระบุรายชื่อโมเดล/ผู้ให้บริการปลายทาง ข้อมูลที่ส่ง การเก็บบันทึก ระยะเก็บข้อมูล และเงื่อนไขการนำข้อมูลไปฝึกโมเดล ขณะนี้ยังไม่ยืนยันว่าไม่มีผู้ให้บริการรายใดเก็บข้อมูลหรือใช้ข้อมูลเพื่อฝึกโมเดล
 
-We do not sell personal data to third parties, and we do not share End Client Sensitive Data for advertising purposes.
+## 5. สถานที่ประมวลผลและการส่งข้อมูลต่างประเทศ
 
-## 5. Cross-Border Data Transfers
+ประเทศและ region ของโฮสติ้ง รวมถึงสถานที่ประมวลผลของผู้ให้บริการ AI ยังรอการยืนยัน ต้องตรวจการตั้งค่าที่ใช้จริงและเงื่อนไขการส่งข้อมูลก่อนประกาศใช้ ชื่อผู้ให้บริการเพียงอย่างเดียวไม่ระบุว่าข้อมูลทั้งหมดอยู่ในประเทศใด
 
-If we or our sub-processors store or process personal data outside Thailand (for example, on cloud infrastructure with servers abroad), we will do so only where the destination country/organization provides adequate data-protection standards, or where we have appropriate safeguards in place (such as standard contractual clauses), consistent with the PDPA's cross-border transfer requirements and the PDPC's subordinate regulations. [List the countries/providers where data is hosted, e.g., "our primary hosting is in [region] via [provider]."]
+## 6. การเข้าถึงและการรักษาความปลอดภัย
 
-## 6. Sensitive Data Safeguards
+ร่างนี้ยังไม่รับรองมาตรการเข้ารหัส ขอบเขตสิทธิของทีม การเข้าถึงโดยเจ้าหน้าที่ บันทึกการเข้าถึง หรือระยะเวลาและวิธีสำรองข้อมูล ต้องตรวจมาตรการที่ใช้จริงและระบุให้ครบก่อนประกาศใช้
 
-Health and other Sensitive Data entered into SolidPlan receive additional protection: access is limited to the Agent/team who entered it and authorized SolidPlan personnel who need it for support or security purposes; it is encrypted in transit and at rest; and we log access to it for audit purposes. Agents are responsible for ensuring they have a valid legal basis — ordinarily explicit consent — before entering Sensitive Data about an End Client.
+หากพบเหตุผิดปกติหรือสงสัยว่ามีการเข้าถึงข้อมูลโดยไม่ได้รับอนุญาต ติดต่อ [apirak@solidplan.ai](mailto:apirak@solidplan.ai)
 
-## 7. Data Retention
+## 7. ระยะเก็บข้อมูล การส่งออก และการลบ
 
-- **Agent/Subscriber data**: retained while your account is active, and for [30/60/90] days after closure to allow data export, unless a longer period is required for legal, tax, or dispute-resolution purposes.
-- **End Client data**: retained for as long as the Agent's account remains active or until the Agent deletes it; after account closure, retained for the same grace period as above, then deleted, unless the Agent requests earlier deletion or law requires longer retention.
-- **Wallet-suspended accounts**: a low or zero Wallet balance alone does not trigger deletion; data is retained under our standard schedule until the account is formally closed.
+ระยะเก็บข้อมูลขณะใช้งานและหลังปิดบัญชี กระบวนการส่งออก การลบจากระบบหลัก สำเนาสำรอง และบันทึกของผู้ให้บริการ AI ยังรอการยืนยัน จึงยังไม่กำหนดจำนวนวันในร่างนี้
 
-## 8. Security
+ผู้ใช้สามารถติดต่อผู้ให้บริการเพื่อสอบถามกระบวนการที่มีอยู่และขอให้พิจารณาคำขอเกี่ยวกับข้อมูล โดยเงื่อนไขและขั้นตอนต้องระบุในฉบับประกาศใช้
 
-We use technical and organizational measures appropriate to the sensitivity of the data, including encryption in transit and at rest, access controls and role-based permissions, staff confidentiality obligations, and monitoring for unauthorized access. No system is completely secure; if we become aware of a data breach likely to result in a risk to individuals, we will notify the PDPC and affected individuals as required under the PDPA's breach-notification rules.
+## 8. สิทธิและช่องทางติดต่อ
 
-## 9. Your Rights
+เจ้าของข้อมูลอาจมีสิทธิขอเข้าถึง สำเนา แก้ไข ลบ โอนย้าย คัดค้าน ระงับการใช้ หรือถอนความยินยอมตามเงื่อนไขที่กฎหมายกำหนด การใช้สิทธิขึ้นอยู่กับประเภทข้อมูล ฐานการประมวลผล และข้อยกเว้นที่เกี่ยวข้อง อ่านภาพรวมได้จาก [ข้อมูลสิทธิของเจ้าของข้อมูลส่วนบุคคลของธนาคารแห่งประเทศไทย](https://www.bot.or.th/th/privacy-policy/data-subject-rights.html)
 
-Subject to PDPA exceptions, individuals whose data we hold have the right to: access and obtain a copy of their data; request correction of inaccurate data; request erasure or anonymization; object to or restrict certain processing; request data portability; and withdraw consent at any time (without affecting processing carried out before withdrawal).
+ติดต่อ **Apirak Panatkool** ที่ [apirak@solidplan.ai](mailto:apirak@solidplan.ai) หากคำขอเกี่ยวข้องกับข้อมูลลูกค้าที่ตัวแทนนำเข้า ควรระบุตัวแทนหรือบัญชีที่เกี่ยวข้อง เพื่อให้ตรวจสอบผู้รับผิดชอบคำขอได้ ต้องยืนยันขั้นตอนตรวจตัวตนและระยะตอบคำขอก่อนประกาศใช้
 
-**Agents/Subscribers** can exercise these rights by contacting us at apirakb@gmail.com, or through in-app account settings where available. We provide at least two channels for requests: [electronic request form / email] and [postal address for registered mail], and will respond within the timeframes set by the PDPA and its subordinate regulations.
+## 9. รายการที่ต้องยืนยันก่อนประกาศใช้
 
-**End Clients**: because SolidPlan acts as a processor for End Client data, please direct requests to the Agent or agency who holds your information. We will assist that Agent in fulfilling a valid request within a reasonable time.
+ที่อยู่ผู้ให้บริการ บทบาทด้านข้อมูล ฐานการประมวลผล รายการข้อมูลและคุกกี้ ผู้ให้บริการโมเดลและประเทศปลายทาง เงื่อนไขฝึกโมเดล/เก็บบันทึก มาตรการความปลอดภัย ระยะเก็บข้อมูล ขั้นตอนส่งออก/ลบ และการจัดการคำขอใช้สิทธิ
 
-You also have the right to lodge a complaint with Thailand's Personal Data Protection Committee (PDPC) if you believe your rights have been violated.
-
-## 10. Cookies and Similar Technologies
-
-We use cookies and similar technologies to keep you signed in, remember preferences, and understand how the Service is used. You can control cookies through your browser settings; disabling some cookies may affect functionality. [Add detail/link to a separate Cookie Policy if you publish one.]
-
-## 11. Children's Data
-
-The Service is intended for use by licensed adult professionals. We do not knowingly collect Agent/Subscriber accounts from minors. End Client records may include minors (e.g., as policy beneficiaries) entered by an Agent; Agents are responsible for ensuring appropriate legal basis, including parental/guardian consent where required, before entering a minor's data.
-
-## 12. Data Protection Officer / Privacy Contact
-
-For any privacy question, request, or complaint:
-Apirak Panatkool  
-Email: [apirakb@gmail.com](mailto:apirakb@gmail.com)
-
-## 13. Changes to This Policy
-
-We may update this Policy from time to time. We will post the updated version here with a new "Last updated" date and, for material changes, notify you by email or in-app notice.
+การประกาศฉบับสมบูรณ์ต้องระบุวันที่มีผลและวิธีแจ้งการเปลี่ยนแปลงนโยบาย
