@@ -1,194 +1,45 @@
 ---
-import '../styles/global.css';
-const APP_LOGIN = "https://app.solidplan.ai/login";
-const APP_SIGNUP = "https://app.solidplan.ai/signup";
+import '../styles/site.css';
+import ExternalLink from '../components/icons/ExternalLink.astro';
+import Line from '../components/icons/Line.astro';
+const { title = "Solid Plan — ผู้ช่วย AI สำหรับตัวแทนประกัน", description = "รวมข้อมูลลูกค้าและกรมธรรม์ไว้ในที่เดียว ให้ AI ช่วยอ่าน ค้นหา และเตรียมข้อมูล โดยคุณยืนยันก่อนบันทึก", draft = false } = Astro.props;
+const links = [{href:"/features",label:"ฟีเจอร์"},{href:"/pricing",label:"ราคา"},{href:"/security-privacy",label:"การดูแลข้อมูล"},{href:"https://docs.solidplan.ai/",label:"คู่มือการใช้งาน",external:true}];
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
-
 <!doctype html>
 <html lang="th">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Solid Plan — ระบบจัดการสำหรับตัวแทนประกันภัยมืออาชีพ จัดการลูกค้า วางแผนงาน และติดตามผลงาน" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
-		<title>Solid Plan — ระบบจัดการสำหรับตัวแทนประกันภัย</title>
-	</head>
-	<body class="min-h-screen bg-canvas font-sans text-ink antialiased">
-		<nav
-			class="sticky top-0 z-50 bg-canvas/85 backdrop-blur-xl border-b border-hairline/50 transition-shadow duration-300"
-			data-nav
-		>
-			<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-				<a href="/" class="flex items-center gap-2.5 no-underline text-ink">
-					<img
-						src="/favicon/web-app-manifest-512x512.png"
-						alt="Solid Plan"
-						width="32"
-						height="32"
-						class="rounded-lg"
-					/>
-					<span class="text-lg font-bold tracking-tight">Solid Plan</span>
-				</a>
-
-				<div class="hidden md:flex items-center gap-8">
-					<a href="/#features" class="text-sm font-medium text-muted hover:text-ink transition no-underline">ฟีเจอร์</a>
-					<a href="/#trust" class="text-sm font-medium text-muted hover:text-ink transition no-underline">ความไว้วางใจ</a>
-					<a href="/#pricing" class="text-sm font-medium text-muted hover:text-ink transition no-underline">ราคา</a>
-					<a href="/#showcase" class="text-sm font-medium text-muted hover:text-ink transition no-underline">iPad App</a>
-					<a href="/contact" class="text-sm font-medium text-muted hover:text-ink transition no-underline">ติดต่อเรา</a>
-					<a href="https://docs.solidplan.ai" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-muted hover:text-ink transition no-underline inline-flex items-center gap-1">คู่มือ <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-				</div>
-
-				<div class="hidden md:flex items-center gap-4">
-					<a href={APP_LOGIN} class="text-sm font-semibold text-ink no-underline">เข้าสู่ระบบ</a>
-					<a href={APP_SIGNUP} class="bg-ink text-white text-sm font-semibold px-5 py-2.5 rounded-xl no-underline hover:bg-ink/80 transition active:scale-95">ทดลองใช้ฟรี</a>
-				</div>
-
-				<button class="md:hidden p-1" id="menuToggle" aria-label="เปิดเมนู">
-					<i class="fa-solid fa-bars text-lg"></i>
-				</button>
-			</div>
-
-			<div class="hidden md:hidden flex-col px-6 pb-4 gap-1 border-t border-hairline/50" id="mobileMenu">
-				<a href="/#features" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">ฟีเจอร์</a>
-				<a href="/#trust" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">ความไว้วางใจ</a>
-				<a href="/#pricing" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">ราคา</a>
-				<a href="/#showcase" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">iPad App</a>
-				<a href="/contact" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30">ติดต่อเรา</a>
-				<a href="https://docs.solidplan.ai" target="_blank" rel="noopener noreferrer" class="py-3 text-sm font-medium text-ink no-underline border-b border-hairline/30 inline-flex items-center gap-1">คู่มือ <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-				<a href={APP_SIGNUP} class="mt-3 bg-ink text-white text-sm font-semibold px-5 py-3 rounded-xl text-center no-underline">ทดลองใช้ฟรี</a>
-			</div>
-		</nav>
-
-		<slot />
-
-		<script>
-			const toggle = document.getElementById("menuToggle");
-			const menu = document.getElementById("mobileMenu");
-			if (toggle && menu) {
-				toggle.addEventListener("click", () => {
-					menu.classList.toggle("hidden");
-					menu.classList.toggle("flex");
-				});
-				menu.querySelectorAll("a").forEach((a) =>
-					a.addEventListener("click", () => {
-						menu.classList.add("hidden");
-						menu.classList.remove("flex");
-					}),
-				);
-			}
-        
-			(() => {
-				const words = ["โชคช่วย", "มีวินัย", "คบเพื่อนดีๆ", "นอนหลับ", "ออกกำลัง"];
-				const el = document.getElementById("typingTarget");
-				if (!el) return;
-				const t = el;
-				let wordIdx = 0;
-				let charIdx = 0;
-				let deleting = false;
-
-				function tick() {
-					const word = words[wordIdx];
-					if (!deleting) {
-						charIdx++;
-						t.textContent = word.slice(0, charIdx);
-						if (charIdx === word.length) {
-							deleting = true;
-							setTimeout(tick, 2000);
-							return;
-						}
-						setTimeout(tick, 70);
-					} else {
-						charIdx--;
-						t.textContent = word.slice(0, charIdx);
-						if (charIdx === 0) {
-							deleting = false;
-							wordIdx = (wordIdx + 1) % words.length;
-							setTimeout(tick, 400);
-							return;
-						}
-						setTimeout(tick, 40);
-					}
-				}
-
-				tick();
-			})();
-
-			(() => {
-				const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-				if (prefersReduced) return;
-
-				const reveals = document.querySelectorAll(".reveal");
-				if (!reveals.length) return;
-
-				const observer = new IntersectionObserver(
-					(entries) => {
-						entries.forEach((entry) => {
-							if (entry.isIntersecting) {
-								const delay = (entry.target as HTMLElement).dataset.revealDelay || 0;
-								setTimeout(() => entry.target.classList.add("revealed"), Number(delay));
-								observer.unobserve(entry.target);
-							}
-						});
-					},
-					{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
-				);
-
-				reveals.forEach((el) => observer.observe(el));
-			})();
-
-			(() => {
-				const nav = document.querySelector("[data-nav]");
-				if (!nav) return;
-
-				let ticking = false;
-				const onScroll = () => {
-					if (!ticking) {
-						requestAnimationFrame(() => {
-							nav.classList.toggle("nav-solid", window.scrollY > 50);
-							ticking = false;
-						});
-						ticking = true;
-					}
-				};
-				window.addEventListener("scroll", onScroll, { passive: true });
-			})();
-        
-			(() => {
-				const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-				if (prefersReduced) return;
-
-				const content = document.querySelector("[data-parallax-content]") as HTMLElement | null;
-				const image = document.querySelector("[data-parallax-image]") as HTMLElement | null;
-				if (!content && !image) return;
-
-				const anchor = content ?? image;
-				if (!anchor) return;
-				const heroSection = anchor.closest("section");
-				if (!heroSection) return;
-
-				let ticking = false;
-				const onScroll = () => {
-					if (!ticking) {
-						requestAnimationFrame(() => {
-							const scrollY = window.scrollY;
-							const heroHeight = heroSection.offsetHeight;
-							if (scrollY < heroHeight) {
-								if (content) content.style.transform = `translateY(${scrollY * 0.08}px)`;
-								if (image) image.style.transform = `translateY(${scrollY * 0.15}px)`;
-							}
-							ticking = false;
-						});
-						ticking = true;
-					}
-				};
-				window.addEventListener("scroll", onScroll, { passive: true });
-			})();
-		</script>
-	</body>
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  {draft && <meta name="robots" content="noindex,nofollow" />}
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <meta name="theme-color" content="#eef1f6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>{title}</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปเนื้อหา</a>
+  <header class="site-header">
+    <nav class="shell nav-inner" aria-label="เมนูหลัก">
+      <a class="brand" href="/"><img src="/brand/logo-192.png" alt="" width="32" height="32" /><strong>Solid Plan</strong></a>
+      <div class="nav-links">{links.map(link => <a href={link.href} aria-current={path===link.href ? "page" : undefined} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined}>{link.label}{link.external && <span class="ext"><ExternalLink size={13} /></span>}</a>)}</div>
+      <div class="nav-auth"><a class="login" href="https://app.solidplan.ai/login">เข้าสู่ระบบ</a><a class="nav-signup" href="https://app.solidplan.ai/signup">สมัครสมาชิก</a></div>
+    </nav>
+  </header>
+  <main id="main" class="variant-c"><slot /></main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand" href="/"><img src="/brand/logo-192.png" alt="" width="32" height="32" /><strong>Solid Plan</strong></a><p>ผู้ช่วย AI สำหรับตัวแทนประกัน<br />ให้เวลากับการดูแลลูกค้ามากขึ้น</p></div>
+      <div><h2>Solid Plan</h2><a href="/features">ฟีเจอร์</a><a href="/pricing">ราคา</a><a href="https://app.solidplan.ai/signup">สมัครสมาชิก</a></div>
+      <div><h2>ข้อมูลและเงื่อนไข</h2><a href="/security-privacy">การดูแลข้อมูล</a><a href="/privacy-policy">นโยบายความเป็นส่วนตัว</a><a href="/terms-of-service">ข้อกำหนดการใช้งาน</a></div>
+      <div><h2>ติดต่อ</h2><a href="https://line.me/R/ti/p/@675lurmh" class="line-link"><Line size={15} /> เพิ่มเพื่อนใน LINE</a><a href="mailto:apirak@solidplan.ai">apirak@solidplan.ai</a><a href="https://docs.solidplan.ai" target="_blank" rel="noopener noreferrer">คู่มือการใช้งาน</a></div>
+    </div>
+    <div class="shell footer-bottom"><span>© {new Date().getFullYear()} Solid Plan</span><span>ให้บริการโดย ทีมงาน SolidPlan</span></div>
+  </footer>
+</body>
 </html>

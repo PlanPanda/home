@@ -1,248 +1,108 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-const APP_SIGNUP = "https://app.solidplan.ai/signup";
-
-const STANDARDS = [
-  {
-    name: "SOC 2 Type II",
-    image: "/images/aicpa.svg",
-    meaning:
-      "ข้อมูลของคุณจัดเก็บบนโครงสร้างพื้นฐานที่ผ่านการตรวจสอบความปลอดภัยจากผู้ประเมินภายนอกอย่างสม่ำเสมอ",
-  },
-  {
-    name: "HIPAA",
-    image: "/images/hippa.svg",
-    meaning:
-      "ระบบจัดเก็บข้อมูลอยู่บนโครงสร้างพื้นฐานที่สอดคล้องกับแนวทางคุ้มครองข้อมูลอ่อนไหวระดับเดียวกับภาคการแพทย์",
-  },
-  {
-    name: "GDPR",
-    image: "/images/gdpr.svg",
-    meaning:
-      "ออกแบบตามหลักสิทธิความเป็นส่วนตัวของเจ้าของข้อมูลอย่างโปร่งใส และตรวจสอบได้",
-  },
+import Layout from '../layouts/Layout.astro';
+import Line from '../components/icons/Line.astro';
+import ExternalLink from '../components/icons/ExternalLink.astro';
+const principles = [
+  { icon: "export", title: "ข้อมูลลูกค้าเป็นของคุณ", text: "ส่งออกลูกค้า กิจกรรม และยอดขายเป็นไฟล์ JSON หรือ CSV ได้ตลอดเวลา ข้อมูลของคุณไม่ถูกผูกไว้กับ Solid Plan" },
+  { icon: "check", title: "ทุกการบันทึกผ่านการยืนยัน", text: "ผู้ช่วย AI จะขออนุมัติก่อนเพิ่ม แก้ไข หรือลบข้อมูลทุกครั้ง คุณเห็นรายการที่จะบันทึกเต็ม ๆ ก่อนกดยืนยันเสมอ" },
+  { icon: "eye", title: "คุณกำหนดว่าใครเข้าถึงได้", text: "เพื่อนในทีมเห็นเพียงสถิติกิจกรรมรวม ไม่เห็นข้อมูลลูกค้าของกันและกัน และคุณเปิดโหมดผู้มองว่างเมื่อต้องให้คนอื่นดูหน้าจอ" },
+  { icon: "sparkles", title: "ส่งให้ AI เฉพาะที่จำเป็น", text: "เมื่อคุณสั่งงาน ระบบเลือกเฉพาะข้อมูลที่เกี่ยวข้องกับคำถามเพื่อส่งประมวลผล ไม่ส่งฐานข้อมูลลูกค้าทั้งหมดไปพร้อมกัน" },
 ];
+const ICONS: Record<string,string> = {
+  "export": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M12 12v6"></path><path d="m15 15-3-3-3 3"></path></svg>',
+  check: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>',
+  eye: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+  sparkles: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>',
+};
 ---
+<Layout title="การดูแลข้อมูล — Solid Plan" description="เราดูแลข้อมูลให้คุณดูแลลูกค้า ทุกการบันทึกด้วย AI ต้องผ่านการยืนยันของคุณ นำเข้า–ส่งออกข้อมูลได้ตลอด และโปร่งใสเรื่องผู้ให้บริการที่เกี่ยวข้อง">
+<section class="shell page-head"><h1>เราดูแลข้อมูล<br />ให้คุณดูแลลูกค้า</h1><p>ผู้ช่วย AI เตรียมข้อมูลให้คุณตรวจ ก่อนการเพิ่ม แก้ไข หรือลบข้อมูลทุกครั้ง และคุณนำข้อมูลออกไปใช้ต่อได้ตลอดเวลา</p></section>
 
-<Layout>
-  <main class="min-h-screen bg-canvas">
-    <section class="max-w-6xl mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-14">
-      <a
-        href="/"
-        class="inline-flex items-center gap-2 text-sm font-semibold text-muted no-underline hover:text-ink transition"
-      >
-        <i class="fa-solid fa-arrow-left"></i>
-        กลับสู่หน้าแรก
-      </a>
+<section class="band dark-principles"><div class="shell">
+  <h2>หลักการที่ออกแบบไว้ในระบบ</h2>
+  <div class="principle-grid">{principles.map(p => <article><span class="p-icon" aria-hidden="true" set:html={ICONS[p.icon]} /><h3>{p.title}</h3><p>{p.text}</p></article>)}</div>
+</div></section>
 
-      <div class="mt-8 md:mt-10">
-        <p
-          class="text-xs font-bold tracking-[0.15em] uppercase text-muted-soft mb-4"
-        >
-          TRUST CENTER
-        </p>
-        <h1
-          class="text-4xl md:text-6xl font-semibold tracking-tight leading-tight mb-6"
-        >
-          ลูกค้าของคุณ คือทรัพย์สินของคุณ
-        </h1>
-        <p class="text-lg md:text-xl text-body max-w-3xl leading-relaxed mb-6">
-          Solid Plan ถูกสร้างขึ้นบนแนวคิดที่ว่า "ความสัมพันธ์ระหว่างคุณกับลูกค้า คือสิ่งสำคัญที่สุด"
-        </p>
-        <p class="text-lg text-body max-w-3xl leading-relaxed mb-6">
-          เราจึงให้ความสำคัญกับความปลอดภัยของข้อมูลในระดับเดียวกับสถาบันการเงินและองค์กรระดับโลก เพื่อให้คุณสามารถดูแลลูกค้าได้อย่างมั่นใจในทุกขั้นตอน
-        </p>
-      </div>
-    </section>
+<section class="content-band"><div class="shell split"><div><h2>AI ขออนุมัติก่อนบันทึกเสมอ</h2><p>ไม่ว่าจะเป็นการสร้างกรมธรรม์จากไฟล์ เพิ่มลูกค้าใหม่ แก้ไขข้อมูล หรือลบรายการ ผู้ช่วย AI จะแสดงสิ่งที่กำลังจะบันทึกให้คุณตรวจก่อน รวมถึงระบุช่องที่ไม่พบในเอกสารและค่าเริ่มต้นของระบบอย่างชัดเจน</p><p>โดยเฉพาะข้อมูลการเงินอย่างกรมธรรม์ ระบบจะขออนุมัติก่อนสร้างทุกครั้ง</p></div><div class="product-example"><div class="example-header"><b>ยืนยันการสร้างกรมธรรม์</b></div><div class="example-body"><p class="example-question">เพิ่มกรมธรรม์ให้คุณกานต์ พูนสุข จากไฟล์แนบ</p><dl><div><dt>ลูกค้า</dt><dd>คุณกานต์ พูนสุข</dd></div><div><dt>แบบประกัน</dt><dd>ตลอดชีพ ชำระเบี้ย 20 ปี</dd></div><div><dt>เบี้ยประกัน</dt><dd>24,000 บาท / ปี</dd></div><div><dt>ข้อมูลบางช่อง</dt><dd>ไม่พบในเอกสาร</dd></div></dl><div class="example-status">รอผู้ใช้ตรวจและยืนยัน · ยังไม่ได้บันทึก</div></div></div></div></section>
 
-    <section class="max-w-6xl mx-auto px-6 pb-8 md:pb-10">
-      <div class="bg-white rounded-3xl p-8 md:p-10 border border-hairline/60">
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-          ความปลอดภัยที่ออกแบบมาเพื่ออาชีพตัวแทน
-        </h2>
-        <p class="text-lg text-body leading-relaxed mb-5">
-          เราเข้าใจว่าตัวแทนหลายคนกังวลว่า "ถ้านำข้อมูลลูกค้ามาเก็บไว้ในระบบ จะปลอดภัยหรือไม่"
-        </p>
-        <p class="text-muted leading-relaxed mb-6">
-          Solid Plan จึงถูกออกแบบให้คุณ:
-        </p>
-        <ul class="space-y-3 text-body">
-          <li class="flex gap-3">
-            <span class="text-ink font-semibold flex-shrink-0">•</span>
-            <span>เป็นเจ้าของข้อมูลลูกค้าของคุณเอง</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-ink font-semibold flex-shrink-0">•</span>
-            <span>ควบคุมได้ว่าใครเข้าถึงข้อมูลอะไรได้บ้าง</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-ink font-semibold flex-shrink-0">•</span>
-            <span>มั่นใจได้ว่าข้อมูลจะไม่สูญหาย</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-ink font-semibold flex-shrink-0">•</span>
-            <span>และไม่มีการนำข้อมูลลูกค้าไปใช้โดยไม่ได้รับอนุญาต</span>
-          </li>
-        </ul>
-      </div>
-    </section>
+<section class="content-band soft"><div class="shell split rev"><div><h2>ตั้งค่าความเป็นส่วนตัวได้เองในแอป</h2><p>เรื่องความเป็นส่วนตัวไม่ได้ซ่อนอยู่ในนโยบาย แต่อยู่ในหน้าจอที่คุณใช้ทุกวัน</p><ul class="feature-list"><li>บันทึกสถานะยินยอม PDPA รายลูกค้า</li><li>เปิดโหมดผู้มองว่างเมื่อต้องให้เพื่อนร่วมงานดูหน้าจอ</li><li>ซ่อนสถิติของคุณจากหน้าทีมงานได้ ตามที่คุณตั้ง</li></ul></div><figure class="shot"><img src="/images/app/customer_more_detail.jpg" alt="หน้าจอข้อมูลลูกค้าในแอป Solid Plan แสดงแท็ก ระดับความสนิท สถานะลูกค้า และตัวเลือกยินยอม PDPA" width="1600" height="1078" loading="lazy" /><figcaption>หน้าข้อมูลลูกค้า: แท็ก ระดับความสนิท สถานะ และการยินยอม PDPA</figcaption></figure></div></section>
 
-    <section class="max-w-6xl mx-auto px-6 pb-8 md:pb-10">
-      <div class="rounded-3xl p-8 md:p-10 border border-hairline/60 bg-white">
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-8">
-          Our Promise
-        </h2>
-        
-        <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-          <div class="pb-6 md:pb-8 md:border-r md:border-hairline/60">
-            <div class="flex items-start gap-3 mb-3">
-              <span class="text-2xl">🔒</span>
-              <h3 class="text-lg font-semibold text-ink">ข้อมูลลูกค้าเป็นของคุณ</h3>
-            </div>
-            <p class="text-body text-sm leading-relaxed">
-              ข้อมูลลูกค้าทั้งหมดเป็นของคุณเสมอ
-              Solid Plan ไม่มีสิทธิ์นำข้อมูลไปขาย ติดต่อ หรือใช้เพื่อวัตถุประสงค์อื่นโดยเด็ดขาด
-            </p>
-          </div>
+<section class="content-band"><div class="shell">
+  <header class="io-head"><h2>นำเข้าได้เร็ว ส่งออกได้ตลอด</h2><p>ข้อมูลของคุณเข้ามาได้โดยไม่ต้องเริ่มจากศูนย์ และออกไปได้เมื่อไรก็ได้ เราไม่ล็อกข้อมูลของคุณไว้ในระบบ</p></header>
+  <div class="io-grid">
+    <div class="io-col">
+      <h3>นำเข้าข้อมูลเดิม</h3>
+      <ul class="io-list">
+        <li>อัปโหลดลูกค้า กิจกรรม และยอดขายจากไฟล์ JSON หรือ CSV — ย้ายฐานลูกค้าเดิมเข้าระบบได้ในไม่กี่คลิก ไม่ต้องพิมพ์ซ้ำ ระบบตรวจไฟล์และแจ้งผลก่อนนำเข้าจริงทุกครั้ง</li>
+        <li>อยากให้ AI ช่วยสร้างไฟล์นำเข้า ก็คัดลอกพรอมต์ที่ระบบเตรียมไว้ไปวางใน AI ที่คุณใช้ พร้อมคำอธิบายว่าข้อมูลแต่ละช่องคืออะไร ค่าไหนจำเป็น ค่าไหนเป็นทางเลือก AI จะแปลงข้อมูลจาก Excel หรือ Google Sheets เป็นไฟล์ที่ระบบรับได้ให้</li>
+      </ul>
+      <p class="io-links"><a href="https://docs.solidplan.ai/import/" target="_blank" rel="noopener noreferrer">วิธีนำเข้าข้อมูล <ExternalLink size={14} /></a><a href="https://docs.solidplan.ai/import-ai/" target="_blank" rel="noopener noreferrer">ใช้ AI ช่วยแปลงไฟล์ <ExternalLink size={14} /></a></p>
+    </div>
+    <div class="io-col">
+      <h3>ส่งออกไปใช้ต่อ</h3>
+      <ul class="io-list">
+        <li>ส่งออกลูกค้า กิจกรรม ยอดขาย หรือทุกอย่างในไฟล์เดียว เป็น JSON หรือ CSV พร้อมดูจำนวนข้อมูลก่อนดาวน์โหลด สำรองข้อมูลได้ตลอดเวลา</li>
+        <li>เมื่อต้องการให้ AI วิเคราะห์ข้อมูล เรามีคำอธิบายของทุก field ในไฟล์ส่งออกให้คัดลอกแนบไปด้วย เช่น ให้ AI หาลูกค้าที่ยังไม่ได้ติดต่อ หรือสรุปแนวโน้มยอดขายรายเดือน</li>
+      </ul>
+      <p class="io-links"><a href="https://docs.solidplan.ai/export/" target="_blank" rel="noopener noreferrer">วิธีส่งออกข้อมูล <ExternalLink size={14} /></a><a href="https://docs.solidplan.ai/export-ai/" target="_blank" rel="noopener noreferrer">ใช้ AI วิเคราะห์ข้อมูลที่ส่งออก <ExternalLink size={14} /></a></p>
+    </div>
+  </div>
+</div></section>
 
-          <div class="pb-6 md:pb-8 md:border-r md:border-hairline/60">
-            <div class="flex items-start gap-3 mb-3">
-              <span class="text-2xl">👁️</span>
-              <h3 class="text-lg font-semibold text-ink">คุณควบคุมการเข้าถึงได้</h3>
-            </div>
-            <p class="text-body text-sm leading-relaxed">
-              เลือกได้ว่าใครในทีมสามารถเห็นข้อมูลอะไรได้บ้าง
-              ทุกการเข้าถึงข้อมูลมีการบันทึกเพื่อตรวจสอบย้อนหลัง
-            </p>
-          </div>
+<section class="content-band"><div class="shell">
+  <header class="infra-head"><h2>โครงสร้างพื้นฐานและผู้ให้บริการที่เกี่ยวข้อง</h2><p>Solid Plan ให้บริการโดย Apirak Panatkool เราโปร่งใสเรื่องบริการของบุคคลที่สามที่ใช้ในการทำงานของระบบ</p></header>
+  <div class="infra-grid">
+    <article class="infra-card"><h3>Railway</h3><p class="infra-role">โฮสติ้งแอปและฐานข้อมูล</p><p>Solid Plan โฮสต์บน Railway ซึ่งได้รับการรับรอง SOC 2 Type II และ SOC 3 โดยการรับรองนี้เป็นของ Railway ในฐานะผู้ให้บริการโครงสร้างพื้นฐาน ไม่ใช่การรับรอง Solid Plan</p><div class="compliance-mark"><img src="/images/aicpa.svg" alt="AICPA" width="40" height="40" /><span><strong>SOC 2 Type II · SOC 3</strong><small>Railway infrastructure</small></span></div></article>
+    <article class="infra-card"><h3>ผู้ให้บริการโมเดล AI</h3><p class="infra-role">ประมวลผลผ่าน OpenRouter</p><p>เมื่อคุณสั่งให้ AI ช่วย ระบบส่งเฉพาะข้อมูลที่เกี่ยวข้องกับคำสั่งนั้นผ่าน OpenRouter ไปยังผู้ให้บริการโมเดลที่เลือกใช้ ข้อมูลส่วนนี้อยู่ภายใต้นโยบายความเป็นส่วนตัวของผู้ให้บริการโมเดลด้วย</p></article>
+  </div>
+</div></section>
 
-          <div class="pb-6 md:pb-8">
-            <div class="flex items-start gap-3 mb-3">
-              <span class="text-2xl">💾</span>
-              <h3 class="text-lg font-semibold text-ink">ข้อมูลไม่สูญหาย</h3>
-            </div>
-            <p class="text-body text-sm leading-relaxed">
-              ข้อมูลถูกสำรองอัตโนมัติทุกวันในสภาพแวดล้อมที่ปลอดภัย
-              พร้อมระบบกู้คืนข้อมูลเมื่อเกิดเหตุไม่คาดคิด
-            </p>
-          </div>
+<section class="content-band soft"><div class="shell"><h2>นโยบายฉบับเต็ม</h2><p>นโยบายฉบับปรับปรุงกำลังอยู่ระหว่างตรวจรายละเอียดเรื่องสถานที่ประมวลผล การใช้ข้อมูลของผู้ให้บริการโมเดล ระยะเก็บข้อมูล และกระบวนการหลังปิดบัญชี ก่อนนำข้อมูลอ่อนไหวเข้าใช้งาน สอบถามรายละเอียดกับเราได้โดยตรง</p><div class="ref-cta-row"><a class="ref-pill ghost" href="/privacy-policy">อ่านร่างนโยบายความเป็นส่วนตัว</a><a class="ref-pill ghost" href="/terms-of-service">อ่านร่างข้อกำหนด</a></div></div></section>
 
-          <div class="pb-6 md:pb-8">
-            <div class="flex items-start gap-3 mb-3">
-              <span class="text-2xl">🏛️</span>
-              <h3 class="text-lg font-semibold text-ink">มาตรฐานระดับสถาบันการเงิน</h3>
-            </div>
-            <p class="text-body text-sm leading-relaxed">
-              Solid Plan ทำงานบนโครงสร้างพื้นฐานจากผู้ให้บริการระดับโลก ที่ผ่านมาตรฐานด้านความปลอดภัย เช่น SOC 2, HIPAA และ GDPR
-              <br /><br />
-              มาตรฐานเดียวกับที่องค์กรด้านการเงินและการแพทย์ชั้นนำระดับโลกเลือกใช้
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 py-8 md:py-10">
-      <div class="rounded-3xl p-8 md:p-10 border border-hairline/60 bg-surface-soft">
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-          Security & Privacy
-        </h2>
-        <p class="text-body leading-relaxed">
-          ความปลอดภัยของข้อมูล<br class="md:hidden" /><span class="hidden md:inline">ไม่ใช่แค่เรื่องของระบบ</span>
-          <br />
-          แต่คือความรับผิดชอบต่อความไว้วางใจ<br class="md:hidden" />
-          <span class="hidden md:inline">ที่ลูกค้าของคุณมอบให้ในทุกบทสนทนา</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 pb-8 md:pb-10">
-      <div class="bg-white rounded-3xl p-8 md:p-10 border border-hairline/60">
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-          Who can see my data?
-        </h2>
-        <p class="text-lg text-body leading-relaxed mb-5">
-          ไม่มีใครสามารถเห็นข้อมูลลูกค้าของคุณได้ นอกจากคุณและทีมที่คุณอนุญาตเท่านั้น
-        </p>
-        <p class="text-muted leading-relaxed">
-          แม้แต่ทีมงานของ Solid Plan ก็ไม่สามารถเข้าถึงข้อมูลของคุณได้โดยไม่ได้รับอนุญาต
-        </p>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 py-8 md:py-10">
-      <div
-        class="bg-surface-soft rounded-3xl p-8 md:p-10 border border-hairline/60"
-      >
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-          What happens if something goes wrong?
-        </h2>
-        <p class="text-lg text-body leading-relaxed mb-5">
-          ข้อมูลของคุณถูกสำรองไว้อย่างต่อเนื่องในระบบที่ปลอดภัย
-        </p>
-        <p class="text-muted leading-relaxed">
-          เพื่อให้คุณมั่นใจได้ว่า แม้เกิดเหตุไม่คาดคิด ธุรกิจและข้อมูลลูกค้าของคุณจะยังคงได้รับการดูแลอย่างต่อเนื่อง
-        </p>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 pt-8 pb-14 md:pt-10 md:pb-20">
-      <div class="rounded-3xl p-8 md:p-10 border border-hairline/60 bg-white">
-        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-3">
-          Compliance
-        </h2>
-        <p class="text-muted mb-8 leading-relaxed">
-          Solid Plan ถูกพัฒนาบนโครงสร้างพื้นฐานที่ผ่านมาตรฐานความปลอดภัยระดับสากล เพื่อให้การจัดเก็บและดูแลข้อมูลลูกค้าเป็นระบบ โปร่งใส และตรวจสอบได้
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-4 md:gap-5">
-          {
-            STANDARDS.map((standard) => (
-              <article class="rounded-2xl border border-hairline/60 bg-surface-card p-6">
-                <img
-                  src={standard.image}
-                  alt={`${standard.name} compliance badge`}
-                  class="h-10 mb-4 opacity-70"
-                />
-                <h3 class="text-lg font-bold tracking-tight mb-2 text-ink">
-                  {standard.name}
-                </h3>
-                <p class="text-sm text-body leading-relaxed">
-                  {standard.meaning}
-                </p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 pb-24">
-      <div
-        class="bg-surface-strong rounded-4xl p-8 md:p-10 text-center border border-hairline/60"
-      >
-        <h2
-          class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5"
-        >
-          ปกป้องความสัมพันธ์
-          <br class="hidden md:block" />
-          ที่คุณสร้างมาอย่างตั้งใจ
-        </h2>
-        <p class="text-body text-lg max-w-3xl mx-auto leading-relaxed mb-7">
-          เพราะเราเชื่อว่า "ความไว้วางใจของลูกค้า" คือสิ่งที่มีค่าที่สุดในอาชีพนี้
-          <br class="hidden md:block" />
-          <br class="hidden md:block" />
-          Solid Plan จึงถูกออกแบบมา เพื่อช่วยให้คุณดูแลลูกค้าได้อย่างมั่นใจและปลอดภัยในทุกวัน
-        </p>
-        <a
-          href={APP_SIGNUP}
-          class="bg-ink text-white text-base font-semibold px-8 py-4 rounded-2xl inline-flex items-center gap-2 no-underline hover:bg-ink/80 transition"
-        >
-          เริ่มต้นใช้งานฟรี
-          <i class="fa-solid fa-chevron-right text-xs"></i>
-        </a>
-      </div>
-    </section>
-  </main>
+<section class="band dark-final"><div class="shell"><h2>สอบถามเรื่องข้อมูลของคุณ</h2><p>สำหรับคำถามเรื่องข้อมูลส่วนบุคคล การเข้าถึง การแก้ไข การส่งออก หรือการลบข้อมูล ติดต่อ Apirak Panatkool ได้โดยตรง</p><div class="ref-cta-row"><a class="ref-pill inverse" href="mailto:apirak@solidplan.ai">apirak@solidplan.ai</a><a class="ref-pill ghost inverse" href="https://line.me/R/ti/p/@675lurmh"><Line size={18} /> เพิ่มเพื่อนใน LINE</a></div></div></section>
 </Layout>
+
+<style>
+  .band { padding-block:72px; }
+  .dark-principles { background:#111; color:#fff; }
+  .dark-principles h2 { margin:0 0 40px; font-size:32px; font-weight:600; }
+  .principle-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-block:1px solid #303033; }
+  .principle-grid article { padding:30px 28px 34px; }
+  .principle-grid article + article { border-left:1px solid #303033; }
+  .p-icon { display:grid; place-items:center; width:42px; height:42px; border:1px solid #3a3a3c; border-radius:10px; color:#fff; }
+  .p-icon :global(svg) { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .principle-grid h3 { margin:22px 0 10px; font-size:19px; line-height:1.45; }
+  .principle-grid p { margin:0; color:#b9b9bf; font-size:14.5px; line-height:1.75; max-width:none; }
+  .split.rev > :global(:first-child) { order:2; }
+  .shot { margin:0; }
+  .shot img { display:block; width:100%; height:auto; border:1px solid var(--ref-hair); border-radius:12px; box-shadow:0 24px 60px -42px rgba(0,0,0,.4); background:#fff; }
+  .shot figcaption { margin-top:12px; color:var(--muted); font-size:14px; }
+  .io-head { max-width:720px; }
+  .io-head p { margin-top:0; }
+  .io-grid { display:grid; grid-template-columns:1fr 1fr; margin-top:34px; }
+  .io-col { padding:0 48px 0 0; }
+  .io-col + .io-col { border-left:1px solid var(--ref-hair); padding:0 0 0 48px; }
+  .io-col h3 { margin:0; font-size:21px; }
+  .io-list { margin:16px 0 0; padding-left:20px; color:var(--muted); }
+  .io-list li { margin:12px 0; line-height:1.75; }
+  .io-links { display:flex; flex-wrap:wrap; gap:8px 24px; margin:18px 0 0!important; }
+  .io-links a { display:inline-flex; align-items:center; gap:6px; color:#111; font-weight:600; font-size:14.5px; border-bottom:1px solid var(--ref-hair); }
+  .io-links a:hover { border-color:#111; }
+  .infra-head { max-width:760px; }
+  .infra-head p { margin-top:0; }
+  .infra-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:34px; }
+  .infra-card { padding:28px 26px 30px; border:1px solid var(--ref-hair); border-radius:12px; background:var(--ref-soft); }
+  .infra-card h3 { margin:0; font-size:20px; }
+  .infra-role { margin:4px 0 12px!important; color:#111!important; font-weight:600; font-size:13.5px!important; max-width:none; }
+  .infra-card > p:not(.infra-role) { margin:0; color:var(--muted); font-size:14.5px; line-height:1.75; max-width:none; }
+  .compliance-mark { display:flex; align-items:center; gap:10px; margin-top:20px; width:max-content; max-width:100%; padding:8px 12px 8px 9px; border-radius:8px; background:#fff; color:#111; }
+  .compliance-mark img { flex:none; }
+  .compliance-mark strong, .compliance-mark small { display:block; }
+  .compliance-mark strong { font-size:12px; line-height:1.35; }
+  .compliance-mark small { margin-top:2px; color:#525258; font-size:10px; line-height:1.3; }
+  .dark-final { background:#111; color:#fff; }
+  .dark-final h2 { margin:0; font-size:32px; font-weight:600; }
+  .dark-final p { margin:16px 0 0; color:#b9b9c0; }
+  @media (max-width:900px) { .principle-grid { grid-template-columns:1fr 1fr; } .principle-grid article:nth-child(odd) { border-left:0; } .principle-grid article:nth-child(n+3) { border-top:1px solid #303033; } .infra-grid { grid-template-columns:1fr; } .io-grid { grid-template-columns:1fr; } .io-col { padding:0; } .io-col + .io-col { border-left:0; border-top:1px solid var(--ref-hair); margin-top:32px; padding:32px 0 0; } }
+  @media (max-width:640px) { .principle-grid { grid-template-columns:1fr; border:0; } .principle-grid article { padding:26px 0; border-left:0!important; border-top:1px solid #303033; } .principle-grid article:first-child { border-top:0; } .split.rev > :global(:first-child) { order:0; } }
+</style>

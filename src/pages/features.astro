@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExternalLink from '../components/icons/ExternalLink.astro';
+import Line from '../components/icons/Line.astro';
+const lineUrl = "https://line.me/R/ti/p/@675lurmh";
+const signupUrl = "https://app.solidplan.ai/signup";
+const docs = (path: string) => `https://docs.solidplan.ai${path}`;
+
+/* Lucide icon paths (lucide.dev) — same icon set the app uses */
+const ICONS: Record<string,string> = {
+  chat: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>',
+  file: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>',
+  check: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>',
+  search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>',
+  dashboard: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>',
+  trend: '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>',
+  team: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path></svg>',
+  "import": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M12 18v-6"></path><path d="m9 15 3 3 3-3"></path></svg>',
+  "export": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M12 12v6"></path><path d="m15 15-3-3-3 3"></path></svg>',
+  shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>',
+};
+
+const aiPoints = [
+  { icon: "chat", title: "ตอบจากข้อมูลในระบบ", text: "คำตอบมาจากลูกค้า กรมธรรม์ และประวัติการติดต่อของคุณ ไม่ต้องป้อนข้อมูลซ้ำ" },
+  { icon: "file", title: "อ่านไฟล์กรมธรรม์", text: "แนบ PDF แล้วให้ AI จดรายละเอียดลงในระบบให้เอง" },
+  { icon: "check", title: "บันทึกโดยคุณยืนยัน", text: "เพิ่ม แก้ไข หรือลบอะไรก็ตาม AI เตรียมรายการให้ตรวจก่อนทุกครั้ง" },
+  { icon: "search", title: "ค้น นับ และจัดกลุ่ม", text: "ถามว่าใครควรติดตาม ใครเกิดเดือนนี้ ได้รายชื่อจากข้อมูลจริง" },
+];
+const tools = [
+  { icon: "dashboard", title: "Dashboard", text: "เห็นภาพรวมงานทั้งปีในพริบตา ตารางความถี่กิจกรรมแบบ heatmap และกราฟสัดส่วน 5 ขั้นตอนการขาย พร้อมลูกค้าที่เพิ่มล่าสุด", href: docs("/daily/dashboard/") },
+  { icon: "trend", title: "ยอดขาย", text: "บันทึกยอดขายที่ปิดได้ ตั้งเป้าหมายรายปีตามระดับของคุณ แล้วดูเปอร์เซ็นต์ความสำเร็จที่คำนวณให้อัตโนมัติ", href: docs("/sales/sales-records/") },
+  { icon: "team", title: "ทีมงาน", text: "เพิ่มเพื่อนและเห็นสถิติกิจกรรมของกันและกันเพื่อชวนกันทำงาน เพื่อนจะเห็นเฉพาะสถิติรวม ไม่เห็นข้อมูลลูกค้าของคุณ", href: docs("/team/overview/") },
+  { icon: "import", title: "นำเข้าข้อมูล", text: "ย้ายข้อมูลลูกค้า กิจกรรม และยอดขายเดิมจากไฟล์ JSON/CSV พร้อมพรอมต์ที่ระบบเตรียมไว้ให้คัดลอกไปใช้ AI แปลงไฟล์", href: docs("/import/") },
+  { icon: "export", title: "ส่งออกข้อมูล", text: "ส่งออกข้อมูลของคุณเป็น JSON หรือ CSV ได้ตลอดเวลา เพื่อสำรองข้อมูลหรือนำไปวิเคราะห์ต่อในเครื่องมืออื่น", href: docs("/export/") },
+  { icon: "shield", title: "ความเป็นส่วนตัว", text: "บันทึกสถานะยินยอม PDPA รายลูกค้า และเปิดโหมดผู้มองว่างเมื่อต้องให้คนอื่นดูหน้าจอของคุณ", href: docs("/customers/pdpa/") },
+];
+const slides = [
+  { src: "/images/app/ai-home.jpg", alt: "หน้าจอผู้ช่วย AI ในแอป Solid Plan บน iPad พร้อมช่องถาม-ตอบและคำถามแนะนำ", caption: "ผู้ช่วย AI พร้อมคำถามแนะนำ เริ่มถามงานได้ทันที" },
+  { src: "/images/app/ai_customer_this_week.jpg", alt: "หน้าจอผู้ช่วย AI ในแอป Solid Plan ตอบคำถามว่าสัปดาห์นี้มีลูกค้ารายใดที่ควรติดตาม พร้อมรายชื่อและเหตุผล", caption: "ถามว่า “ลูกค้าในสัปดาห์นี้ควรติดตามคนไหน” ได้รายชื่อพร้อมเหตุผลจากข้อมูลในระบบ" },
+  { src: "/images/app/ai_ask_customer_this_month.jpg", alt: "หน้าจอผู้ช่วย AI ในแอป Solid Plan แสดงรายชื่อลูกค้าที่ยังไม่ได้ติดต่อมานานกว่าหนึ่งเดือน เรียงตามวันที่ควรติดตาม", caption: "ขอรายชื่อ “ลูกค้าที่ยังไม่ได้ติดต่อ 1 เดือน” AI ค้นและนับจากฐานลูกค้าทั้งหมดให้" },
+  { src: "/images/app/customer.jpg", alt: "หน้าจอรายการลูกค้าในแอป Solid Plan แสดงรูป ชื่อ โน้ตสั้น แท็ก และระดับความสนิทของลูกค้าแต่ละราย", caption: "ฐานลูกค้าทั้งหมดในที่เดียว พร้อมแท็กและระดับความสนิท" },
+  { src: "/images/app/calendar.jpg", alt: "หน้าจอปฏิทินรายสัปดาห์ในแอป Solid Plan แสดงนัดหมายและกิจกรรมแยกสีตามขั้นตอนการขาย", caption: "นัดหมายและวันสำคัญในปฏิทินเดียว แยกสีตามขั้นตอนการขาย" },
+  { src: "/images/app/customer_target.jpg", alt: "หน้าจอปีเป้าหมายของลูกค้าในแอป Solid Plan แสดงยอดเรียกเก็บ เป้าหมายรายปี และสัดส่วนความคุ้มครองแต่ละแบบประกัน", caption: "ปีเป้าหมายรายลูกค้า เห็นทุนและเบี้ยรวมของทุกกรมธรรม์" },
+];
+---
+<Layout title="ฟีเจอร์ — Solid Plan" description="ผู้ช่วย AI ที่อ่านกรมธรรม์ ตอบจากข้อมูลลูกค้าจริง และบันทึกงานเมื่อคุณยืนยัน พร้อมเครื่องมือจัดการลูกค้า กรมธรรม์ ปฏิทิน ทีมงาน และยอดขายในที่เดียว">
+<section class="shell page-head"><h1>เครื่องมือครบทุกขั้นตอน<br />การดูแลลูกค้า</h1><p>อ่านกรมธรรม์ บันทึกลูกค้า วางแผนนัดหมาย ไปจนถึงติดตามยอดขาย ทำได้ในที่เดียว ใช้งานบน iPad และเว็บเบราว์เซอร์</p><div class="ref-cta-row"><a class="ref-pill" href={signupUrl}>สมัครสมาชิก</a><a class="ref-pill ghost" href={lineUrl}><Line size={18} /> เพิ่มเพื่อนใน LINE</a></div></section>
+
+<section class="content-band soft ai-band"><div class="shell">
+  <header class="band-head"><h2>AI ที่ทำงานบนข้อมูลลูกค้าของคุณ</h2><p>ความต่างจาก AI ทั่วไปคือ คุณไม่ต้องคอยป้อนข้อมูลให้ AI รู้จักลูกค้า ผู้ช่วย AI ของ Solid Plan ใช้ข้อมูลที่อยู่ในระบบของคุณตอบคำถาม และบันทึกงานให้เมื่อแค่คุณสั่ง</p></header>
+  <div class="ai-points">{aiPoints.map(point => <div class="ai-point"><span class="ai-icon" aria-hidden="true" set:html={ICONS[point.icon]} /><b>{point.title}</b><p>{point.text}</p></div>)}</div>
+  <div class="ipad-wrap">
+    <p class="ipad-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2.5" /><path d="M12 17.6h.01" /></svg>หน้าจอการใช้งานจริงบน iPad</p>
+    <div class="ipad-stage" data-slideshow>
+      <figure class="ipad">
+        <span class="ipad-cam" aria-hidden="true"></span>
+        <div class="ipad-screen">
+          {slides.map((slide, i) => <img class:list={["slide", { "is-active": i === 0 }]} src={slide.src} alt={slide.alt} data-caption={slide.caption} width="1600" height="1078" loading={i === 0 ? "eager" : "lazy"} aria-hidden={i === 0 ? "false" : "true"} />)}
+          <span class="slide-glare" aria-hidden="true"></span>
+        </div>
+        <button class="slide-nav prev" type="button" aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+        <button class="slide-nav next" type="button" aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+        <div class="slide-dots" role="group" aria-label="เลือกภาพ">{slides.map((slide, i) => <button class:list={["dot", { "is-active": i === 0 }]} type="button" aria-label={`ดูภาพที่ ${i + 1}`} aria-current={i === 0 ? "true" : "false"}></button>)}</div>
+      </figure>
+    </div>
+    <p class="slide-caption" data-slide-caption>{slides[0].caption}</p>
+  </div>
+</div></section>
+
+<section class="content-band"><div class="shell split"><div><h2>จาก PDF สู่ข้อมูลกรมธรรม์</h2><p>แนบกรมธรรม์ให้ผู้ช่วย AI อ่าน เตรียมข้อมูลให้ตรวจ แล้วคุณจึงกดยืนยันสร้างรายการ</p><ul class="feature-list"><li>ตรวจแบบประกัน ทุนประกัน และเบี้ยประกัน</li><li>ตรวจวันสำคัญและสัญญาเพิ่มเติม</li><li>แยกข้อมูลที่อ่านได้ ช่องที่ไม่พบ และค่าเริ่มต้นของระบบ</li></ul></div><div class="product-example"><div class="example-header"><b>ยืนยันการสร้างกรมธรรม์</b></div><div class="example-body"><p class="example-question">เพิ่มกรมธรรม์ให้คุณกานต์ พูนสุข จากไฟล์แนบ</p><dl><div><dt>ลูกค้า</dt><dd>คุณกานต์ พูนสุข</dd></div><div><dt>แบบประกัน</dt><dd>ตลอดชีพ ชำระเบี้ย 20 ปี</dd></div><div><dt>เบี้ยประกัน</dt><dd>24,000 บาท / ปี</dd></div><div><dt>ทุนประกัน</dt><dd>1,000,000 บาท</dd></div><div><dt>วันเริ่มสัญญา</dt><dd>18 กันยายน 2569</dd></div><div><dt>ข้อมูลบางช่อง</dt><dd>ไม่พบในเอกสาร</dd></div></dl><div class="example-status">รอผู้ใช้ตรวจและยืนยัน · ยังไม่ได้บันทึก</div></div></div></div></section>
+
+<section class="content-band soft"><div class="shell split rev"><div><h2>ถามข้อมูลก่อนเข้าพบลูกค้า</h2><p>ให้ AI ค้นและสรุปข้อมูลลูกค้า กรมธรรม์ และประวัติการติดต่อจากข้อมูลที่คุณมีในระบบ</p><p>ตรวจทานข้อมูลกับรายการลูกค้าก่อนนำไปใช้ โดยเฉพาะความคุ้มครองและตัวเลขทางการเงิน</p></div><div class="product-example"><div class="example-header"><b>ผู้ช่วย AI</b></div><div class="example-body"><p class="example-question">สรุปคุณกานต์ให้หน่อย บ่ายนี้จะเข้าพบ</p><strong>คุณกานต์ พูนสุข · 2 กรมธรรม์</strong><dl><div><dt>ตลอดชีพ</dt><dd>เบี้ย 24,000 บาท / ปี</dd></div><div><dt>สุขภาพ</dt><dd>เบี้ย 18,500 บาท / ปี</dd></div><div><dt>คุยล่าสุด</dt><dd>สนใจเพิ่มความคุ้มครองโรคร้ายแรง</dd></div></dl></div></div></div></section>
+
+<section class="content-band"><div class="shell split"><div><h2>เพิ่ม แก้ไข และลบ<br />โดยคุณเป็นคนยืนยัน</h2><p>สั่งงานด้วยภาษาที่ใช้คุยกัน ผู้ช่วย AI เตรียมการเปลี่ยนแปลงให้ตรวจ ก่อนคุณกดยืนยันทุกครั้ง</p><ul class="feature-list"><li>เพิ่มข้อมูลลูกค้าและกรมธรรม์</li><li>แก้ไขข้อมูลที่ต้องอัปเดต</li><li>ตรวจรายการก่อนยืนยันการลบ</li></ul></div><div class="product-example"><div class="example-header"><b>ตรวจการเปลี่ยนแปลง</b></div><div class="example-body"><p class="example-question">แก้เบอร์โทรของคุณกานต์เป็นเบอร์ใหม่</p><dl><div><dt>รายการ</dt><dd>คุณกานต์ พูนสุข</dd></div><div><dt>ข้อมูลที่เปลี่ยน</dt><dd>เบอร์โทรศัพท์</dd></div><div><dt>ค่าใหม่</dt><dd>เบอร์ที่คุณระบุ</dd></div></dl><div class="example-status">รอผู้ใช้ยืนยันการแก้ไข</div></div></div></div></section>
+
+<section class="content-band soft"><div class="shell split rev feat"><div><h2>ข้อมูลลูกค้าครบ<br />ในหน้าเดียว</h2><p>เก็บทั้งผู้มุ่งหวังและลูกค้าไว้ในที่เดียว เปลี่ยนสถานะได้เมื่อไรก็ได้ ค้นหาและกรองตามแท็ก ระดับความสนิท หรือความคืบหน้าการขาย</p><ul class="feature-list"><li>โน้ตสั้น ๆ เรื่องลูกค้า เช่น งาน ครอบครัว งานอดิเรก</li><li>บันทึกกิจกรรมทุกการติดต่อ พร้อมขั้นตอนการขาย</li><li>แนบไฟล์เอกสารและรูปภาพไว้กับตัวลูกค้า</li><li>บันทึกสถานะยินยอม PDPA รายบุคคล</li></ul><a class="docs-link" href={docs("/customers/overview/")} target="_blank" rel="noopener noreferrer">อ่านวิธีใช้งานลูกค้าในคู่มือ <ExternalLink size={15} /></a></div><figure class="shot"><img src="/images/app/customer_detail.jpg" alt="หน้าจอรายการลูกค้าในแอป Solid Plan ฝั่งซ้ายเป็นรายชื่อพร้อมแท็กและความคืบหน้า ฝั่งขวาเป็นข้อมูลลูกค้า ความสนิท โน้ต และประวัติกิจกรรม" width="1600" height="1078" loading="lazy" /><figcaption>รายการลูกค้าพร้อมแท็กและความคืบหน้า กดดูรายละเอียดได้ทันที</figcaption></figure></div></section>
+
+<section class="content-band"><div class="shell split feat"><div><h2>กรมธรรม์อยู่กับตัวลูกค้า</h2><p>บันทึกรายละเอียดกรมธรรม์ทุกฉบับไว้ในหน้าของลูกค้าแต่ละราย ดูทั้งแบบประกัน ทุน เบี้ย และวันครบชำระ พร้อมไฟล์เอกสารต้นฉบับ</p><ul class="feature-list"><li>สัญญาเพิ่มเติม (Rider) แยกชัดจากกรมธรรม์หลัก</li><li>แนบไฟล์กรมธรรม์และเอกสารเกี่ยวข้องไว้ด้วยกัน</li><li>สรุปทุนประกันรวมทุกกรมธรรม์และความคุ้มครองรายปี</li></ul><a class="docs-link" href={docs("/customers/documents/")} target="_blank" rel="noopener noreferrer">อ่านวิธีจัดการเอกสารในคู่มือ <ExternalLink size={15} /></a></div><figure class="shot"><img src="/images/app/customer_policies.jpg" alt="หน้าจอกรมธรรม์ของลูกค้าในแอป Solid Plan แสดงรายการไฟล์กรมธรรม์ แบบประกัน ทุนประกัน เบี้ยประกัน วันเริ่มสัญญา และสัญญาเพิ่มเติม" width="1600" height="1078" loading="lazy" /><figcaption>ข้อมูลกรมธรรม์ ไฟล์แนบ และสัญญาเพิ่มเติม อยู่ในหน้าเดียวกัน</figcaption></figure></div></section>
+
+<section class="content-band soft"><div class="shell split rev feat"><div><h2>นัดหมายและวันสำคัญ<br />รวมอยู่ในปฏิทิน</h2><p>เห็นทั้งนัดหมาย วันเกิด และวันสำคัญของลูกค้าในปฏิทินเดียว เปลี่ยนมุมมองได้ทั้งสัปดาห์ เดือน และปี กิจกรรมแสดงเป็นสีตาม 5 ขั้นตอนการขาย ติดต่อ สัมพันธ์ บริการ เสนอขาย และปิดการขาย</p><ul class="feature-list"><li>เห็นวันเกิดลูกค้าในปฏิทิน รู้ทันทีว่าวันนี้หรือเดือนนี้มีใครมีวันเกิด</li><li>กดที่กิจกรรมเพื่อดูรายละเอียดและข้อมูลลูกค้า</li><li>เปลี่ยนสถานะกิจกรรม เช่น จากเสนอขายเป็นปิดการขาย</li><li>แก้ไขหรือลบกิจกรรมได้ โดยระบบจะถามยืนยันก่อนลบ</li></ul><p class="note">ปฏิทินแสดงบนเว็บ ยังไม่มีการส่งแจ้งเตือน</p><a class="docs-link" href={docs("/daily/calendar/")} target="_blank" rel="noopener noreferrer">อ่านวิธีใช้ปฏิทินในคู่มือ <ExternalLink size={15} /></a></div><figure class="shot"><img src="/images/app/calendar_detail.jpg" alt="หน้าจอปฏิทินรายสัปดาห์ในแอป Solid Plan แสดงกิจกรรมแยกสีตามขั้นตอนการขาย และแผงด้านข้างแสดงรายละเอียดกิจกรรมของวันที่เลือก" width="1600" height="1078" loading="lazy" /><figcaption>มุมมองรายสัปดาห์ กดดูรายละเอียดกิจกรรมได้จากแผงด้านข้าง</figcaption></figure></div></section>
+
+<section class="content-band"><div class="shell">
+  <header class="band-head"><h2>และเครื่องมือที่ทำให้ดูแลลูกค้าได้ครบทุกวัน</h2><p>ทุกฟีเจอร์อยู่ในทุกแพ็กเกจ ใช้งานได้ทั้งบน iPad และเว็บเบราว์เซอร์</p></header>
+  <div class="tool-grid">{tools.map(tool => <article class="tool-card"><h3><span class="tool-icon" aria-hidden="true" set:html={ICONS[tool.icon]} />{tool.title}</h3><p>{tool.text}</p><a href={tool.href} target="_blank" rel="noopener noreferrer">อ่านในคู่มือ <ExternalLink size={14} /></a></article>)}</div>
+</div></section>
+
+<section class="content-band dark"><div class="shell"><h2>เริ่มจากงานที่คุณทำทุกวัน</h2><p>สมัครใช้งานได้ทันที หรือคุยกับเราก่อนเพื่อดูการทำงานจริงและเลือกแพ็กเกจที่เหมาะกับจำนวนลูกค้าของคุณ</p><div class="ref-cta-row"><a class="ref-pill inverse" href={signupUrl}>สมัครสมาชิก</a><a class="ref-pill ghost inverse" href={lineUrl}><Line size={18} /> เพิ่มเพื่อนใน LINE</a></div><a class="dark-link" href="/pricing">ดูราคาและแพ็กเกจ →</a></div></section>
+</Layout>
+<script>
+  const stage = document.querySelector<HTMLElement>("[data-slideshow]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (stage) {
+    const slides = [...stage.querySelectorAll<HTMLElement>(".slide")];
+    const dots = [...stage.querySelectorAll<HTMLButtonElement>(".dot")];
+    const caption = document.querySelector<HTMLElement>("[data-slide-caption]");
+    const ipad = stage.querySelector<HTMLElement>(".ipad");
+    let index = 0;
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    const goTo = (target: number, byUser = false) => {
+      index = (target + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === index);
+        slide.setAttribute("aria-hidden", i === index ? "false" : "true");
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === index);
+        dot.setAttribute("aria-current", i === index ? "true" : "false");
+      });
+      const text = slides[index].dataset.caption ?? "";
+      if (caption) {
+        if (reduceMotion.matches) { caption.textContent = text; }
+        else {
+          caption.style.opacity = "0";
+          setTimeout(() => { caption.textContent = text; caption.style.opacity = "1"; }, 180);
+        }
+      }
+      if (byUser) restart();
+    };
+
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => { if (!reduceMotion.matches && !timer) timer = setInterval(() => goTo(index + 1), 5200); };
+    const restart = () => { stop(); start(); };
+
+    stage.querySelector(".slide-nav.prev")?.addEventListener("click", () => goTo(index - 1, true));
+    stage.querySelector(".slide-nav.next")?.addEventListener("click", () => goTo(index + 1, true));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i, true)));
+    stage.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); goTo(index - 1, true); }
+      if (e.key === "ArrowRight") { e.preventDefault(); goTo(index + 1, true); }
+    });
+    let swipeX: number | null = null;
+    stage.addEventListener("pointerdown", (e) => { swipeX = e.clientX; });
+    stage.addEventListener("pointerup", (e) => {
+      if (swipeX === null) return;
+      const dx = e.clientX - swipeX;
+      if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1), true);
+      swipeX = null;
+    });
+    stage.addEventListener("mouseenter", stop);
+    stage.addEventListener("mouseleave", restart);
+    stage.addEventListener("focusin", stop);
+    stage.addEventListener("focusout", restart);
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : restart()));
+    start();
+
+    const MAX_DEG = 6;
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf: number | null = null;
+    const animate = () => {
+      cx += (tx - cx) * 0.09;
+      cy += (ty - cy) * 0.09;
+      if (ipad) ipad.style.transform = `rotateX(${cy.toFixed(3)}deg) rotateY(${cx.toFixed(3)}deg)`;
+      if (Math.abs(tx - cx) > 0.01 || Math.abs(ty - cy) > 0.01) raf = requestAnimationFrame(animate);
+      else raf = null;
+    };
+    const tilt = () => { if (raf === null) raf = requestAnimationFrame(animate); };
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    if (ipad && canHover && !reduceMotion.matches) {
+      stage.addEventListener("mousemove", (e) => {
+        const rect = stage.getBoundingClientRect();
+        const nx = (e.clientX - rect.left) / rect.width - 0.5;
+        const ny = (e.clientY - rect.top) / rect.height - 0.5;
+        tx = nx * MAX_DEG * 2;
+        ty = -ny * MAX_DEG * 2;
+        stage.style.setProperty("--gx", `${((nx + 0.5) * 100).toFixed(1)}%`);
+        stage.style.setProperty("--gy", `${((ny + 0.5) * 100).toFixed(1)}%`);
+        tilt();
+      });
+      stage.addEventListener("mouseleave", () => { tx = 0; ty = 0; tilt(); });
+    }
+    reduceMotion.addEventListener("change", () => {
+      if (reduceMotion.matches) {
+        stop();
+        tx = 0; ty = 0; cx = 0; cy = 0;
+        if (ipad) ipad.style.transform = "";
+      } else start();
+    });
+  }
+</script>
+
+<style>
+  .band-head { max-width:720px; }
+  .band-head p { margin-top:0; }
+  .ai-points { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin:44px 0 56px; }
+  .ai-icon { display:grid; place-items:center; width:38px; height:38px; margin-bottom:14px; border-radius:9px; background:rgba(0,0,0,.05); color:#1d1d1f; }
+  .ai-icon :global(svg) { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .ai-point b { display:block; font-size:16px; }
+  .ai-point p { margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.65; max-width:none; }
+  .ipad-wrap { margin:56px auto 0; max-width:880px; }
+  .ipad-badge { display:flex; width:fit-content; align-items:center; gap:8px; margin:0 auto 18px; padding:7px 14px; border:1px solid var(--ref-hair); border-radius:999px; background:#fff; color:var(--muted); font-size:13.5px; font-weight:600; }
+  .ipad-badge svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; }
+  .ipad-stage { perspective:1400px; }
+  .ipad { position:relative; margin:0; padding:13px 16px; border-radius:26px; background:linear-gradient(145deg,#3d3d3f,#1d1d1f 42%,#0d0d0e); box-shadow:inset 0 0 0 1px rgba(255,255,255,.09), inset 0 1px 1px rgba(255,255,255,.14), 0 34px 70px -34px rgba(15,23,42,.5), 0 14px 30px -20px rgba(15,23,42,.4); will-change:transform; }
+  .ipad-cam { position:absolute; left:5.5px; top:50%; width:5px; height:5px; transform:translateY(-50%); border-radius:50%; background:#05070c; box-shadow:inset 0 0 1px rgba(90,140,200,.8); }
+  .ipad-screen { position:relative; overflow:hidden; border-radius:13px; aspect-ratio:1600/1078; background:#fff; transform:translateZ(0); }
+  .slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .55s ease; }
+  .slide.is-active { opacity:1; }
+  .slide-glare { position:absolute; inset:0; pointer-events:none; background:radial-gradient(640px circle at var(--gx,26%) var(--gy,18%), rgba(255,255,255,.16), transparent 62%); opacity:0; transition:opacity .35s ease; }
+  .ipad-stage:hover .slide-glare { opacity:1; }
+  .slide-nav { position:absolute; top:50%; transform:translateY(-50%); z-index:2; display:grid; place-items:center; width:38px; height:38px; border:0; border-radius:50%; background:rgba(255,255,255,.88); color:#1d1d1f; cursor:pointer; box-shadow:0 6px 18px -8px rgba(0,0,0,.45); opacity:0; transition:opacity .2s ease, background .2s ease; }
+  .slide-nav:hover { background:#fff; }
+  .slide-nav.prev { left:30px; }
+  .slide-nav.next { right:30px; }
+  .slide-nav svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .ipad:hover .slide-nav, .ipad:focus-within .slide-nav { opacity:1; }
+  .slide-dots { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); z-index:2; display:flex; align-items:center; gap:7px; padding:7px 11px; border-radius:999px; background:rgba(255,255,255,.72); backdrop-filter:blur(6px); box-shadow:0 4px 14px -6px rgba(0,0,0,.35); }
+  .dot { width:7px; height:7px; padding:0; border:0; border-radius:999px; background:rgba(29,29,31,.24); cursor:pointer; transition:width .25s ease, background .25s ease; }
+  .dot:hover { background:rgba(29,29,31,.45); }
+  .dot.is-active { width:20px; background:#1d1d1f; }
+  .slide-caption { max-width:640px; margin:18px auto 0; text-align:center; color:var(--muted); font-size:14px; transition:opacity .2s ease; }
+  .shot { margin:0 auto 48px; max-width:920px; }
+  .shot:last-child { margin-bottom:0; }
+  .shot img { display:block; width:100%; height:auto; border:1px solid var(--ref-hair); border-radius:12px; box-shadow:0 24px 60px -42px rgba(0,0,0,.4); background:#fff; }
+  .shot figcaption { margin-top:14px; text-align:center; color:var(--muted); font-size:14px; }
+  .split.rev > :global(:first-child) { order:2; }
+  .split.feat { align-items:center; gap:56px; }
+  .split.feat .shot { margin:0; max-width:none; }
+  .split.feat .shot figcaption { text-align:left; }
+  .note { margin-top:18px!important; font-size:14.5px!important; }
+  .docs-link { display:inline-flex; align-items:center; gap:6px; margin-top:22px; color:#111; font-weight:600; font-size:15px; border-bottom:1px solid var(--ref-hair); }
+  .docs-link:hover { border-color:#111; }
+  .tool-grid { display:grid; grid-template-columns:repeat(3,1fr); margin-top:40px; border-top:1px solid var(--ref-hair); }
+  .tool-card { padding:32px 32px 36px 0; border-bottom:1px solid var(--ref-hair); }
+  .tool-card:nth-child(3n+2), .tool-card:nth-child(3n) { border-left:1px solid var(--ref-hair); padding-left:32px; }
+  .tool-card h3 { display:flex; align-items:center; gap:10px; margin:0; font-size:18px; }
+  .tool-icon { display:grid; place-items:center; flex:none; width:34px; height:34px; border:1px solid var(--ref-hair); border-radius:8px; background:#fff; color:#1d1d1f; }
+  .tool-icon :global(svg) { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .tool-card p { margin:14px 0 16px; color:var(--muted); font-size:14.5px; line-height:1.7; max-width:none; }
+  .tool-card a { display:inline-flex; align-items:center; gap:5px; color:#111; font-weight:600; font-size:14px; }
+  .tool-card a:hover { color:#15734b; }
+  .dark-link { display:inline-block; margin-top:22px; color:#fff; border-bottom:1px solid #666; }
+  .dark-link:hover { border-color:#fff; }
+  @media (hover:none) { .slide-nav { opacity:1; width:32px; height:32px; } .slide-nav.prev { left:22px; } .slide-nav.next { right:22px; } }
+  @media (max-width:900px) { .ai-points { grid-template-columns:1fr 1fr; gap:28px; } .tool-grid { grid-template-columns:1fr 1fr; } .tool-card { padding:28px 28px 32px 0; } .tool-card:nth-child(3n+2), .tool-card:nth-child(3n) { border-left:0; padding-left:0; } .tool-card:nth-child(2n) { border-left:1px solid var(--ref-hair); padding-left:28px; } }
+  @media (max-width:640px) { .ai-points { grid-template-columns:1fr; gap:26px; margin-block:32px 40px; } .split.rev > :global(:first-child) { order:0; } .tool-grid { grid-template-columns:1fr; } .tool-card, .tool-card:nth-child(2n) { border-left:0; padding:24px 0 28px; } .ipad-wrap { margin-top:40px; } .ipad { padding:8px 10px; border-radius:18px; } .ipad-cam { display:none; } .ipad-screen { border-radius:9px; } .slide-nav { width:30px; height:30px; } .slide-nav.prev { left:14px; } .slide-nav.next { right:14px; } .slide-nav svg { width:15px; height:15px; } .slide-dots { bottom:8px; padding:6px 9px; gap:6px; } }
+</style>

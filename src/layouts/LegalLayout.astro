@@ -2,11 +2,11 @@
 import Layout from './Layout.astro';
 ---
 
-<Layout>
-  <main class="max-w-4xl mx-auto px-6 py-14 md:py-20">
-    <a href="/" class="text-sm font-semibold text-muted hover:text-ink">← Back to home</a>
-    <article class="legal-content mt-10 rounded-3xl border border-hairline/60 bg-white p-6 md:p-12">
+<Layout title={Astro.props.frontmatter?.title ?? "เงื่อนไขและนโยบาย — Solid Plan"} draft={true}>
+  <div class="shell legal-wrap">
+    <aside class="draft-notice"><strong>ร่างสำหรับตรวจสอบ</strong><p>เนื้อหานี้ยังรอรายละเอียดบางส่วนจากผู้ให้บริการ และยังไม่ใช่นโยบายฉบับประกาศใช้</p></aside>
+    <article class="legal-content">
       <slot />
     </article>
-  </main>
+  </div>
 </Layout>

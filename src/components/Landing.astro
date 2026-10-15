@@ -1,808 +1,643 @@
 ---
-const APP_LOGIN = "https://app.solidplan.ai/login";
-const APP_SIGNUP = "https://app.solidplan.ai/signup";
-
-const COMMON_FEATURES = [
-  "บันทึกนัดหมายพื้นฐาน",
-  "จัดเก็บไฟล์ของลูกค้า",
-  "สถิติผลงานแบบละเอียด",
-  "ระบบจัดการทีม",
-  "ปฏิทินกิจกรรม",
-  "ใช้งานบน iPad/Desktop",
-];
-
-const PLANS = [
-  {
-    name: "Starter",
-    price: "450",
-    priceDaily: "15",
-    period: "/เดือน",
-    description: "สำหรับตัวแทนเริ่มโต",
-    customerLimit: "สูงสุด 200 ราย",
-    highlighted: false,
-    badge: null,
-  },
-  {
-    name: "Growth",
-    price: "900",
-    priceDaily: "30",
-    period: "/เดือน",
-    description: "สำหรับตัวแทนขยายธุรกิจ",
-    customerLimit: "สูงสุด 500 ราย",
-    highlighted: true,
-    badge: "แนะนำ",
-  },
-  {
-    name: "Pro",
-    price: "1800",
-    priceDaily: "60",
-    period: "/เดือน",
-    description: "สำหรับทีมมืออาชีพ",
-    customerLimit: "สูงสุด 2,000 ราย",
-    highlighted: false,
-    badge: null,
-  }
-];
+const lineUrl = "https://line.me/R/ti/p/@675lurmh";
+const signupUrl = "https://app.solidplan.ai/signup";
+import BeforeAfter from './BeforeAfter.astro';
+import Testimonials from './Testimonials.astro';
+import Line from './icons/Line.astro';
 ---
+      <section class="ref-hero" id="ref-top">
+        <div class="shell ref-hero-copy">
+          <h1>จำลูกค้าได้ทุกคน<br />โดยที่คุณไม่ต้องจดเอง</h1>
+          <p class="ref-hero-sub">ตอนนี้ข้อมูลลูกค้ากระจายอยู่ในโน้ต Line และไฟล์ ทำให้ทุกครั้งที่อยากให้ AI ช่วย คุณต้องไล่หาข้อมูลมาป้อนเอง และยิ่งป้อนมาก AI ก็ยิ่งสับสน Solid Plan เก็บข้อมูลลูกค้าไว้ในระบบประกันของคุณ AI ดึงเฉพาะส่วนที่เกี่ยวกับคำถามมาตอบ และบันทึกให้เมื่อแค่คุณสั่ง</p>
+          <div class="ref-cta-row">
+            <a class="ref-pill" href={signupUrl}>สมัครสมาชิก</a>
+            <a class="ref-pill ghost" href={lineUrl}><Line size={18} /> เพิ่มเพื่อนใน LINE</a>
+          </div>
+          <small>สมัครใช้งานได้ทันที หรือทักมาคุยกับเราก่อนดูการทำงานจริงก็ได้</small>
+        </div>
+
+        <div class="ref-stage" id="ref-demo">
+          <div class="ipad" aria-label="ตัวอย่างแอป Solid Plan บน iPad">
+            <span class="ipad-cam" aria-hidden="true"></span>
+            <div class="ipad-screen">
+              <div class="app">
+                <aside class="app-rail" aria-label="เมนูในแอป (ตัวอย่าง)">
+                  <img class="rail-logo" src="/brand/logo-192.png" alt="" width="26" height="26" />
+                  <div class="rail-menu">
+                    <span class="rail-item on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>ผู้ช่วย AI</span>
+                  <span class="rail-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>ลูกค้า</span>
+                  <span class="rail-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>ปฏิทิน</span>
+                  <span class="rail-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg>ทีมงาน</span>
+                  <span class="rail-item"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>ยอดขาย</span>
+                  <span class="rail-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 17V9"></path><path d="M12 17V5"></path><path d="M6 17v-3"></path></svg>รายงาน</span>
+                    <span class="rail-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>ตั้งค่า</span>
+                  </div>
+                  <span class="rail-me" aria-hidden="true">ก</span>
+                </aside>
+                <div class="app-main">
+                  <header class="app-head">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path></svg>
+                    <b>ผู้ช่วย AI</b>
+                    <svg class="head-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                  </header>
+                  <div class="app-thread" data-thread role="log" aria-live="polite" aria-label="ตัวอย่างบทสนทนาและข้อมูลที่รอยืนยัน ซึ่งเล่นอัตโนมัติ"></div>
+                  <div class="app-composer" aria-hidden="true">
+                    <div class="composer-row">
+                      <span class="composer-add"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></span>
+                      <span class="composer-file" data-composer-file hidden></span>
+                      <span class="composer-ph" data-composer-text>ถามผู้ช่วย AI…</span>
+                      <span class="composer-send"><svg viewBox="0 0 24 24"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <noscript><p>ดูตัวอย่างเพิ่มเติมที่ <a href="/features">หน้าฟีเจอร์</a></p></noscript>
+          <div class="demo-toolbar">
+            <button class="demo-toggle" type="button" data-demo-toggle aria-pressed="true" aria-label="หยุดเล่นอัตโนมัติ" title="หยุดเล่นอัตโนมัติ">
+              <svg class="demo-icon pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"></path></svg>
+              <svg class="demo-icon play" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"></path></svg>
+            </button>
+            <div class="ref-scenarios" aria-label="เลือกตัวอย่างการใช้งาน">
+              <button type="button" aria-pressed="true" data-ref-scenario="upload"><span>อัปโหลดกรมธรรม์</span></button>
+              <button type="button" aria-pressed="false" data-ref-scenario="summary"><span>สรุปลูกค้า</span></button>
+              <button type="button" aria-pressed="false" data-ref-scenario="add"><span>เพิ่มลูกค้า</span></button>
+              <button type="button" aria-pressed="false" data-ref-scenario="follow"><span>ใครควรติดตาม</span></button>
+            </div>
+            <span class="demo-countdown" data-demo-timer aria-hidden="true"><i></i></span>
+          </div>
+        </div>
+      </section>
+
+      <BeforeAfter />
+      <Testimonials />
+      <section class="ref-before-after" hidden aria-hidden="true">
+        <div class="shell">
+          <header><h2>ใช้ AI กับงานประกัน<br />ทำไมยังไม่ลื่น</h2><p>เพราะข้อมูลลูกค้ายังกระจายอยู่หลายที่ คุณจึงต้องเป็นทั้งคนจด คนค้น และคนป้อนข้อมูลเอง</p></header>
+          <article class="ref-pair">
+            <span class="ref-pair-tag">01 · จดเอง</span>
+            <h3>ได้กรมธรรม์มาแล้ว ต้องนั่งพิมพ์ลงฟอร์มเองทีละช่อง</h3>
+            <div>
+              <section class="ref-before">
+                <b>ตอนนี้</b>
+                <img class="before-photo" src="/images/before-transcription.jpg" alt="กรมธรรม์และคอมพิวเตอร์สำหรับกรอกข้อมูลทีละช่อง" width="1200" height="900" loading="lazy" /><small>เปิดกรมธรรม์แล้วพิมพ์ลงฟอร์มทีละช่อง</small>
+              </section>
+              <section class="ref-after">
+                <b>กับ Solid Plan</b>
+                <div class="ref-handoff" aria-hidden="true">
+                  <span class="ref-filechip"><svg viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path></svg>policy-sample.pdf</span>
+                  <div class="ref-answer">
+                    <strong>ข้อมูลที่ AI อ่านได้ 5 ช่อง</strong>
+                    <span>แบบประกัน · ทุน · เบี้ย · เลขกรมธรรม์ · วันเริ่มสัญญา</span>
+                    <span>เหลือแค่ตรวจ แล้วกดบันทึก</span>
+                  </div>
+                </div>
+                <small>โยน PDF เข้ามา AI อ่านและจดให้ แค่ตรวจแล้วกดบันทึก</small>
+              </section>
+            </div>
+          </article>
+
+          <article class="ref-pair">
+            <span class="ref-pair-tag">02 · ค้นเอง</span>
+            <h3>อยากรู้ข้อมูลลูกค้า ต้องไล่หาจากหลายที่</h3>
+            <div>
+              <section class="ref-before">
+                <b>ตอนนี้</b>
+                <img class="before-photo" src="/images/before-search.jpg" alt="หน้าจอ Windows ที่ข้อมูลลูกค้ากระจายอยู่ใน LINE, Excel และ Notes ด้วยข้อมูลสมมติ" width="1200" height="900" loading="lazy" /><small>ข้อมูลลูกค้าแยกอยู่ใน LINE, Excel และ Notes</small>
+              </section>
+              <section class="ref-after">
+                <b>กับ Solid Plan</b>
+                <p class="ref-question">คุณกานต์มีกรมธรรม์อะไรบ้าง?</p>
+                <div class="ref-answer"><strong>พบ 2 กรมธรรม์</strong><span>ตลอดชีพ · เบี้ย 24,000 บาท/ปี</span><span>สุขภาพ · เบี้ย 18,500 บาท/ปี</span></div>
+                <small>ถามแล้วได้คำตอบจากข้อมูลจริงในระบบ</small>
+              </section>
+            </div>
+          </article>
+
+          <article class="ref-pair">
+            <span class="ref-pair-tag">03 · ป้อนข้อมูลให้ AI</span>
+            <h3>อยากให้ AI ช่วย ต้องก๊อปข้อมูลไปวางทุกครั้ง</h3>
+            <div>
+              <section class="ref-before">
+                <b>ตอนนี้</b>
+                <img class="before-photo" src="/images/before-ai-input.jpg" alt="หน้าจอ Mac ที่กำลังลากไฟล์ Excel และ TXT จำนวนมากเข้าแชต AI ด้วยข้อมูลสมมติ" width="1200" height="900" loading="lazy" /><small>ลากไฟล์ Excel และ TXT หลายไฟล์เข้า AI ทุกครั้งที่ต้องการให้ช่วย</small>
+              </section>
+              <section class="ref-after">
+                <b>กับ Solid Plan</b>
+                <p class="ref-question">เดือนนี้ใครเกิดบ้าง และสัปดาห์นี้ควรติดต่อใคร?</p>
+                <div class="ref-answer"><strong>ค้นและนับจากลูกค้า 312 รายในระบบ</strong><span>วันเกิดเดือนนี้ 5 ราย</span><span>ควรติดต่อสัปดาห์นี้ 3 ราย · เหตุผลและประวัติดูได้ครบ</span></div>
+                <small>AI รู้จักลูกค้าของคุณอยู่แล้ว ไม่ต้องป้อนซ้ำ</small>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="ref-trust" id="ref-trust">
+        <div class="shell">
+          <header class="ref-trust-head">
+            <h2>เราดูแลข้อมูล<br />ให้คุณดูแลลูกค้า</h2>
+            <p>Solid Plan ถูกสร้างขึ้นบนแนวคิดที่ว่า “ความสัมพันธ์ระหว่างคุณกับลูกค้า คือสิ่งสำคัญที่สุด” เราจึงออกแบบให้คุณควบคุมการเข้าถึง การใช้ AI และการนำข้อมูลออกไปใช้ต่อได้ เพื่อให้คุณดูแลลูกค้าอย่างมั่นใจในทุกขั้นตอน</p>
+          </header>
+          <div class="ref-trust-grid">
+            <article>
+              <span class="ref-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 4.8 3.4 7.8 8 9 4.6-1.2 8-4.2 8-9V7z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+              <h3>ส่งให้ AI เฉพาะที่จำเป็น</h3>
+              <p>เมื่อคุณสั่งให้ AI ช่วย ระบบเลือกเฉพาะข้อมูลที่เกี่ยวข้องกับคำถามเพื่อส่งผ่าน OpenRouter และผู้ให้บริการโมเดล ไม่ส่งฐานข้อมูลลูกค้าทั้งหมดไปพร้อมกัน</p>
+            </article>
+            <article>
+              <span class="ref-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="m11 12 8-8m-3 3 2 2m-5 1 2 2"></path></svg></span>
+              <h3>คุณกำหนดว่าใครเข้าถึงได้</h3>
+              <p>ข้อมูลเปิดได้จากบัญชีของคุณและคนที่คุณอนุญาต คุณยังส่งออกข้อมูลเพื่อนำไปใช้ต่อกับระบบอื่นได้ โดยไม่ถูกผูกไว้กับ Solid Plan</p>
+            </article>
+            <article>
+              <span class="ref-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 7h8M8 11h8M8 15h4"></path></svg></span>
+              <h3>โครงสร้างพื้นฐานที่ผ่านการตรวจสอบ</h3>
+              <p>Solid Plan โฮสต์บน Railway ซึ่งได้รับการรับรอง SOC 2 Type II และ SOC 3 โดยการรับรองนี้เป็นของ Railway ในฐานะผู้ให้บริการโครงสร้างพื้นฐาน</p>
+              <div class="ref-compliance-mark"><img src="/images/aicpa.svg" alt="AICPA" width="40" height="40" /><span><strong>SOC 2 Type II · SOC 3</strong><small>Railway infrastructure</small></span></div>
+            </article>
+          </div>
+          <a class="ref-trust-link" href="/security-privacy">ดูมาตรฐานความปลอดภัยและความเป็นส่วนตัว <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="ref-final" id="ref-contact"><div class="shell"><h2>จำลูกค้าได้ทุกคน<br />โดยที่คุณไม่ต้องจดเอง</h2><div class="ref-cta-row center"><a class="ref-pill" href={signupUrl}>สมัครสมาชิก</a><a class="ref-pill ghost" href={lineUrl}><Line size={18} /> เพิ่มเพื่อนใน LINE</a></div><p>เริ่มต้นจัดการลูกค้าทุกคนไว้ในที่เดียว</p></div></section>
+
+    <script>
+      /* Variant C — animated chat demo (scripted, fictional data only) */
+      const cThread = document.querySelector("[data-thread]");
+      if (cThread) {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let runId = 0;
+        let cycleTimer = 0;
+        let autoplay = !reduce;
+        let activeKey = "upload";
+        let demoObserver;
+        const scenarioKeys = ["upload", "summary", "add", "follow"];
+
+        const ICONS = {
+          file: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>',
+          check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>',
+          chev: '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>',
+        };
+        const AVATAR = '<svg class="sp-avatar" viewBox="0 0 160 160" aria-hidden="true"><g class="character"><rect class="body" x="28" y="28" width="104" height="104" rx="28"></rect><g class="face"><g class="normal"><rect class="eye" x="59" y="65" width="9" height="22" rx="4.5"></rect><rect class="eye" x="92" y="65" width="9" height="22" rx="4.5"></rect></g><g class="happy"><path d="M56 81 Q64 65 72 81 M88 81 Q96 65 104 81"></path></g></g></g><g class="dots"><circle cx="48" cy="80" r="8"></circle><circle cx="80" cy="80" r="8"></circle><circle cx="112" cy="80" r="8"></circle></g></svg>';
+
+        const confirmCard = (title, who, secs, note) =>
+          `<div class="card-confirm rv"><div class="cc-head"><div><small>รอยืนยัน</small><strong>${title}</strong><p>${who}</p></div><span class="cc-badge" aria-hidden="true">✓</span></div>` +
+          secs.map(([label, rows]) => `<div class="cc-sec"><b>${label}</b><div class="cc-rows">${rows.map(([k, v]) => `<p class="cc-row"><span>${k}</span><b>${v}</b></p>`).join("")}</div></div>`).join("") +
+          (note ? `<p class="cc-note">${note}</p>` : "") +
+          `<div class="cc-actions"><button type="button" class="primary" data-confirm-action>ยืนยันสร้าง</button><button type="button" class="cancel" data-cancel-action>ยกเลิก</button></div><p class="cc-status" data-card-status hidden></p></div>`;
+
+        const SCENARIOS = {
+          upload: {
+            user: "เพิ่มกรมธรรม์ให้คุณกานต์ พูนสุข จากไฟล์แนบ",
+            file: "policy-sample.pdf",
+            steps: ["อ่านไฟล์กรมธรรม์", "จับคู่กับลูกค้า: คุณกานต์ พูนสุข", "แยกข้อมูลกรมธรรม์และสัญญาเพิ่มเติม", "ระบุช่องที่ไม่พบในเอกสาร", "เตรียมรายการให้ตรวจก่อนบันทึก"],
+            html: confirmCard("ยืนยันการสร้างกรมธรรม์", "ลูกค้า คุณกานต์ พูนสุข", [
+              ["ข้อมูลกรมธรรม์", [["บริษัทประกัน", "บริษัทประกันตัวอย่าง จำกัด"], ["แบบประกัน", "ตลอดชีพ ชำระเบี้ย 20 ปี"], ["เลขกรมธรรม์", "SP-2569-001263"]]],
+              ["การเงินและวันสำคัญ", [["เบี้ยประกัน", "฿24,000 · รายปี"], ["ทุนประกันชีวิต", "฿1,000,000"], ["วันเริ่มสัญญา", "18 ก.ย. 2569"]]],
+              ["สัญญาเพิ่มเติม (2)", [["โรคร้ายแรง · สุขภาพ", "บางช่องยังไม่ระบุ — ดูได้ในหน้าลูกค้า"]]],
+            ], "ค่าเริ่มต้นของระบบ (ไม่ใช่ข้อมูลจากเอกสาร): สถานะ มีผลบังคับ · มูลค่าเวนคืน/ซื้อคืน ฿0<br />ผู้ช่วย AI จะขออนุมัติก่อนสร้างกรมธรรม์เสมอ เพราะเป็นข้อมูลการเงิน"),
+            done: '<div class="ok"><span><b>บันทึกกรมธรรม์แล้ว</b> เปิดดูได้ในหน้าลูกค้า คุณกานต์ พูนสุข</span></div>',
+            needsConfirm: true,
+          },
+          summary: {
+            user: "สรุปคุณกานต์ให้หน่อย บ่ายนี้จะเข้าพบ",
+            steps: ["ค้นหาลูกค้า: คุณกานต์ พูนสุข", "รวมกรมธรรม์และบันทึกการติดต่อ"],
+            html: '<div class="card-answer rv"><p>สรุปให้แล้ว ก่อนเข้าพบบ่ายนี้</p><div class="rec"><div class="rec-h"><b>คุณกานต์ พูนสุข</b><span>42 ปี · เป็นลูกค้าตั้งแต่ 2566</span></div><ul><li><b>ตลอดชีพ ชำระเบี้ย 20 ปี</b>เบี้ย 24,000 บาท/ปี · ครบชำระ 18 ก.ย.</li><li><b>สุขภาพ</b>เบี้ย 18,500 บาท/ปี</li><li><b>ติดตามล่าสุด 3 ต.ค.</b>คุยเรื่องการขยายความคุ้มครองโรคร้ายแรง ยังไม่ตัดสินใจ</li></ul></div><p class="src">ดึงจากข้อมูลลูกค้า 1 ราย · 2 กรมธรรม์ · 4 บันทึก</p></div>',
+          },
+          add: {
+            user: "เพิ่มคุณมาลี รักเรียน เบอร์ 081-234-5678 นัดคุยพฤหัสนี้บ่ายสอง",
+            steps: ["ตรวจว่าไม่มีลูกค้าซ้ำ", "เตรียมสร้างลูกค้าใหม่และนัดหมาย"],
+            html: confirmCard("ยืนยันการสร้างลูกค้าใหม่", "ลูกค้า คุณมาลี รักเรียน", [
+              ["ข้อมูลลูกค้า", [["ชื่อ–นามสกุล", "คุณมาลี รักเรียน"], ["โทรศัพท์", "081-234-5678"]]],
+              ["นัดหมาย", [["เรื่อง", "นัดคุยเรื่องความคุ้มครอง"], ["วันเวลา", "พฤหัสบดี 14:00"]]],
+            ], "ทุกการบันทึกต้องกดยืนยันก่อนเสมอ"),
+            done: '<div class="ok"><span><b>บันทึกแล้ว</b> ลูกค้าใหม่ คุณมาลี รักเรียน และนัดหมายพฤหัสบดี 14:00</span></div>',
+            needsConfirm: true,
+          },
+          follow: {
+            user: "สัปดาห์นี้ลูกค้าคนไหนควรติดตามบ้าง?",
+            steps: ["ตรวจประวัติการติดต่อและวันสำคัญ", "จัดลำดับรายที่ควรติดต่อก่อน"],
+            html: '<div class="card-answer rv"><p>พบ 3 รายที่ควรติดตามสัปดาห์นี้</p><div class="rec"><ul><li><b>1. คุณวิชัย</b>ส่งใบเสนอราคาไปแล้ว 5 วัน ยังไม่ตอบกลับ</li><li><b>2. คุณนภา</b>วันครบชำระเบี้ย 20 ต.ค.</li><li><b>3. คุณธนา</b>นัดเยี่ยมหลังเสร็จเรื่องเคลม</li></ul></div><p class="src">ดึงจากวันครบชำระ นัดหมาย และประวัติการติดต่อ · เปิดดูข้อมูลลูกค้าแต่ละรายได้</p></div>',
+          },
+        };
+
+        const sleep = (ms) => new Promise((r) => setTimeout(r, reduce ? 0 : ms));
+        const down = () => { cThread.scrollTop = cThread.scrollHeight; };
+        const el = (tag, cls) => { const n = document.createElement(tag); if (cls) n.className = cls; return n; };
+        const avatarEl = () => { const t = document.createElement("template"); t.innerHTML = AVATAR.trim(); return t.content.firstChild; };
+        const fromHTML = (html) => { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstChild; };
+        const composerText = document.querySelector("[data-composer-text]");
+        const composerFile = document.querySelector("[data-composer-file]");
+        const scenarioButtons = [...document.querySelectorAll("[data-ref-scenario]")];
+        const demoTimer = document.querySelector("[data-demo-timer]");
+        const syncScenarioButtons = (key, waiting = false) => {
+          scenarioButtons.forEach((item) => {
+            const active = item.getAttribute("data-ref-scenario") === key;
+            item.setAttribute("aria-pressed", String(active));
+          });
+          demoTimer?.classList.toggle("is-running", waiting);
+        };
+        const resetComposer = () => {
+          if (composerText) { composerText.textContent = "ถามผู้ช่วย AI…"; composerText.classList.remove("typing"); }
+          if (composerFile) composerFile.hidden = true;
+        };
+
+        async function playScenario(key) {
+          demoObserver?.disconnect();
+          activeKey = key;
+          const sc = SCENARIOS[key];
+          if (!sc) return;
+          const id = ++runId;
+          window.clearTimeout(cycleTimer);
+          syncScenarioButtons(key);
+          cThread.innerHTML = "";
+          resetComposer();
+
+          // the question is typed in the composer at the bottom, like a real chat
+          if (composerText) {
+            composerText.textContent = "";
+            composerText.classList.add("typing");
+            if (sc.file && composerFile) { composerFile.innerHTML = ICONS.file + sc.file; composerFile.hidden = false; }
+            if (reduce) composerText.textContent = sc.user;
+            else for (const ch of Array.from(sc.user)) { if (id !== runId) return; composerText.textContent += ch; await sleep(15); }
+            await sleep(reduce ? 0 : 320); if (id !== runId) return;
+            resetComposer();
+          }
+
+          // sent: the bubble appears above the composer with the full text
+          const user = el("div", "msg-user");
+          if (sc.file) { const f = el("span", "msg-file"); f.innerHTML = ICONS.file + sc.file; user.appendChild(f); }
+          const text = el("span");
+          text.textContent = sc.user;
+          user.appendChild(text);
+          cThread.appendChild(user);
+          down();
+          await sleep(reduce ? 0 : 380); if (id !== runId) return;
+
+          const thinkRow = el("div", "ref-avatar-row");
+          const thinking = avatarEl(); thinking.setAttribute("data-state", "thinking");
+          thinkRow.appendChild(thinking);
+          cThread.appendChild(thinkRow); down();
+          await sleep(850); if (id !== runId) return;
+          thinkRow.remove();
+
+          const work = el("button", "work");
+          work.type = "button"; work.setAttribute("aria-expanded", "false");
+          work.innerHTML = '<span class="spin"></span><span>กำลังทำงาน…</span>';
+          cThread.appendChild(work); down();
+          await sleep(780); if (id !== runId) return;
+          work.innerHTML = ICONS.check + `<span>เสร็จสิ้น · ${sc.steps.length} ขั้นตอน</span>` + ICONS.chev;
+          const list = el("ul", "steps");
+          sc.steps.forEach((s) => { const li = document.createElement("li"); li.textContent = s; list.appendChild(li); });
+          list.hidden = !reduce;
+          work.setAttribute("aria-expanded", String(reduce));
+          work.after(list);
+          work.addEventListener("click", () => {
+            const open = work.getAttribute("aria-expanded") === "true";
+            work.setAttribute("aria-expanded", String(!open));
+            list.hidden = open; down();
+          });
+          await sleep(320); if (id !== runId) return;
+
+          const card = fromHTML(sc.html);
+          cThread.appendChild(card);
+          requestAnimationFrame(() => card.classList.add("in"));
+
+          const avatar = avatarEl();
+          avatar.setAttribute("data-state", sc.needsConfirm ? "waiting" : "normal");
+          const row = el("div", "ref-avatar-row");
+          row.appendChild(avatar);
+          const note = el("span", "ref-avatar-note");
+          note.textContent = sc.needsConfirm ? "รอยืนยัน" : "จากข้อมูลในระบบ";
+          row.appendChild(note);
+          cThread.appendChild(row);
+          if (sc.needsConfirm) cThread.scrollTop += card.getBoundingClientRect().top - cThread.getBoundingClientRect().top - 12;
+          else down();
+
+          const confirmBtn = card.querySelector("[data-confirm-action]");
+          const cancelBtn = card.querySelector("[data-cancel-action]");
+          if (confirmBtn) confirmBtn.addEventListener("click", () => {
+            window.clearTimeout(cycleTimer); autoplay = false; updateToggle();
+            if (id !== runId) return;
+            const doneWrap = el("div");
+            doneWrap.innerHTML = sc.done.trim();
+            while (doneWrap.firstChild) card.parentNode.insertBefore(doneWrap.firstChild, card);
+            card.remove();
+            note.textContent = "บันทึกแล้ว";
+            avatar.setAttribute("data-state", "success");
+            setTimeout(() => { if (id === runId && avatar.isConnected) avatar.setAttribute("data-state", "normal"); }, 2400);
+            down();
+          });
+          if (cancelBtn) cancelBtn.addEventListener("click", () => {
+            window.clearTimeout(cycleTimer); autoplay = false; updateToggle();
+            const status = card.querySelector("[data-card-status]");
+            if (status) { status.hidden = false; status.textContent = "ยกเลิกแล้ว · ยังไม่มีการบันทึกข้อมูล"; }
+            confirmBtn?.setAttribute("disabled", "");
+            cancelBtn.setAttribute("disabled", "");
+            note.textContent = "ยังไม่ได้บันทึก";
+            avatar.setAttribute("data-state", "normal");
+          });
+
+          const nextKey = scenarioKeys[(scenarioKeys.indexOf(key) + 1) % scenarioKeys.length];
+          const waitTime = 4000;
+          demoTimer?.style.setProperty("--scenario-duration", `${waitTime}ms`);
+          syncScenarioButtons(key, autoplay);
+          if (autoplay) cycleTimer = window.setTimeout(() => {
+            if (id === runId) playScenario(nextKey);
+          }, waitTime);
+        }
+
+        const toggle = document.querySelector("[data-demo-toggle]");
+        const updateToggle = () => {
+          const label = autoplay ? "หยุดเล่นอัตโนมัติ" : "เล่นอัตโนมัติ";
+          toggle?.setAttribute("aria-pressed", String(autoplay));
+          toggle?.setAttribute("aria-label", label);
+          toggle?.setAttribute("title", label);
+          syncScenarioButtons(activeKey, false);
+        };
+        toggle?.addEventListener("click", () => { autoplay = !autoplay; window.clearTimeout(cycleTimer); updateToggle(); if (autoplay) playScenario(activeKey); });
+        updateToggle();
+        const pauseForReading = () => { autoplay = false; window.clearTimeout(cycleTimer); updateToggle(); };
+        cThread.addEventListener("pointerdown", pauseForReading);
+        cThread.addEventListener("focusin", pauseForReading);
+        scenarioButtons.forEach((button) => button.addEventListener("click", () => {
+          autoplay = false; updateToggle();
+          playScenario(button.getAttribute("data-ref-scenario"));
+        }));
+
+        const ipad = document.querySelector(".ipad");
+        if (reduce || !("IntersectionObserver" in window) || !ipad) {
+          playScenario("upload");
+        } else {
+          demoObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => { if (entry.isIntersecting) playScenario("upload"); });
+          }, { threshold: 0.35 });
+          demoObserver.observe(ipad);
+        }
+      }
+    </script>
 
 <style is:global>
-  /* ===== OVERDRIVE: Animated Hero Gradient Mesh ===== */
-  .hero-gradient {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(255, 77, 139, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(255, 140, 105, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 80%, rgba(160, 140, 255, 0.05) 0%, transparent 50%);
-    animation: meshShift 20s ease-in-out infinite;
-    pointer-events: none;
-  }
+  .ref-hero { padding-top:74px; text-align:center; overflow:hidden; }
+  .ref-hero-copy h1 { margin:0; font-size:64px; line-height:1.45; letter-spacing:0; text-wrap:balance; }
+  .ref-hero-sub { max-width:780px; margin:24px auto 26px; color:#6e6e73; font-size:16px; line-height:1.75; }
+  .ref-cta-row { display:flex; flex-wrap:wrap; gap:10px 14px; justify-content:center; align-items:center; margin-top:6px; }
+  .ref-cta-row.center { margin:34px 0 0; }
+  .ref-hero-copy small { display:block; margin-top:15px; color:#6e6e73; }
 
-  @keyframes meshShift {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(2%, -1%) scale(1.05); }
-    50% { transform: translate(-1%, 2%) scale(1); }
-    75% { transform: translate(-2%, -1%) scale(1.03); }
-  }
+  /* iPad stage */
+  .ref-stage { width:min(900px, calc(100% - 24px)); margin:52px auto 0; text-align:left; }
+  .ipad { position:relative; aspect-ratio:1.4 / 1; background:#101013; border-radius:34px; padding:18px 22px; box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.09), 0 2px 6px rgba(0,0,0,.18), 0 70px 120px -55px rgba(0,0,0,.55); }
+  .ipad-cam { position:absolute; left:10px; top:50%; transform:translateY(-50%); width:7px; height:7px; border-radius:50%; background:#2a2a30; box-shadow:inset 0 0 2px #000; }
+  .ipad-screen { height:100%; overflow:hidden; border-radius:17px; background:#eef1f6; }
 
-  /* ===== OVERDRIVE: Scroll Reveal ===== */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
-                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
+  /* app mockup (matches Smart app default theme: black accent, Sarabun) */
+  .app { display:grid; grid-template-columns:74px minmax(0,1fr); grid-template-rows:minmax(0,1fr); height:100%; }
+  .app-rail { display:flex; flex-direction:column; align-items:center; padding:12px 5px 14px; background:#f7f8fa; border-right:1px solid var(--ref-edge); }
+  .rail-logo { margin-bottom:8px; border-radius:6px; }
+  .rail-menu { display:flex; flex:1; flex-direction:column; justify-content:center; align-items:center; gap:4px; width:100%; }
+  .rail-item { display:flex; flex-direction:column; align-items:center; gap:3px; width:62px; padding:7px 0 6px; border-radius:12px; font-size:9.5px; line-height:1.25; color:#6e6e73; }
+  .rail-item svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .rail-item.on { background:#f0f0f0; color:#111; font-weight:600; }
+  .rail-me { margin-top:auto; display:grid; place-items:center; width:27px; height:27px; border-radius:50%; background:#111; color:#fff; font-size:12px; }
+  .app-main { min-width:0; display:flex; flex-direction:column; background:#fff; }
+  .app-head { display:flex; align-items:center; gap:9px; padding:13px 20px; border-bottom:1px solid var(--ref-edge); }
+  .app-head svg { width:18px; height:18px; fill:none; stroke:#9da6ad; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .app-head b { flex:1; font-size:15px; font-weight:600; }
+  .app-thread { flex:1; min-height:0; overflow:hidden; display:flex; flex-direction:column; gap:12px; padding:20px max(24px, calc((100% - 720px) / 2)); }
+  .app-composer { margin:0 20px 16px; border:1px solid #e3e5ea; border-radius:18px; background:#fafafa; padding:8px 8px 5px; }
+  .composer-row { display:flex; align-items:center; gap:10px; padding:2px 4px; }
+  .composer-add { display:grid; place-items:center; width:30px; height:30px; border:1px solid #d9dbe0; border-radius:50%; background:#fff; }
+  .composer-add svg { width:15px; height:15px; fill:none; stroke:#6e6e73; stroke-width:2; stroke-linecap:round; }
+  .composer-ph { flex:1; min-width:0; color:#8e8e93; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .composer-ph.typing { color:#111; }
+  .composer-ph.typing::after { content:""; display:inline-block; width:2px; height:15px; margin-left:2px; vertical-align:-2.5px; background:#111; animation:sp-caret 1.1s steps(1) infinite; }
+  .composer-file { display:inline-flex; flex:none; align-items:center; gap:5px; padding:3px 9px; border:1px solid #e5e5ea; border-radius:8px; background:#fff; color:#6e6e73; font-size:11.5px; }
+  .composer-file svg { width:12px; height:12px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .composer-send { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:#111; }
+  .composer-send svg { width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .composer-mode { display:flex; justify-content:flex-end; align-items:center; gap:5px; padding:5px 10px 5px; color:#9da6ad; font-size:11.5px; }
+  .composer-mode svg { width:12px; height:12px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .composer-mode svg.tiny { width:10px; height:10px; }
 
-  .reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  /* thread pieces */
+  .rv { opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s; }
+  .rv.in { opacity:1; transform:none; }
+  .msg-user { align-self:flex-end; display:flex; flex-direction:column; align-items:flex-end; gap:6px; max-width:78%; padding:10px 16px; border-radius:20px 20px 6px 20px; background:#f0f0f0; color:#111; font-size:14.5px; line-height:1.55; }
+  .msg-file { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border:1px solid #e5e5ea; border-radius:8px; background:#fff; color:#6e6e73; font-size:12px; }
+  .msg-file svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .work { align-self:flex-start; display:inline-flex; align-items:center; gap:8px; min-height:30px; padding:2px 0; border:0; background:transparent; color:#6e6e73; font-size:13px; }
+  .work .spin { width:13px; height:13px; border:2px solid #d1d1d6; border-top-color:#111; border-radius:50%; animation:sp-spin .8s linear infinite; }
+  .work svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .work .chev { transition:transform .2s; }
+  .work[aria-expanded="true"] .chev { transform:rotate(180deg); }
+  .steps { align-self:flex-start; margin:-4px 0 0 6px; padding-left:13px; border-left:1px dashed var(--ref-edge); color:#6e6e73; font-size:12.5px; list-style:none; }
+  .steps li { padding:2px 0; }
+  .card-confirm { align-self:flex-start; width:min(600px,100%); padding:14px; border:1px solid #e0e0e5; border-radius:16px; background:#fff; box-shadow:0 14px 34px -22px rgba(0,0,0,.28); }
+  .cc-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+  .cc-head small { color:#6e6e73; font-size:12px; }
+  .cc-head strong { display:block; margin-top:2px; font-size:15.5px; }
+  .cc-head p { margin:2px 0 0; color:#6e6e73; font-size:12.5px; }
+  .cc-badge { display:grid; place-items:center; flex:none; width:26px; height:26px; border-radius:50%; background:#111; color:#fff; font-size:13px; }
+  .cc-sec { margin-top:10px; }
+  .cc-sec>b { display:block; color:#6e6e73; font-size:11.5px; font-weight:500; }
+  .cc-rows { margin-top:5px; padding:1px 12px; border:1px solid var(--ref-edge); border-radius:10px; background:#fafafa; }
+  .cc-row { display:grid; grid-template-columns:1fr 1.35fr; gap:14px; margin:0; padding:4px 0; border-bottom:1px solid var(--ref-edge); font-size:12px; }
+  .cc-row:last-child { border-bottom:0; }
+  .cc-row span { color:#6e6e73; }
+  .cc-row b { text-align:right; font-weight:600; }
+  .cc-note { margin-top:11px; color:#6e6e73; font-size:12px; }
+  .cc-actions { display:flex; gap:8px; margin-top:12px; }
+  .cc-actions button { min-height:38px; padding:0 16px; border:0; border-radius:8px; font-size:13.5px; font-weight:600; }
+  .cc-actions .primary { background:#111; color:#fff; }
+  .cc-actions .primary:hover { background:#303030; }
+  .cc-actions .cancel { border:1px solid #d9dbe0; background:#fff; color:#3a464f; }
+  .cc-status { margin-top:10px; color:#6e6e73; font-size:12.5px; }
+  .card-answer { align-self:flex-start; max-width:min(560px,100%); font-size:14.5px; line-height:1.6; }
+  .card-answer>p { margin:0; }
+  .rec { margin:10px 0; border:1px solid var(--ref-edge); border-radius:14px; overflow:hidden; }
+  .rec-h { display:flex; flex-wrap:wrap; justify-content:space-between; gap:2px 12px; padding:9px 14px; background:#fafafa; font-size:13px; }
+  .rec-h b { font-weight:600; }
+  .rec-h span { color:#6e6e73; }
+  .rec ul { list-style:none; margin:0; padding:0 14px; }
+  .rec li { padding:8px 0; border-top:1px solid var(--ref-edge); font-size:13.5px; line-height:1.55; }
+  .rec li:first-child { border-top:0; }
+  .rec li b { display:block; font-weight:600; }
+  .ok { display:flex; align-items:flex-start; gap:10px; padding:2px 0; font-size:13.5px; }
+  .ok::before { content:"✓"; flex:none; display:grid; place-items:center; width:18px; height:18px; margin-top:2px; border-radius:50%; background:#111; color:#fff; font-size:11px; }
+  .ok b { font-weight:600; }
+  .src { margin-top:6px; color:#6e6e73; font-size:12px; }
+  .ref-avatar-row { align-self:flex-start; display:flex; align-items:center; gap:8px; min-height:34px; }
+  .ref-avatar-note { color:#6e6e73; font-size:12px; }
 
-  /* ===== OVERDRIVE: Spring Hover ===== */
-  .spring-hover {
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
+  /* AI avatar — same shape and states as the Smart app character */
+  .sp-avatar { flex:none; width:34px; height:34px; color:#111; }
+  .sp-avatar .body { fill:currentColor; }
+  .sp-avatar .face { fill:#fff; }
+  .sp-avatar .happy { fill:none; stroke:#fff; stroke-width:7; stroke-linecap:round; opacity:0; }
+  .sp-avatar .normal { opacity:1; }
+  .sp-avatar .eye { animation:sp-blink 4.8s infinite; transform-box:fill-box; transform-origin:center; }
+  .sp-avatar .character { transform-origin:80px 80px; transition:opacity .24s, transform .24s; }
+  .sp-avatar .dots { fill:currentColor; opacity:0; }
+  .sp-avatar[data-state="thinking"] .character { opacity:0; transform:scale(.7); }
+  .sp-avatar[data-state="thinking"] .dots { opacity:1; }
+  .sp-avatar[data-state="thinking"] .dots circle { animation:sp-dot 1s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+  .sp-avatar .dots circle:nth-child(2) { animation-delay:.15s; }
+  .sp-avatar .dots circle:nth-child(3) { animation-delay:.3s; }
+  .sp-avatar[data-state="success"] .normal { opacity:0; }
+  .sp-avatar[data-state="success"] .happy { opacity:1; }
+  .sp-avatar[data-state="success"] .character { transform:translateY(-3px); }
+  .sp-avatar[data-state="waiting"] .character { transform:rotate(-8deg); }
 
-  .spring-hover:hover {
-    transform: translateY(-4px) scale(1.02);
-  }
+  .demo-toolbar { display:grid; grid-template-columns:44px auto 20px; justify-content:center; align-items:center; gap:12px; padding:24px 20px 86px; }
+  .demo-toggle { width:44px; height:44px; display:grid; place-items:center; padding:0; border:1px solid var(--ref-hair); border-radius:50%; background:#fff; color:#1d1d1f; }
+  .demo-toggle:hover { background:var(--ref-soft); }
+  .demo-icon { grid-area:1/1; width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .demo-toggle .play { display:none; fill:currentColor; stroke:none; }
+  .demo-toggle[aria-pressed="false"] .pause { display:none; }
+  .demo-toggle[aria-pressed="false"] .play { display:block; }
+  .ref-scenarios { display:flex; justify-content:center; gap:10px; min-width:0; }
+  .ref-scenarios button { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 18px; border:1px solid var(--ref-hair); border-radius:999px; background:#fff; color:#1d1d1f; transition:background .3s, color .3s, border-color .3s, transform .3s; }
+  .ref-scenarios button>span { position:relative; z-index:1; }
+  .ref-scenarios button:hover { background:var(--ref-soft); }
+  .ref-scenarios button[aria-pressed="true"] { background:#1d1d1f; color:#fff; border-color:#1d1d1f; }
+  @property --scenario-progress { syntax:"<angle>"; inherits:false; initial-value:0deg; }
+  .demo-countdown { --scenario-progress:0deg; width:18px; height:18px; padding:2px; border-radius:50%; background:conic-gradient(#1d1d1f var(--scenario-progress), #d2d2d7 0); }
+  .demo-countdown i { display:block; width:100%; height:100%; border-radius:50%; background:#fff; }
+  .demo-countdown.is-running { animation:scenario-countdown var(--scenario-duration, 4s) linear forwards; }
 
-  .feature-card:hover {
-    transform: translateY(-6px) scale(1.02);
-  }
+  .ref-before-after { padding:110px 0; background:var(--ref-soft); }
+  .ref-before-after header { max-width:710px; }
+  .ref-before-after h2 { margin:0; font-size:48px; line-height:1.45; letter-spacing:0; text-wrap:balance; }
+  .ref-before-after header p { margin-top:18px; color:#6e6e73; font-size:18px; }
+  .ref-pair { margin-top:82px; }
+  .ref-pair h3 { max-width:720px; margin:0 0 24px; font-size:32px; line-height:1.5; }
+  .ref-pair>div { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .ref-before,.ref-after { min-height:330px; padding:28px; border-radius:24px; display:flex; flex-direction:column; }
+  .ref-before { border:1.5px dashed var(--ref-hair); background:#fff; }
+  .ref-after { background:#000; color:#fff; box-shadow:0 30px 60px -40px rgba(0,0,0,.6); }
+  .ref-before>b { color:#b72963; }
+  .ref-after>b { color:#fff; }
+  .ref-before small,.ref-after small { margin-top:auto; color:#6e6e73; }
+  .ref-after small { color:#a1a1a6; }
+  .ref-notes { display:flex; flex-wrap:wrap; gap:12px; align-items:flex-start; margin:32px 0; }
+  .ref-notes span { width:158px; padding:10px 12px; background:#f2dc8a; color:#4a3f12; font-size:13px; box-shadow:0 2px 0 rgba(0,0,0,.12); transform:rotate(-2.5deg); }
+  .ref-notes span:nth-child(2) { transform:rotate(2deg) translateY(8px); }
+  .ref-question { align-self:flex-end; margin:32px 0 16px; padding:10px 15px; border-radius:18px 18px 6px 18px; background:#1c1c1e; border:1px solid #2c2c2e; }
+  .ref-answer { display:flex; flex-direction:column; gap:7px; padding:16px; border-radius:14px; background:#1c1c1e; border:1px solid #2c2c2e; }
+  .ref-answer strong { color:#fff; }
+  .ref-answer span { color:#d1d1d6; }
+  .ref-pair-tag { display:inline-flex; align-items:center; margin-bottom:14px; padding:5px 12px; border:1px solid var(--ref-hair); border-radius:999px; color:#6e6e73; font-size:12.5px; font-weight:600; letter-spacing:0; }
+  .ref-docform { display:grid; grid-template-columns:.72fr 1.28fr; gap:14px; align-items:start; margin:32px 0; }
+  .ref-paper { display:flex; flex-direction:column; gap:8px; aspect-ratio:.8; padding:16px; border:1px solid var(--ref-hair); border-radius:10px; background:#fff; box-shadow:6px 6px 0 #e7e7e3; }
+  .ref-paper span { align-self:flex-start; padding:2px 7px; border-radius:5px; background:#1d1d1f; color:#fff; font-size:10px; }
+  .ref-paper i { height:6px; border-radius:3px; background:#e8e8ec; }
+  .ref-paper i:nth-child(4) { width:78%; background:#f3ddb0; }
+  .ref-paper i:nth-child(5) { width:64%; background:#f3ddb0; }
+  .ref-paper i:nth-child(7) { width:52%; }
+  .ref-form { padding:16px; border:1px solid var(--ref-hair); border-radius:14px; background:#fff; }
+  .ref-form-h { margin-bottom:8px; padding-bottom:9px; border-bottom:1px solid var(--ref-edge); font-size:13px; font-weight:600; }
+  .ref-field { display:grid; grid-template-columns:96px 1fr; gap:10px; align-items:center; padding:7px 0; font-size:12.5px; }
+  .ref-field+.ref-field { border-top:1px dashed #eeeef2; }
+  .ref-field span { color:#6e6e73; }
+  .ref-field b { font-weight:600; }
+  .ref-field em { color:#b72963; font-style:normal; font-size:11.5px; }
+  .ref-caret { display:inline-block; width:1.5px; height:14px; background:#111; animation:sp-caret 1.1s steps(1) infinite; }
+  .ref-handoff { display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin:32px 0; }
+  .ref-filechip { display:inline-flex; align-items:center; gap:7px; padding:6px 12px; border:1px solid #3a3a3c; border-radius:9px; background:#1c1c1e; color:#d1d1d6; font-size:12px; }
+  .ref-filechip svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .ref-linesheet { display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin:0 0 26px; }
+  .ref-bub { align-self:flex-end; padding:7px 12px; border-radius:14px 14px 4px 14px; background:#ddf3d6; color:#1f3a1a; font-size:12.5px; }
+  .ref-sheet { display:grid; grid-template-columns:repeat(3,1fr); width:100%; max-width:320px; border:1px solid var(--ref-hair); font-size:11.5px; }
+  .ref-sheet span { padding:4px 8px; border:1px solid var(--ref-edge); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .ref-sheet .hd { background:var(--ref-soft); font-weight:600; }
+  .ref-table { margin:32px 0 18px; border:1px solid var(--ref-hair); border-radius:12px; overflow:hidden; background:#fff; font-size:12px; }
+  .ref-copy-files { display:flex; flex-wrap:wrap; gap:6px; margin:26px 0 -18px; }
+  .ref-copy-files span { padding:5px 8px; border:1px solid var(--ref-hair); border-radius:6px; background:#fff; color:#6e6e73; font-size:10.5px; }
+  .rt-h,.rt-r { display:grid; grid-template-columns:1.15fr 1fr 1fr .85fr; gap:8px; padding:7px 12px; }
+  .rt-h { background:var(--ref-soft); font-weight:600; color:#3a3a3c; }
+  .rt-r { border-top:1px solid #f0f0f4; color:#3a3a3c; }
+  .rt-r span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .rt-more { padding:8px 12px; border-top:1px dashed var(--ref-hair); background:#fafafa; color:#6e6e73; font-size:11.5px; }
+  .ref-qchips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px; }
+  .ref-qchips span { padding:6px 12px; border:1px dashed var(--ref-hair); border-radius:999px; background:#fff; color:#6e6e73; font-size:12px; }
+  .ref-trust { padding:110px 0; background:#111; color:#fff; scroll-margin-top:72px; }
+  .ref-trust-head { max-width:980px; }
+  .ref-trust h2 { margin:0; font-size:48px; line-height:1.45; letter-spacing:0; text-wrap:balance; }
+  .ref-trust-head>p { max-width:860px; margin:24px 0 0; color:#c7c7cc; font-size:18px; line-height:1.75; }
+  .ref-trust-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:58px; border-block:1px solid #303033; }
+  .ref-trust-grid article { min-width:0; padding:32px 30px 34px; }
+  .ref-trust-grid article+article { border-left:1px solid #303033; }
+  .ref-trust-icon { display:grid; place-items:center; width:42px; height:42px; border:1px solid #3a3a3c; border-radius:8px; color:#fff; }
+  .ref-trust-icon svg { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .ref-trust-grid h3 { margin:24px 0 12px; font-size:21px; line-height:1.4; }
+  .ref-trust-grid p { margin:0; color:#b9b9bf; font-size:15px; line-height:1.75; }
+  .ref-compliance-mark { display:flex; align-items:center; gap:10px; margin-top:24px; width:max-content; max-width:100%; padding:8px 12px 8px 9px; border-radius:8px; background:#fff; color:#111; }
+  .ref-compliance-mark img { flex:none; }
+  .ref-compliance-mark strong,.ref-compliance-mark small { display:block; }
+  .ref-compliance-mark strong { font-size:12px; line-height:1.35; }
+  .ref-compliance-mark small { margin-top:2px; color:#525258; font-size:10px; line-height:1.3; }
+  .ref-trust-link { display:inline-flex; gap:8px; margin-top:34px; color:#fff; font-size:15px; border-bottom:1px solid #6e6e73; }
+  .ref-trust-link:hover { border-color:#fff; }
+  .ref-final { padding:110px 0 130px; background:#fff; color:var(--ink); text-align:center; }
+  .ref-final h2 { max-width:900px; margin:0 auto; font-size:48px; line-height:1.55; letter-spacing:0; text-wrap:balance; }
+  .ref-final p { margin-top:22px; color:var(--muted); font-size:13px; }
+  @keyframes sp-spin { to { transform:rotate(360deg); } }
+  @keyframes sp-blink { 0%,42%,46%,100% { transform:scaleY(1); } 44% { transform:scaleY(.08); } }
+  @keyframes sp-dot { 0%,80%,100% { transform:translateY(0) scale(.85); } 40% { transform:translateY(-8px) scale(1); } }
+  @keyframes sp-caret { 50% { opacity:0; } }
+  @keyframes scenario-countdown { to { --scenario-progress:360deg; } }
 
-  /* ===== OVERDRIVE: Breathing Glow ===== */
-  .plan-highlighted {
-    animation: breatheGlow 3s ease-in-out infinite;
-  }
+  @media (max-width: 800px) {
+    .shell { width:min(100% - 28px, 640px); }
+            .ref-hero { padding-top:56px; }
+    .ref-hero-copy h1 { font-size:42px; }
+    .ref-hero-sub { font-size:15.5px; }
+    .ref-stage { width:calc(100% - 20px); margin-top:42px; }
+    .ipad { aspect-ratio:auto; padding:10px; border-radius:22px; }
+    .ipad-cam { display:none; }
+    .ipad-screen { height:auto; border-radius:14px; }
+    .app { grid-template-columns:1fr; height:560px; }
+    .app-rail { display:none; }
+    .app-thread { padding:16px 14px; }
+    .msg-user { max-width:92%; }
+    .card-confirm { padding:15px; }
+    .cc-row { grid-template-columns:1fr; gap:1px; }
+    .cc-row b { text-align:left; }
+    .app-composer { margin:0 12px 12px; }
+    .ref-cta-row { flex-direction:column; }
+    .demo-toolbar { grid-template-columns:44px minmax(0,1fr) 18px; gap:8px; padding:22px 12px 70px; }
+    .ref-scenarios { overflow-x:auto; justify-content:flex-start; padding:0 4px; -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent); mask-image:linear-gradient(90deg,#000 88%,transparent); }
+    .ref-scenarios button { flex:none; }
+    .ref-before-after,.ref-trust,.ref-final { padding-block:78px; }
+    .ref-before-after h2 { font-size:42px; line-height:1.35; }
+    .ref-pair { margin-top:60px; }
+    .ref-pair h3 { font-size:27px; }
+    .ref-pair>div { grid-template-columns:1fr; }
+    .ref-before,.ref-after { min-height:300px; padding:22px; }
+    .ref-docform { grid-template-columns:64px 1fr; gap:10px; }
+    .ref-paper { aspect-ratio:auto; padding:12px; }
+    .ref-field { grid-template-columns:88px 1fr; }
+    .rt-h,.rt-r { grid-template-columns:1.1fr .9fr 1fr; gap:6px; font-size:11px; padding:6px 10px; }
+    .rt-h span:nth-child(4),.rt-r span:nth-child(4) { display:none; }
+    .ref-final h2 { font-size:40px; }
+    .ref-trust h2 { font-size:42px; }
+    .ref-trust-head>p { font-size:16px; }
+    .ref-trust-grid { grid-template-columns:1fr; margin-top:38px; }
+    .ref-trust-grid article { min-height:0; padding:28px 0; }
+    .ref-trust-grid article+article { border-left:0; border-top:1px solid #303033; }
+        }
 
-  @keyframes breatheGlow {
-    0%, 100% { box-shadow: 0 8px 40px rgba(255, 77, 139, 0.12); }
-    50% { box-shadow: 0 8px 60px rgba(255, 77, 139, 0.22), 0 0 80px rgba(255, 77, 139, 0.06); }
-  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
 
-  /* ===== OVERDRIVE: iPad Float ===== */
-  .ipad-float {
-    animation: ipadFloat 6s ease-in-out infinite;
-  }
-
-  @keyframes ipadFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-
-  /* ===== OVERDRIVE: Nav Scroll ===== */
-  .nav-solid {
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
-  }
-
-  /* ===== OVERDRIVE: Reduced Motion ===== */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-gradient,
-    .plan-highlighted,
-    .ipad-float {
-      animation: none !important;
-    }
-    .reveal {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-    .spring-hover,
-    .feature-card {
-      transition: none !important;
-    }
-    .spring-hover:hover,
-    .feature-card:hover {
-      transform: none !important;
-    }
-  }
+  .before-photo { width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; margin:20px 0; border-radius:4px; }
+  .ref-before,.ref-after { border-radius:8px; }
+  .ref-before { border:0; }
+  .ref-answer { border:0; border-radius:0; background:transparent; padding:16px 0; }
+  .app-thread { overflow:hidden; overscroll-behavior:auto; touch-action:pan-y; }
+  @media (max-width:480px) { .ref-hero-copy h1 { font-size:34px; } .ref-hero-copy h1 br { display:none; } .ref-before-after h2,.ref-trust h2,.ref-final h2 { font-size:32px; } .ref-pair h3 { font-size:24px; } .app { height:600px; } }
+  @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; } }
 </style>
-
-<!-- shared nav moved to Layout.astro -->
-
-<!-- ===== HERO ===== -->
-<section class="relative overflow-hidden">
-  <div class="hero-gradient" aria-hidden="true"></div>
-  <div
-    class="relative z-10 max-w-7xl mx-auto px-6 pt-14 pb-20 md:pt-28 md:pb-32"
-  >
-    <div class="grid md:grid-cols-12 gap-8 items-center">
-      <div class="md:col-span-7 order-2 md:order-1" data-parallax-content>
-        <div
-          class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm font-medium text-body mb-8"
-        >
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          สำหรับตัวแทนประกันภัยมืออาชีพ
-        </div>
-
-        <h1
-          class="text-[44px] md:text-[64px] font-bold leading-[1.3] tracking-tight mb-6"
-        >
-          รายได้ที่ดี
-          <br class="lg:hidden" />
-          <span class="text-brand-pink">มาจากแผนที่ดี</span>
-          <br class="lg:hidden" />
-          <br class="hidden lg:block" />
-          และ <span id="typingTarget" class="inline-block min-w-[2ch]"></span>
-        </h1>
-
-        <p class="text-lg md:text-xl text-body leading-relaxed mb-10 max-w-xl">
-          Solid Plan ช่วยคุณจัดการลูกค้า วางแผนงาน และติดตามผลงาน
-          เพื่อให้คุณโตอย่างเป็นระบบ ออกแบบมาเพื่อตัวแทนประกันมืออาชีพโดยเฉพาะ
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href={APP_SIGNUP}
-            class="bg-ink text-white text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2 no-underline hover:bg-ink/80 transition active:scale-95"
-          >
-            เริ่มต้นใช้งานฟรี
-            <i class="fa-solid fa-chevron-right text-sm"></i>
-          </a>
-          <a
-            href="#showcase"
-            class="bg-white/60 text-ink text-base font-semibold px-8 py-4 rounded-2xl flex items-center justify-center gap-2.5 no-underline hover:bg-white/80 transition"
-          >
-            <i class="fa-solid fa-play text-sm"></i>
-            รู้จักเราเพิ่มเติม
-          </a>
-        </div>
-
-        <p class="mt-4 text-sm text-muted">
-          <i class="fa-solid fa-lock text-brand-pink mr-2" aria-hidden="true"></i>
-          ข้อมูลของคุณถูกเข้ารหัสและจัดเก็บตามมาตรฐานสากล
-        </p>
-      </div>
-
-      <div class="hidden md:block md:col-span-5 order-2" data-parallax-image>
-        <img
-          src="/images/comic_w.png"
-          alt="ตัวแทนประกันมืออาชีพกับ Solid Plan"
-          class="w-full h-135 lg:h-140 object-cover object-top drop-shadow-lg lg:drop-shadow-none"
-          loading="eager"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURES ===== -->
-<section
-  id="features"
-  class="max-w-7xl mx-auto px-6 pb-28 md:pb-36 scroll-mt-20"
->
-  <div class="grid md:grid-cols-3 gap-6">
-    <!-- Customer Management -->
-    <div
-      class="bg-brand-pink text-white p-10 rounded-3xl flex flex-col justify-between min-h-105 reveal spring-hover feature-card"
-      data-reveal-delay="0"
-    >
-      <div>
-        <div
-          class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6"
-        >
-          <i class="fa-solid fa-users text-xl"></i>
-        </div>
-        <h3 class="text-2xl font-semibold mb-4 leading-tight">
-          จัดการลูกค้า (CRM)
-        </h3>
-        <p class="opacity-90 leading-relaxed">
-          เก็บข้อมูลลูกค้าอย่างเป็นระเบียบ
-          พร้อมระบบวิเคราะห์ความต้องการแบบละเอียด ช่วยให้ปิดการขายได้ง่ายขึ้น
-        </p>
-      </div>
-      <div class="mt-8 pt-8 border-t border-white/20">
-        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-70"
-          >Customer Insights</span
-        >
-      </div>
-    </div>
-
-    <!-- Smart Planning -->
-    <div
-      class="bg-brand-teal text-white p-10 rounded-3xl flex flex-col justify-between min-h-105 reveal spring-hover feature-card"
-      data-reveal-delay="100"
-    >
-      <div>
-        <div
-          class="bg-white/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6"
-        >
-          <i class="fa-solid fa-calendar-days text-xl"></i>
-        </div>
-        <h3 class="text-2xl font-semibold mb-4 leading-tight">
-          วางแผนงานแม่นยำ
-        </h3>
-        <p class="opacity-80 leading-relaxed">
-          จัดตารางนัดหมายและติดตามผลงานในหน้าเดียว เห็นเป้าหมาย FYP/FYC
-          ชัดเจนในทุกสัปดาห์
-        </p>
-      </div>
-      <div class="mt-8 pt-8 border-t border-white/10">
-        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-60"
-          >Planning & Results</span
-        >
-      </div>
-    </div>
-
-    <!-- Team Management -->
-    <div
-      class="bg-brand-lavender text-ink p-10 rounded-3xl flex flex-col justify-between min-h-105 reveal spring-hover feature-card"
-      data-reveal-delay="200"
-    >
-      <div>
-        <div
-          class="bg-white/40 w-12 h-12 rounded-xl flex items-center justify-center mb-6"
-        >
-          <i class="fa-solid fa-chart-simple text-xl"></i>
-        </div>
-        <h3 class="text-2xl font-semibold mb-4 leading-tight">
-          บริหารทีมอย่างโปร
-        </h3>
-        <p class="opacity-80 leading-relaxed">
-          เชื่อมต่อกับลูกทีม ติดตามความคืบหน้า
-          และแชร์ข้อมูลกันได้อย่างปลอดภัยในระบบเดียว
-        </p>
-      </div>
-      <div class="mt-8 pt-8 border-t border-black/10">
-        <span class="text-xs font-bold tracking-[0.15em] uppercase opacity-50"
-          >Team Management</span
-        >
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TRUST SECTION ===== -->
-<section
-  id="trust"
-  class="max-w-7xl mx-auto px-6 pb-28 md:pb-36 scroll-mt-20"
->
-  <div class="reveal rounded-[36px] bg-surface-soft border border-hairline/60 p-8 md:p-12">
-    <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
-      <div class="md:col-span-8">
-        <p class="text-xs font-bold tracking-[0.15em] uppercase text-muted-soft mb-4">
-          TRUST CENTER
-        </p>
-        <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
-          ลูกค้าของคุณ คือทรัพย์สินของคุณ
-        </h2>
-        <p class="text-lg text-body leading-relaxed mb-6">
-          Solid Plan ถูกสร้างขึ้นบนแนวคิดที่ว่า
-          “ความสัมพันธ์ระหว่างคุณกับลูกค้า คือสิ่งสำคัญที่สุด”
-
-          เราจึงให้ความสำคัญกับความปลอดภัยของข้อมูลในระดับเดียวกับสถาบันการเงิน
-          และองค์กรระดับโลก เพื่อให้คุณสามารถดูแลลูกค้าได้อย่างมั่นใจในทุกขั้นตอน
-        </p>
-        <a
-          href="/security-privacy"
-          class="inline-flex items-center gap-2 text-brand-pink font-semibold no-underline hover:underline"
-        >
-          ดูมาตรฐานความปลอดภัยและความเป็นส่วนตัว
-          <i class="fa-solid fa-arrow-right text-xs"></i>
-        </a>
-      </div>
-
-      <div class="md:col-span-4">
-        <div class="bg-white rounded-3xl py-10 px-8 border border-hairline/60 flex flex-col items-center justify-center text-center">
-          <div class="flex items-center justify-center gap-6 mb-6">
-            <img src="/images/aicpa.svg" alt="SOC 2 Type II compliant" class="h-9 opacity-60 hover:opacity-100 transition-opacity" />
-            <img src="/images/hippa.svg" alt="HIPAA compliant" class="h-9 opacity-60 hover:opacity-100 transition-opacity" />
-          </div>
-          <p class="text-sm text-muted leading-relaxed max-w-60">
-            ปกป้องความลับของลูกค้าคุณ
-            ด้วยมาตรฐานที่โลกยอมรับ
-            เพื่อให้คุณสร้างความสัมพันธ์ได้อย่างสบายใจ
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRICING ===== -->
-<section
-  id="pricing"
-  class="max-w-7xl mx-auto px-6 py-28 border-t border-black/5 scroll-mt-20"
->
-  <!-- Headline -->
-  <div class="text-center mb-6 reveal">
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
-      เริ่มใช้ฟรีก่อน ค่อยเลือกแผนทีหลัง
-    </h2>
-    <p class="text-lg text-muted max-w-2xl mx-auto">
-      สมัครใช้งานฟรีได้ทันที ไม่ต้องจ่ายเงินก่อน เมื่อพร้อมค่อยเลือกแพ็กเกจที่ใช่
-    </p>
-  </div>
-
-  <!-- Trust pills -->
-  <div class="flex flex-wrap justify-center gap-3 mb-16 reveal" data-reveal-delay="100">
-    <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
-      <i class="fa-solid fa-rocket text-brand-pink"></i>
-      <span>สมัครฟรี ไม่ต้องใช้บัตรเครดิต</span>
-    </div>
-    <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
-      <i class="fa-solid fa-mobile-screen text-brand-pink"></i>
-      <span>เติมเงินรายวัน เหมือนมือถือ</span>
-    </div>
-    <div class="inline-flex items-center gap-2 bg-surface-card px-4 py-2 rounded-full text-sm text-body">
-      <i class="fa-solid fa-arrow-right-arrow-left text-brand-pink"></i>
-      <span>เปลี่ยนแผนได้ทุกวัน</span>
-    </div>
-  </div>
-
-  <!-- Pricing Cards -->
-  <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
-    {
-      PLANS.map((plan, i) => (
-        <div
-          class={`reveal spring-hover relative bg-white rounded-3xl p-8 flex flex-col border-2 transition-all duration-300 ${
-            plan.highlighted
-              ? "plan-highlighted border-brand-pink shadow-[0_8px_40px_rgba(255,77,139,0.12)] md:-mt-4 md:mb-4"
-              : "border-transparent shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:border-hairline"
-          }`}
-          data-reveal-delay={String(i * 100)}
-        >
-          {plan.badge && (
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-pink text-white text-xs font-bold tracking-wide uppercase px-4 py-1.5 rounded-full">
-              {plan.badge}
-            </div>
-          )}
-
-          <h3 class="text-xl font-bold text-ink mb-1">{plan.name}</h3>
-          <p class="text-sm text-muted mb-6">{plan.description}</p>
-
-          <!-- Price -->
-          <div class="mb-2">
-            <div class="flex items-baseline gap-1">
-              <span class="text-5xl md:text-6xl font-bold text-ink tracking-tight">฿{plan.price}</span>
-              <span class="text-lg text-muted">{plan.period}</span>
-            </div>
-            <p class="text-sm text-muted-soft mt-1">
-              {plan.priceDaily !== "0" ? `หักเงินรายวัน ฿${plan.priceDaily}/วัน` : "ใช้งานฟรีไม่จำกัดเวลา"}
-            </p>
-          </div>
-
-          <!-- Customer limit -->
-          <div class="py-4 mb-6 border-t border-b border-hairline">
-            <div class="flex items-center gap-2 text-body font-medium">
-              <i class="fa-solid fa-users text-brand-pink text-sm"></i>
-              <span>{plan.customerLimit}</span>
-            </div>
-          </div>
-
-          <!-- Features -->
-          <ul class="space-y-3 flex-1 mb-8">
-            {COMMON_FEATURES.map((feature) => (
-              <li class="flex items-start gap-3 text-sm text-body">
-                <i class="fa-solid fa-check text-brand-pink text-xs mt-0.5 shrink-0" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          <!-- CTA -->
-          <a
-            href={APP_SIGNUP}
-            class={`py-3.5 px-6 rounded-xl font-semibold text-center no-underline transition active:scale-95 ${
-              plan.highlighted
-                ? "bg-brand-pink text-white hover:bg-brand-pink/90"
-                : "bg-ink text-white hover:bg-ink/80"
-            }`}
-          >
-            สมัครใช้งานฟรี
-          </a>
-          <p class="mt-3 text-xs text-muted text-center leading-relaxed">
-            เรามีข้อผูกพันชัดเจนว่าจะไม่ขาย ไม่แบ่งปัน และไม่ใช้ข้อมูลลูกค้าเพื่อประโยชน์ทางการค้า
-            โดยเด็ดขาด
-          </p>
-        </div>
-      ))
-    }
-  </div>
-
-  <!-- Enterprise CTA -->
-  <div class="text-center mt-12 reveal">
-    <p class="text-muted">
-      จัดการลูกค้ามากกว่า 3,000 ราย?{" "}
-      <a href="#" class="text-brand-pink font-semibold no-underline hover:underline">
-        ติดต่อทีมงานของเรา
-      </a>
-    </p>
-  </div>
-</section>
-
-<!-- ===== SHOWCASE ===== -->
-<section id="showcase" class="bg-surface-strong py-28 px-6 scroll-mt-20">
-  <div class="max-w-5xl mx-auto text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-      Solid Plan บน iPad
-    </h2>
-    <p class="text-lg text-muted max-w-2xl mx-auto">
-      ประสบการณ์การใช้งานที่ออกแบบมาเพื่อการออกไปพบลูกค้า พกพาสะดวก
-      ข้อมูลครบครันในมือคุณ
-    </p>
-  </div>
-  <div class="max-w-4xl mx-auto">
-    <div
-      class="ipad-float bg-[#1a1a1a] rounded-3xl p-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-    >
-      <div class="rounded-2xl overflow-hidden">
-        <img
-          src="/images/dashboard_customer_ipad.png"
-          alt="Solid Plan บน iPad"
-          class="w-full h-auto block"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA BAND ===== -->
-<!-- ===== TESTIMONIALS ===== -->
-<section id="testimonials" class="max-w-7xl mx-auto px-6 py-20 scroll-mt-20">
-  <div class="text-center mb-8">
-    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-2">เสียงจากผู้ใช้จริง</h2>
-    <p class="text-lg text-muted max-w-2xl mx-auto">เรื่องราวความสำเร็จจากตัวแทนที่ใช้ Solid Plan</p>
-  </div>
-
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="bg-white rounded-3xl p-6 shadow-sm reveal">
-      <img src="/images/testimonials/ice.png" alt="ไอซ์ ชัญญ์ธนัน ว." class="w-16 h-16 rounded-full mb-4 mx-auto" />
-      <p class="text-body mb-4">“ตั้งแต่ใช้ Solidplan.ai ได้เห็นภาพการทำงานของส่วนตัวและของทีม ยอดขายชัด วางแผนได้ดีขึ้นมาก การติดตามลูกค้าเป็นระบบ ดูมืออาชีพค่ะ”</p>
-      <div class="mt-4 text-center">
-        <div class="font-bold">ไอซ์ ชัญญ์ธนัน ว.</div>
-        <div class="text-xs text-muted">ตัวแทนเอไอเอ</div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl p-6 shadow-sm reveal" data-reveal-delay="80">
-      <img src="/images/testimonials/skip.png" alt="สกิป สุภาวดี ช." class="w-16 h-16 rounded-full mb-4 mx-auto" />
-      <p class="text-body mb-4">“เมื่อก่อนหลุด Follow-up บ่อยมาก แต่พอใช้ Solidplan.ai งานทุกอย่างเป็นระบบขึ้นทันที ทั้งดูทีม ดูยอด และปิดการขายได้ง่ายขึ้นกว่าเดิมมาก”</p>
-      <div class="mt-4 text-center">
-        <div class="font-bold">สกิป สุภาวดี ช.</div>
-        <div class="text-xs text-muted">ตัวแทนเอไอเอ</div>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-3xl p-6 shadow-sm reveal" data-reveal-delay="160">
-      <img src="/images/testimonials/noi.png" alt="หน่อย ศศิวิมล ค." class="w-16 h-16 rounded-full mb-4 mx-auto" />
-      <p class="text-body mb-4">“Solidplan.ai ทำให้บริหารตัวเองได้ในที่เดียว พอมีระบบที่ดี ชีวิตทำงานง่ายขึ้น”</p>
-      <div class="mt-4 text-center">
-        <div class="font-bold">หน่อย ศศิวิมล ค.</div>
-        <div class="text-xs text-muted">ตัวแทนเอไอเอ</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="signup" class="max-w-7xl mx-auto px-6 py-28 scroll-mt-20">
-  <div
-    class="reveal bg-surface-soft rounded-[40px] py-12 px-8 md:py-24 md:px-16 text-center relative overflow-hidden"
-  >
-    <h2
-      class="text-4xl md:text-[56px] font-semibold mb-8 tracking-tight leading-tight"
-    >
-      สร้างระบบความสำเร็จ
-      <br />
-      <em class="not-italic text-brand-pink">ให้ธุรกิจประกันของคุณวันนี้</em>
-    </h2>
-    <a
-      href={APP_SIGNUP}
-      class="bg-ink text-white text-lg font-bold px-10 py-5 rounded-2xl inline-block no-underline hover:scale-105 transition active:scale-95"
-    >
-      สมัครใช้งาน Solid Plan ฟรี
-    </a>
-    <p class="mt-4 text-sm text-muted">
-      ข้อมูลของคุณถูกเข้ารหัสและจัดเก็บตามมาตรฐานสากล
-      <i class="fa-solid fa-shield-halved text-brand-pink ml-1" aria-hidden="true"></i>
-    </p>
-    <p class="mt-2 text-sm text-muted">
-      เรามีข้อผูกพันชัดเจนว่าจะไม่ขาย ไม่แบ่งปัน และไม่ใช้ข้อมูลลูกค้าเพื่อประโยชน์ทางการค้า
-      โดยเด็ดขาด
-    </p>
-    <p class="mt-6 text-muted italic">"รายได้ที่ดี มาจากวินัย และการวางแผน"</p>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="bg-surface-soft py-20 px-6 border-t border-hairline/50">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-4 gap-12 mb-20">
-      <div>
-        <div class="flex items-center gap-2 mb-6">
-          <img
-            src="/favicon/web-app-manifest-512x512.png"
-            alt="Solid Plan"
-            width="24"
-            height="24"
-            class="rounded-md"
-          />
-          <span class="text-lg font-bold tracking-tight">Solid Plan</span>
-        </div>
-        <p class="text-sm text-muted leading-relaxed">
-          เครื่องมือจัดการงานขายและทีมงาน
-          <br />สำหรับตัวแทนประกันยุคใหม่
-        </p>
-      </div>
-      <div>
-        <h5
-          class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4"
-        >
-          สินค้า
-        </h5>
-        <ul class="space-y-3 text-sm font-medium list-none p-0 m-0">
-          <li>
-            <a
-              href="#features"
-              class="text-ink no-underline hover:opacity-70 transition"
-              >ฟีเจอร์</a
-            >
-          </li>
-          <li>
-            <a
-              href="#pricing"
-              class="text-ink no-underline hover:opacity-70 transition">ราคา</a
-            >
-          </li>
-          <li>
-            <a
-              href="#showcase"
-              class="text-ink no-underline hover:opacity-70 transition"
-              >iPad App</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h5
-          class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4"
-        >
-          บริษัท
-        </h5>
-        <ul class="space-y-3 text-sm font-medium list-none p-0 m-0">
-          <li>
-            <a
-              href="#"
-              class="text-ink no-underline hover:opacity-70 transition"
-              >เกี่ยวกับเรา</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="text-ink no-underline hover:opacity-70 transition"
-              >ร่วมงานกับเรา</a
-            >
-          </li>
-          <li>
-            <a
-              href="/security-privacy"
-              class="text-ink no-underline hover:opacity-70 transition"
-              >Security & Privacy</a
-            >
-          </li>
-          <li><a href="/terms-of-service" class="text-ink no-underline hover:opacity-70 transition">Terms of Service</a></li>
-          <li><a href="/privacy-policy" class="text-ink no-underline hover:opacity-70 transition">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5
-          class="font-bold text-xs tracking-[0.15em] uppercase text-muted-soft mb-4"
-        >
-          ช่วยเหลือ
-        </h5>
-        <ul class="space-y-3 text-sm font-medium list-none p-0 m-0">
-          <li>
-            <a
-              href="https://docs.solidplan.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-ink no-underline hover:opacity-70 transition inline-flex items-center gap-1"
-              >คู่มือการใช้งาน <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://line.me/R/ti/p/@675lurmh"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-ink no-underline hover:opacity-70 transition"
-              >ติดต่อเราฝาน Line</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div
-      class="pt-8 border-t border-black/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-soft font-medium"
-    >
-      <p>&copy; 2024 Solid Plan. รายได้ที่ดี มาจากระบบ.</p>
-      <div class="flex gap-6">
-        <a href="https://www.facebook.com/solidplanai" target="_blank" rel="noopener noreferrer" class="no-underline hover:opacity-70 transition">Facebook</a
-        >
-        <a href="https://line.me/R/ti/p/@675lurmh" target="_blank" rel="noopener noreferrer" class="no-underline hover:opacity-70 transition">Line OA</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- ===== SCRIPTS ===== -->
-<script>
-  // ===== MOBILE MENU =====
-  const toggle = document.getElementById("menuToggle");
-  const menu = document.getElementById("mobileMenu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-      menu.classList.toggle("flex");
-    });
-    menu.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => {
-        menu.classList.add("hidden");
-        menu.classList.remove("flex");
-      }),
-    );
-  }
-
-  // ===== HERO TYPING ANIMATION =====
-  (() => {
-    const words = ["โชคช่วย", "มีวินัย", "คบเพื่อนดีๆ", "นอนหลับ", "ออกกำลัง"];
-    const el = document.getElementById("typingTarget");
-    if (!el) return;
-    const t = el;
-    let wordIdx = 0;
-    let charIdx = 0;
-    let deleting = false;
-
-    function tick() {
-      const word = words[wordIdx];
-      if (!deleting) {
-        charIdx++;
-        t.textContent = word.slice(0, charIdx);
-        if (charIdx === word.length) {
-          deleting = true;
-          setTimeout(tick, 2000);
-          return;
-        }
-        setTimeout(tick, 70);
-      } else {
-        charIdx--;
-        t.textContent = word.slice(0, charIdx);
-        if (charIdx === 0) {
-          deleting = false;
-          wordIdx = (wordIdx + 1) % words.length;
-          setTimeout(tick, 400);
-          return;
-        }
-        setTimeout(tick, 40);
-      }
-    }
-
-    tick();
-  })();
-
-  // ===== OVERDRIVE: Scroll Reveal =====
-  (() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) return;
-
-    const reveals = document.querySelectorAll(".reveal");
-    if (!reveals.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const delay = (entry.target as HTMLElement).dataset.revealDelay || 0;
-            setTimeout(
-              () => entry.target.classList.add("revealed"),
-              Number(delay),
-            );
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
-    );
-
-    reveals.forEach((el) => observer.observe(el));
-  })();
-
-  // ===== OVERDRIVE: Nav Scroll =====
-  (() => {
-    const nav = document.querySelector("[data-nav]");
-    if (!nav) return;
-
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          nav.classList.toggle("nav-solid", window.scrollY > 50);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-  })();
-
-  // ===== OVERDRIVE: Hero Parallax =====
-  (() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) return;
-
-    const content = document.querySelector("[data-parallax-content]") as HTMLElement | null;
-    const image = document.querySelector("[data-parallax-image]") as HTMLElement | null;
-    if (!content && !image) return;
-
-    const anchor = content ?? image;
-    if (!anchor) return;
-    const heroSection = anchor.closest("section");
-    if (!heroSection) return;
-
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const heroHeight = heroSection.offsetHeight;
-          if (scrollY < heroHeight) {
-            if (content)
-              content.style.transform = `translateY(${scrollY * 0.08}px)`;
-            if (image)
-              image.style.transform = `translateY(${scrollY * 0.15}px)`;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-  })();
-</script>
