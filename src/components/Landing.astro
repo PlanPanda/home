@@ -40,13 +40,31 @@ import Line from './icons/Line.astro';
                     <b>ผู้ช่วย AI</b>
                     <svg class="head-plus" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
                   </header>
-                  <div class="app-thread" data-thread role="log" aria-live="polite" aria-label="ตัวอย่างบทสนทนาและข้อมูลที่รอยืนยัน ซึ่งเล่นอัตโนมัติ"></div>
-                  <div class="app-composer" aria-hidden="true">
-                    <div class="composer-row">
-                      <span class="composer-add"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></span>
-                      <span class="composer-file" data-composer-file hidden></span>
-                      <span class="composer-ph" data-composer-text>ถามผู้ช่วย AI…</span>
-                      <span class="composer-send"><svg viewBox="0 0 24 24"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></span>
+                  <div class="app-body" data-app-body>
+                    <div class="app-thread" data-thread role="log" aria-live="polite" aria-label="ตัวอย่างบทสนทนาและข้อมูลที่รอยืนยัน ซึ่งเล่นอัตโนมัติ"></div>
+                    <div class="app-dock" data-dock>
+                      <div class="welcome-wrap">
+                        <div class="app-welcome">
+                          <svg class="sp-avatar welcome-avatar" viewBox="0 0 160 160" aria-hidden="true"><g class="character"><rect class="body" x="28" y="28" width="104" height="104" rx="28"></rect><g class="face"><g class="normal"><rect class="eye" x="59" y="65" width="9" height="22" rx="4.5"></rect><rect class="eye" x="92" y="65" width="9" height="22" rx="4.5"></rect></g><g class="happy"><path d="M56 81 Q64 65 72 81 M88 81 Q96 65 104 81"></path></g></g></g><g class="dots"><circle cx="48" cy="80" r="8"></circle><circle cx="80" cy="80" r="8"></circle><circle cx="112" cy="80" r="8"></circle></g></svg>
+                          <b>มีอะไรให้ช่วยไหม?</b>
+                          <span>ถามข้อมูลลูกค้า งานกรมธรรม์ หรือให้ช่วยบันทึกได้เลย</span>
+                        </div>
+                      </div>
+                      <div class="app-composer" aria-hidden="true">
+                        <div class="composer-row">
+                          <span class="composer-add"><svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></span>
+                          <span class="composer-file" data-composer-file hidden></span>
+                          <span class="composer-ph" data-composer-text>ถามผู้ช่วย AI…</span>
+                          <span class="composer-send"><svg viewBox="0 0 24 24"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></span>
+                        </div>
+                      </div>
+                      <div class="chips-wrap">
+                        <div class="composer-chips">
+                          <button type="button" data-chip="upload">เพิ่มกรมธรรม์จากไฟล์แนบ</button>
+                          <button type="button" data-chip="summary">สรุปข้อมูลลูกค้าก่อนเข้าพบ</button>
+                          <button type="button" data-chip="follow">ลูกค้าที่ยังไม่ได้ติดตามมีใครบ้าง</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -245,6 +263,38 @@ import Line from './icons/Line.astro';
           if (composerFile) composerFile.hidden = true;
         };
 
+        const appBody = document.querySelector("[data-app-body]");
+        const dockEl = document.querySelector("[data-dock]");
+        const composerBox = dockEl ? dockEl.querySelector(".app-composer") : null;
+        let chatting = false;
+        let dockTimer = 0;
+        // Apple-Messages-style dock move: the composer starts centered over the
+        // welcome hero, then glides down to the bottom dock once a message is
+        // sent and the conversation takes over from the top
+        const setChat = (toChat) => new Promise((resolve) => {
+          if (!appBody || !dockEl || !composerBox) {
+            appBody?.classList.toggle("chatting", toChat);
+            chatting = toChat;
+            resolve();
+            return;
+          }
+          // drop any leftover glide so measurements are layout-accurate
+          window.clearTimeout(dockTimer);
+          dockEl.style.transition = "none";
+          dockEl.style.transform = "";
+          void dockEl.offsetHeight;
+          const from = composerBox.getBoundingClientRect().top;
+          appBody.classList.toggle("chatting", toChat);
+          chatting = toChat;
+          const dy = from - composerBox.getBoundingClientRect().top;
+          if (reduce || !dy) { resolve(); return; }
+          dockEl.style.transform = `translateY(${dy}px)`;
+          void dockEl.offsetHeight;
+          dockEl.style.transition = "transform .62s cubic-bezier(.3,1.08,.34,1)";
+          dockEl.style.transform = "translateY(0)";
+          dockTimer = window.setTimeout(() => { dockEl.style.transition = ""; dockEl.style.transform = ""; resolve(); }, 660);
+        });
+
         async function playScenario(key) {
           demoObserver?.disconnect();
           activeKey = key;
@@ -255,6 +305,9 @@ import Line from './icons/Line.astro';
           syncScenarioButtons(key);
           cThread.innerHTML = "";
           resetComposer();
+          await setChat(false);
+          if (id !== runId) return;
+          await sleep(reduce ? 0 : 500); if (id !== runId) return;
 
           // the question is typed in the composer at the bottom, like a real chat
           if (composerText) {
@@ -267,7 +320,10 @@ import Line from './icons/Line.astro';
             resetComposer();
           }
 
-          // sent: the bubble appears above the composer with the full text
+          // sent: the bubble appears at the top of the thread while the
+          // composer glides down to dock at the bottom
+          await setChat(true);
+          if (id !== runId) return;
           const user = el("div", "msg-user");
           if (sc.file) { const f = el("span", "msg-file"); f.innerHTML = ICONS.file + sc.file; user.appendChild(f); }
           const text = el("span");
@@ -367,6 +423,10 @@ import Line from './icons/Line.astro';
           autoplay = false; updateToggle();
           playScenario(button.getAttribute("data-ref-scenario"));
         }));
+        document.querySelectorAll("[data-chip]").forEach((button) => button.addEventListener("click", () => {
+          autoplay = false; window.clearTimeout(cycleTimer); updateToggle();
+          playScenario(button.getAttribute("data-chip"));
+        }));
 
         const ipad = document.querySelector(".ipad");
         if (reduce || !("IntersectionObserver" in window) || !ipad) {
@@ -407,8 +467,24 @@ import Line from './icons/Line.astro';
   .app-head { display:flex; align-items:center; gap:9px; padding:13px 20px; border-bottom:1px solid var(--ref-edge); }
   .app-head svg { width:18px; height:18px; fill:none; stroke:#9da6ad; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
   .app-head b { flex:1; font-size:15px; font-weight:600; }
-  .app-thread { flex:1; min-height:0; overflow:hidden; display:flex; flex-direction:column; gap:12px; padding:20px max(24px, calc((100% - 720px) / 2)); }
-  .app-composer { margin:0 20px 16px; border:1px solid #e3e5ea; border-radius:18px; background:#fafafa; padding:8px 8px 5px; }
+  .app-body { flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; }
+  .app-body.chatting { justify-content:flex-start; }
+  .app-thread { flex:1 1 0; min-height:0; overflow:hidden; display:flex; flex-direction:column; gap:12px; padding:12px max(24px, calc((100% - 720px) / 2)) 14px; }
+  .app-body:not(.chatting) .app-thread { flex:0 0 0; padding:0; }
+  .app-dock { flex:none; display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; padding:0 24px 12px; will-change:transform; }
+  .welcome-wrap, .chips-wrap { display:grid; grid-template-rows:1fr; width:min(640px,100%); }
+  .app-body.chatting .welcome-wrap, .app-body.chatting .chips-wrap { grid-template-rows:0fr; }
+  .app-welcome { min-height:0; overflow:hidden; display:flex; flex-direction:column; align-items:center; gap:3px; text-align:center; opacity:1; transition:opacity .26s ease, visibility 0s; }
+  .app-body.chatting .app-welcome { opacity:0; pointer-events:none; }
+  .welcome-avatar { width:62px; height:62px; }
+  .app-welcome b { margin-top:10px; font-size:25px; font-weight:700; letter-spacing:0; }
+  .app-welcome span { color:#8e8e93; font-size:13.5px; }
+  .app-composer { width:min(640px,100%); border:1px solid #e3e5ea; border-radius:18px; background:#fafafa; padding:8px 8px 5px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  .chips-wrap { min-width:0; }
+  .composer-chips { min-height:0; overflow:hidden; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; opacity:1; transition:opacity .26s ease, visibility 0s; }
+  .app-body.chatting .composer-chips { opacity:0; pointer-events:none; }
+  .composer-chips button { min-height:32px; padding:0 14px; border:1px solid #e3e5ea; border-radius:999px; background:#fff; color:#3a3a3c; font-family:inherit; font-size:12.5px; cursor:pointer; transition:background .2s, border-color .2s; }
+  .composer-chips button:hover { background:var(--ref-soft); }
   .composer-row { display:flex; align-items:center; gap:10px; padding:2px 4px; }
   .composer-add { display:grid; place-items:center; width:30px; height:30px; border:1px solid #d9dbe0; border-radius:50%; background:#fff; }
   .composer-add svg { width:15px; height:15px; fill:none; stroke:#6e6e73; stroke-width:2; stroke-linecap:round; }
@@ -602,12 +678,15 @@ import Line from './icons/Line.astro';
     .ipad-screen { height:auto; border-radius:14px; }
     .app { grid-template-columns:1fr; height:560px; }
     .app-rail { display:none; }
-    .app-thread { padding:16px 14px; }
+    .app-thread { padding:14px; }
     .msg-user { max-width:92%; }
     .card-confirm { padding:15px; }
     .cc-row { grid-template-columns:1fr; gap:1px; }
     .cc-row b { text-align:left; }
-    .app-composer { margin:0 12px 12px; }
+    .app-dock { padding:0 14px 10px; }
+    .welcome-avatar { width:52px; height:52px; }
+    .app-welcome b { font-size:21px; }
+    .app-welcome span { font-size:12.5px; }
     .ref-cta-row { flex-direction:column; }
     .demo-toolbar { grid-template-columns:44px minmax(0,1fr) 18px; gap:8px; padding:22px 12px 70px; }
     .ref-scenarios { overflow-x:auto; justify-content:flex-start; padding:0 4px; -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent); mask-image:linear-gradient(90deg,#000 88%,transparent); }
