@@ -335,3 +335,89 @@
     color: var(--ss-success);
   }
 }
+
+/* A written answer, as the app writes them: a line, a list with the values bold, sources */
+.sp {
+  .sp-answer {
+    display: grid;
+    gap: 8px;
+    font-family: var(--ss-font);
+  }
+
+  .sp-p {
+    color: var(--ss-text-strong);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .sp-list {
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    padding-left: 22px;
+    color: var(--ss-text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .sp-list li {
+    opacity: 0;
+    translate: 0 4px;
+    will-change: transform;
+    transition: opacity 0.3s ease, translate 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sp-list li[data-on] {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .sp-list b {
+    margin-left: 4px;
+    color: var(--ss-text-strong);
+    font-weight: 600;
+  }
+
+  .sp-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 2px;
+    opacity: 0;
+    translate: 0 4px;
+    will-change: transform;
+    transition: opacity 0.35s ease, translate 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sp-sources[data-on] {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .sp-source {
+    padding: 3px 10px;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px var(--ss-line);
+    color: var(--ss-text);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  /* A change under review: the old value struck through, the new one in the accent */
+  .sp-row__old {
+    color: var(--ss-text);
+    font-weight: 400;
+    text-decoration: line-through;
+    text-decoration-color: rgb(0 0 0 / 0.35);
+  }
+
+  .sp-row__new {
+    justify-self: start;
+    margin-left: -6px;
+    padding: 1px 6px;
+    border-radius: 6px;
+    background: var(--ss-accent-soft);
+    color: var(--ss-accent-text);
+    font-weight: 600;
+  }
+}

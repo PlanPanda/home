@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import ExternalLink from '../components/icons/ExternalLink.astro';
 import Line from '../components/icons/Line.astro';
-import PdfPolicyDemo from '../components/pdf-policy/PdfPolicyDemo';
+import PdfPolicyDemo from '../components/ai-demo/PdfPolicyDemo';
+import MeetingPrepDemo from '../components/ai-demo/MeetingPrepDemo';
+import EditConfirmDemo from '../components/ai-demo/EditConfirmDemo';
 const lineUrl = "https://line.me/R/ti/p/@675lurmh";
 const signupUrl = "https://app.solidplan.ai/signup";
 const docs = (path: string) => `https://docs.solidplan.ai${path}`;
@@ -68,11 +70,11 @@ const slides = [
   </div>
 </div></section>
 
-<section class="content-band"><div class="shell split"><div><h2>จาก PDF สู่ข้อมูลกรมธรรม์</h2><p>แนบกรมธรรม์ให้ผู้ช่วย AI อ่าน เตรียมข้อมูลให้ตรวจ แล้วคุณจึงกดยืนยันสร้างรายการ</p><ul class="feature-list"><li>ตรวจแบบประกัน ทุนประกัน และเบี้ยประกัน</li><li>ตรวจวันสำคัญและสัญญาเพิ่มเติม</li><li>แยกข้อมูลที่อ่านได้ ช่องที่ไม่พบ และค่าเริ่มต้นของระบบ</li></ul></div><div class="pdf-demo"><PdfPolicyDemo client:visible /></div></div></section>
+<section class="content-band"><div class="shell split"><div><h2>จาก PDF สู่ข้อมูลกรมธรรม์</h2><p>แนบกรมธรรม์ให้ผู้ช่วย AI อ่าน เตรียมข้อมูลให้ตรวจ แล้วคุณจึงกดยืนยันสร้างรายการ</p><ul class="feature-list"><li>ตรวจแบบประกัน ทุนประกัน และเบี้ยประกัน</li><li>ตรวจวันสำคัญและสัญญาเพิ่มเติม</li><li>แยกข้อมูลที่อ่านได้ ช่องที่ไม่พบ และค่าเริ่มต้นของระบบ</li></ul></div><div class="ai-demo"><PdfPolicyDemo client:load /></div></div></section>
 
-<section class="content-band soft"><div class="shell split rev"><div><h2>ถามข้อมูลก่อนเข้าพบลูกค้า</h2><p>ให้ AI ค้นและสรุปข้อมูลลูกค้า กรมธรรม์ และประวัติการติดต่อจากข้อมูลที่คุณมีในระบบ</p><p>ตรวจทานข้อมูลกับรายการลูกค้าก่อนนำไปใช้ โดยเฉพาะความคุ้มครองและตัวเลขทางการเงิน</p></div><div class="product-example"><div class="example-header"><b>ผู้ช่วย AI</b></div><div class="example-body"><p class="example-question">สรุปคุณกานต์ให้หน่อย บ่ายนี้จะเข้าพบ</p><strong>คุณกานต์ พูนสุข · 2 กรมธรรม์</strong><dl><div><dt>ตลอดชีพ</dt><dd>เบี้ย 24,000 บาท / ปี</dd></div><div><dt>สุขภาพ</dt><dd>เบี้ย 18,500 บาท / ปี</dd></div><div><dt>คุยล่าสุด</dt><dd>สนใจเพิ่มความคุ้มครองโรคร้ายแรง</dd></div></dl></div></div></div></section>
+<section class="content-band soft"><div class="shell split rev"><div><h2>ถามข้อมูลก่อนเข้าพบลูกค้า</h2><p>ให้ AI ค้นและสรุปข้อมูลลูกค้า กรมธรรม์ และประวัติการติดต่อจากข้อมูลที่คุณมีในระบบ</p><p>ตรวจทานข้อมูลกับรายการลูกค้าก่อนนำไปใช้ โดยเฉพาะความคุ้มครองและตัวเลขทางการเงิน</p></div><div class="ai-demo"><MeetingPrepDemo client:load /></div></div></section>
 
-<section class="content-band"><div class="shell split"><div><h2>เพิ่ม แก้ไข และลบ<br />โดยคุณเป็นคนยืนยัน</h2><p>สั่งงานด้วยภาษาที่ใช้คุยกัน ผู้ช่วย AI เตรียมการเปลี่ยนแปลงให้ตรวจ ก่อนคุณกดยืนยันทุกครั้ง</p><ul class="feature-list"><li>เพิ่มข้อมูลลูกค้าและกรมธรรม์</li><li>แก้ไขข้อมูลที่ต้องอัปเดต</li><li>ตรวจรายการก่อนยืนยันการลบ</li></ul></div><div class="product-example"><div class="example-header"><b>ตรวจการเปลี่ยนแปลง</b></div><div class="example-body"><p class="example-question">แก้เบอร์โทรของคุณกานต์เป็นเบอร์ใหม่</p><dl><div><dt>รายการ</dt><dd>คุณกานต์ พูนสุข</dd></div><div><dt>ข้อมูลที่เปลี่ยน</dt><dd>เบอร์โทรศัพท์</dd></div><div><dt>ค่าใหม่</dt><dd>เบอร์ที่คุณระบุ</dd></div></dl><div class="example-status">รอผู้ใช้ยืนยันการแก้ไข</div></div></div></div></section>
+<section class="content-band"><div class="shell split"><div><h2>เพิ่ม แก้ไข และลบ<br />โดยคุณเป็นคนยืนยัน</h2><p>สั่งงานด้วยภาษาที่ใช้คุยกัน ผู้ช่วย AI เตรียมการเปลี่ยนแปลงให้ตรวจ ก่อนคุณกดยืนยันทุกครั้ง</p><ul class="feature-list"><li>เพิ่มข้อมูลลูกค้าและกรมธรรม์</li><li>แก้ไขข้อมูลที่ต้องอัปเดต</li><li>ตรวจรายการก่อนยืนยันการลบ</li></ul></div><div class="ai-demo"><EditConfirmDemo client:load /></div></div></section>
 
 <section class="content-band soft"><div class="shell split rev feat"><div><h2>ข้อมูลลูกค้าครบ<br />ในหน้าเดียว</h2><p>เก็บทั้งผู้มุ่งหวังและลูกค้าไว้ในที่เดียว เปลี่ยนสถานะได้เมื่อไรก็ได้ ค้นหาและกรองตามแท็ก ระดับความสนิท หรือความคืบหน้าการขาย</p><ul class="feature-list"><li>โน้ตสั้น ๆ เรื่องลูกค้า เช่น งาน ครอบครัว งานอดิเรก</li><li>บันทึกกิจกรรมทุกการติดต่อ พร้อมขั้นตอนการขาย</li><li>แนบไฟล์เอกสารและรูปภาพไว้กับตัวลูกค้า</li><li>บันทึกสถานะยินยอม PDPA รายบุคคล</li></ul><a class="docs-link" href={docs("/customers/overview/")} target="_blank" rel="noopener noreferrer">อ่านวิธีใช้งานลูกค้าในคู่มือ <ExternalLink size={15} /></a></div><figure class="shot"><img src="/images/app/customer_detail.jpg" alt="หน้าจอรายการลูกค้าในแอป Solid Plan ฝั่งซ้ายเป็นรายชื่อพร้อมแท็กและความคืบหน้า ฝั่งขวาเป็นข้อมูลลูกค้า ความสนิท โน้ต และประวัติกิจกรรม" width="1600" height="1078" loading="lazy" /><figcaption>รายการลูกค้าพร้อมแท็กและความคืบหน้า กดดูรายละเอียดได้ทันที</figcaption></figure></div></section>
 

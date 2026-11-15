@@ -48,7 +48,9 @@ button { cursor:pointer; }
 .split { display:grid; grid-template-columns:1fr 1fr; align-items:start; gap:64px; }
 .feature-list { margin:24px 0 0; padding-left:22px; color:var(--muted); }
 .feature-list li { margin:12px 0; }
-.pdf-demo { min-width:0; overflow:hidden; }
+.ai-demo { min-width:0; overflow:hidden; transition:opacity .3s ease; }
+/* The server renders the wide layout; hide it until the island picks its own (phone or window) */
+.ai-demo:has(astro-island[ssr]) { opacity:0; }
 .product-example { background:#fff; border:1px solid var(--ref-hair); border-radius:8px; overflow:hidden; }
 .example-header { padding:14px 20px; border-bottom:1px solid var(--ref-edge); display:flex; justify-content:space-between; gap:12px; font-size:14px; }
 .example-header small { color:var(--muted); }

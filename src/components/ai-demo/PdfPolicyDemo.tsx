@@ -1,6 +1,5 @@
-import { Bar, Collapse, Phone, Stage, Window, type Act } from '../stageshow'
-import { ASK, Ask, Composer, FIELDS, PolicyCard, Steps, type Save } from './parts'
-import './one.css'
+import { Bar, Collapse, Stage, type Act } from '../stageshow'
+import { ASK, Ask, ChatShell, Composer, FIELDS, PolicyCard, Steps, type Save } from './parts'
 
 // Study 1 — "the review card". Solid Plan's ผู้ช่วย AI window. Beats: a policy
 // PDF already sits in the composer; the ask is typed and sent; the mascot
@@ -80,18 +79,7 @@ export default function SpPdfOne() {
             <Composer draft={s.draft} attached={s.attached} focused={!s.sent} />
           </>
         )
-        return layout === 'compact' ? (
-          <Phone width={310} className="sp1-phone">
-            <div className="sp1-screen">
-              <div className="sp1-title">ผู้ช่วย AI</div>
-              {chat}
-            </div>
-          </Phone>
-        ) : (
-          <Window title="ผู้ช่วย AI" className="sp1-win">
-            <div className="sp1-body">{chat}</div>
-          </Window>
-        )
+        return <ChatShell layout={layout}>{chat}</ChatShell>
       }}
     </Stage>
   )

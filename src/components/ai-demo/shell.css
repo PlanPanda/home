@@ -97,7 +97,12 @@
   .sp-bubble, .sp-composer__field .ss-field__box { font-size: 16px; }
   .sp-pdf__name, .sp-row, .sp-steps__line, .sp-card__note { font-size: 14px; }
   .sp-card__title { font-size: 16px; }
-  .sp-pdf__meta, .sp-tag, .sp-card__src { font-size: 13px; }
+  .sp-pdf__meta, .sp-tag, .sp-card__src { font-size: 13.5px; }
   .sp-row { min-height: 34px; }
   .sp1-past { display: none; }
+}
+
+.sp1 .sp1-screen {
+  .sp-p, .sp-list { font-size: 15px; }
+  .sp-source { font-size: 13px; }
 }
