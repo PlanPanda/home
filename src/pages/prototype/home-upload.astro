@@ -1,0 +1,35 @@
+---
+// Prototype: three takes on the home hero's "อัปโหลดกรมธรรม์" demo.
+import '../../styles/global.css';
+import UploadA from '../../components/home-demo/UploadA';
+import UploadB from '../../components/home-demo/UploadB';
+import UploadC from '../../components/home-demo/UploadC';
+import SummaryDemo from '../../components/home-demo/SummaryDemo';
+import AddCustomerDemo from '../../components/home-demo/AddCustomerDemo';
+import FollowUpDemo from '../../components/home-demo/FollowUpDemo';
+---
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Home upload demos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body { margin: 0; background: #fff; font-family: Sarabun, sans-serif; }
+      main { width: min(1152px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0; display: grid; gap: 64px; }
+      h2 { margin: 0 0 16px; font-size: 18px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section><h2>A · ลากไฟล์เข้าแชท</h2><div id="a"><UploadA client:load /></div></section>
+      <section><h2>B · ลงแฟ้มลูกค้าทันที</h2><div id="b"><UploadB client:load /></div></section>
+      <section><h2>C · อ่านเข้าฟอร์มกรมธรรม์</h2><div id="c"><UploadC client:load /></div></section>
+      <section><h2>สรุปลูกค้า</h2><div id="summary"><SummaryDemo client:load /></div></section>
+      <section><h2>เพิ่มลูกค้า</h2><div id="add"><AddCustomerDemo client:load /></div></section>
+      <section><h2>ใครควรติดตาม</h2><div id="follow"><FollowUpDemo client:load /></div></section>
+    </main>
+  </body>
+</html>
