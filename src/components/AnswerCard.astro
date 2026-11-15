@@ -1,0 +1,35 @@
+---
+// The Solid Plan chat answer panel from BeforeAfter, as a reusable card.
+import { svg, ICONS } from './before-after-data';
+const { item, compact = false } = Astro.props;
+---
+<section class:list={['answer-card', { compact }]} aria-label={`ตัวอย่าง ${item.heading} ใน Solid Plan`}>
+  <header><img src="/brand/logo-192.png" alt="" width="18" height="18" /><b>Solid Plan</b></header>
+  <div class="body">
+    <p class="q">{item.question}</p>
+    <div class="a">
+      <strong><span class="badge" aria-hidden="true"><Fragment set:html={svg(ICONS.sparkles)} /></span>{item.heading}</strong>
+      <dl>{item.rows.map(([icon, label, value]: string[]) => <div><dt><Fragment set:html={svg(ICONS[icon])} />{label}</dt><dd>{value}</dd></div>)}</dl>
+      <small><Fragment set:html={svg(ICONS[item.noteIcon])} />{item.note}</small>
+    </div>
+  </div>
+</section>
+
+<style>
+  .answer-card { background:#fff; border:1px solid #d2d2d7; border-radius:14px; overflow:hidden; box-shadow:0 24px 60px -24px rgba(0,0,0,.25); text-align:left; }
+  header { display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid #ececf0; font-size:12px; }
+  .body { padding:16px; }
+  .q { width:fit-content; max-width:92%; margin:0 0 14px auto; padding:8px 12px; border-radius:8px; background:#f1f1f3; font-size:13px; line-height:1.6; }
+  .a { padding:12px 14px; border:1px solid #ececf0; border-radius:12px; background:#fafafa; font-size:13px; line-height:1.5; }
+  .a > strong { display:flex; align-items:center; gap:7px; font-size:15px; }
+  .badge { flex:none; display:grid; place-items:center; width:18px; height:18px; border-radius:6px; background:#1d1d1f; color:#fff; }
+  dl { margin:10px 0; }
+  dl > div { display:grid; grid-template-columns:1fr 1.4fr; gap:10px; padding:6px 0; border-bottom:1px solid #ececf0; }
+  dt { display:flex; align-items:center; gap:6px; color:#6e6e73; }
+  dd { margin:0; }
+  small { display:flex; align-items:center; gap:6px; color:#6e6e73; font-size:11px; }
+  .answer-card :global(svg) { flex:none; width:12px; height:12px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .compact .body { padding:12px; }
+  .compact .q, .compact .a { font-size:12px; }
+  .compact .a > strong { font-size:13.5px; }
+</style>
