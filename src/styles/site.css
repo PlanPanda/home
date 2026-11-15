@@ -31,7 +31,7 @@ button { cursor:pointer; }
 .skip-link:focus { top:8px; }
 .ref-pill { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:48px; padding:10px 24px; border-radius:8px; background:#1d1d1f; color:#fff; font-weight:600; text-align:center; }
 .ref-pill:hover { background:#333; }
-.ref-pill.ghost { background:transparent; color:#1d1d1f; border:1px solid var(--ref-hair); }
+.ref-pill.ghost { background:#fff; color:#1d1d1f; border:1px solid var(--ref-hair); }
 .ref-pill.ghost:hover { background:var(--ref-soft); }
 .ref-pill.inverse { background:#fff; color:#111; }
 .ref-pill.ghost.inverse { background:transparent; color:#fff; border-color:#666; }

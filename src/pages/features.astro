@@ -50,7 +50,7 @@ const slides = [
 <section class="shell page-head"><h1>เครื่องมือครบทุกขั้นตอน<br />การดูแลลูกค้า</h1><p>อ่านกรมธรรม์ บันทึกลูกค้า วางแผนนัดหมาย ไปจนถึงติดตามยอดขาย ทำได้ในที่เดียว ใช้งานบน iPad และเว็บเบราว์เซอร์</p><div class="ref-cta-row"><a class="ref-pill" href={signupUrl}>สมัครสมาชิก</a><a class="ref-pill ghost" href={lineUrl}><Line size={18} /> เพิ่มเพื่อนใน LINE</a></div></section>
 
 <section class="content-band soft ai-band"><div class="shell">
-  <header class="band-head"><h2>AI ที่ทำงานบนข้อมูลลูกค้าของคุณ</h2><p>ความต่างจาก AI ทั่วไปคือ คุณไม่ต้องคอยป้อนข้อมูลให้ AI รู้จักลูกค้า ผู้ช่วย AI ของ Solid Plan ใช้ข้อมูลที่อยู่ในระบบของคุณตอบคำถาม และบันทึกงานให้เมื่อแค่คุณสั่ง</p></header>
+  <header class="band-head"><h2>AI ที่ค้นข้อมูลลูกค้าให้คุณได้ทันที</h2><p>ความต่างจาก AI ทั่วไปคือ คุณไม่ต้องคอยป้อนข้อมูลให้ AI รู้จักลูกค้า ผู้ช่วย AI ของ Solid Plan ใช้ข้อมูลที่อยู่ในระบบของคุณตอบคำถาม และบันทึกงานให้เมื่อแค่คุณสั่ง</p></header>
   <div class="ai-points">{aiPoints.map(point => <div class="ai-point"><span class="ai-icon" aria-hidden="true" set:html={ICONS[point.icon]} /><b>{point.title}</b><p>{point.text}</p></div>)}</div>
   <div class="ipad-wrap">
     <p class="ipad-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2.5" /><path d="M12 17.6h.01" /></svg>หน้าจอการใช้งานจริงบน iPad</p>
