@@ -4,8 +4,10 @@ const signupUrl = "https://app.solidplan.ai/signup";
 import BeforeAfter from './BeforeAfter.astro';
 import Testimonials from './Testimonials.astro';
 import Line from './icons/Line.astro';
+import AsciiWave from './AsciiWave.astro';
 ---
       <section class="ref-hero" id="ref-top">
+        <AsciiWave />
         <div class="shell ref-hero-copy">
           <h1>จำลูกค้าได้ทุกคน<br />โดยที่คุณไม่ต้องจดเอง</h1>
           <p class="ref-hero-sub">ตอนนี้ข้อมูลลูกค้ากระจายอยู่ในโน้ต Line และไฟล์ ทำให้ทุกครั้งที่อยากให้ AI ช่วย คุณต้องไล่หาข้อมูลมาป้อนเอง และยิ่งป้อนมาก AI ก็ยิ่งสับสน Solid Plan เก็บข้อมูลลูกค้าไว้ในระบบประกันของคุณ AI ดึงเฉพาะส่วนที่เกี่ยวกับคำถามมาตอบ และบันทึกให้เมื่อแค่คุณสั่ง</p>
@@ -441,7 +443,8 @@ import Line from './icons/Line.astro';
     </script>
 
 <style is:global>
-  .ref-hero { padding-top:74px; text-align:center; overflow:hidden; }
+  .ref-hero { position:relative; padding-top:74px; text-align:center; overflow:hidden; }
+  .ref-hero > :not(.ascii-wave) { position:relative; z-index:1; }
   .ref-hero-copy h1 { margin:0; font-size:64px; line-height:1.45; letter-spacing:0; text-wrap:balance; }
   .ref-hero-sub { max-width:780px; margin:24px auto 26px; color:#6e6e73; font-size:16px; line-height:1.75; }
   .ref-cta-row { display:flex; flex-wrap:wrap; gap:10px 14px; justify-content:center; align-items:center; margin-top:6px; }
