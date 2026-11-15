@@ -41,8 +41,7 @@ const verb = (tag: string) => tag.split('· ')[1];
 </script>
 
 <style>
-  /* Warm off-white + softened ink, after whereisrussell.com / hult.edu: contrast without stark black-on-white. */
-  .before-after { --ba-ink:#2b2b2b; --ba-muted:#5f5b53; --ba-dim:#bdb7aa; padding:110px 0; background:#f9f6eb; color:var(--ba-ink); scroll-margin-top:72px; }
+  .before-after { --ba-ink:var(--ink); --ba-muted:var(--muted); --ba-dim:#c7c7cc; padding:110px 0; background:var(--ref-soft); color:var(--ba-ink); scroll-margin-top:72px; }
   .before-after-intro { max-width:710px; }
   .before-after-intro h2 { margin:0; font-size:48px; line-height:1.35; font-weight:600; text-wrap:balance; }
   .before-after-intro p { margin:18px 0 0; color:var(--ba-muted); font-size:18px; line-height:1.7; }
@@ -59,7 +58,7 @@ const verb = (tag: string) => tag.split('· ')[1];
   .ba-stage { position:sticky; top:calc(50vh - 240px); height:520px; }
   .ba-scene { position:absolute; inset:0; opacity:0; transform:translateY(16px); transition:opacity .5s, transform .5s; }
   .ba-scene.on { opacity:1; transform:none; }
-  .ba-scene img { display:block; width:78%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:12px; filter:saturate(.75); }
+  .ba-scene img { display:block; width:78%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:12px; filter:saturate(.6); }
   .ba-card { position:absolute; right:0; bottom:0; width:58%; transform:translateY(24px); transition:transform .6s .1s; }
   .ba-scene.on .ba-card { transform:none; }
   @media (max-width:900px) {
