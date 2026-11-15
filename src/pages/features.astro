@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ExternalLink from '../components/icons/ExternalLink.astro';
 import Line from '../components/icons/Line.astro';
+import PdfPolicyDemo from '../components/pdf-policy/PdfPolicyDemo';
 const lineUrl = "https://line.me/R/ti/p/@675lurmh";
 const signupUrl = "https://app.solidplan.ai/signup";
 const docs = (path: string) => `https://docs.solidplan.ai${path}`;
@@ -67,7 +68,7 @@ const slides = [
   </div>
 </div></section>
 
-<section class="content-band"><div class="shell split"><div><h2>จาก PDF สู่ข้อมูลกรมธรรม์</h2><p>แนบกรมธรรม์ให้ผู้ช่วย AI อ่าน เตรียมข้อมูลให้ตรวจ แล้วคุณจึงกดยืนยันสร้างรายการ</p><ul class="feature-list"><li>ตรวจแบบประกัน ทุนประกัน และเบี้ยประกัน</li><li>ตรวจวันสำคัญและสัญญาเพิ่มเติม</li><li>แยกข้อมูลที่อ่านได้ ช่องที่ไม่พบ และค่าเริ่มต้นของระบบ</li></ul></div><div class="product-example"><div class="example-header"><b>ยืนยันการสร้างกรมธรรม์</b></div><div class="example-body"><p class="example-question">เพิ่มกรมธรรม์ให้คุณกานต์ พูนสุข จากไฟล์แนบ</p><dl><div><dt>ลูกค้า</dt><dd>คุณกานต์ พูนสุข</dd></div><div><dt>แบบประกัน</dt><dd>ตลอดชีพ ชำระเบี้ย 20 ปี</dd></div><div><dt>เบี้ยประกัน</dt><dd>24,000 บาท / ปี</dd></div><div><dt>ทุนประกัน</dt><dd>1,000,000 บาท</dd></div><div><dt>วันเริ่มสัญญา</dt><dd>18 กันยายน 2569</dd></div><div><dt>ข้อมูลบางช่อง</dt><dd>ไม่พบในเอกสาร</dd></div></dl><div class="example-status">รอผู้ใช้ตรวจและยืนยัน · ยังไม่ได้บันทึก</div></div></div></div></section>
+<section class="content-band"><div class="shell split"><div><h2>จาก PDF สู่ข้อมูลกรมธรรม์</h2><p>แนบกรมธรรม์ให้ผู้ช่วย AI อ่าน เตรียมข้อมูลให้ตรวจ แล้วคุณจึงกดยืนยันสร้างรายการ</p><ul class="feature-list"><li>ตรวจแบบประกัน ทุนประกัน และเบี้ยประกัน</li><li>ตรวจวันสำคัญและสัญญาเพิ่มเติม</li><li>แยกข้อมูลที่อ่านได้ ช่องที่ไม่พบ และค่าเริ่มต้นของระบบ</li></ul></div><div class="pdf-demo"><PdfPolicyDemo client:visible /></div></div></section>
 
 <section class="content-band soft"><div class="shell split rev"><div><h2>ถามข้อมูลก่อนเข้าพบลูกค้า</h2><p>ให้ AI ค้นและสรุปข้อมูลลูกค้า กรมธรรม์ และประวัติการติดต่อจากข้อมูลที่คุณมีในระบบ</p><p>ตรวจทานข้อมูลกับรายการลูกค้าก่อนนำไปใช้ โดยเฉพาะความคุ้มครองและตัวเลขทางการเงิน</p></div><div class="product-example"><div class="example-header"><b>ผู้ช่วย AI</b></div><div class="example-body"><p class="example-question">สรุปคุณกานต์ให้หน่อย บ่ายนี้จะเข้าพบ</p><strong>คุณกานต์ พูนสุข · 2 กรมธรรม์</strong><dl><div><dt>ตลอดชีพ</dt><dd>เบี้ย 24,000 บาท / ปี</dd></div><div><dt>สุขภาพ</dt><dd>เบี้ย 18,500 บาท / ปี</dd></div><div><dt>คุยล่าสุด</dt><dd>สนใจเพิ่มความคุ้มครองโรคร้ายแรง</dd></div></dl></div></div></div></section>
 

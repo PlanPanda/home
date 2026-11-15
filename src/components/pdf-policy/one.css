@@ -1,0 +1,103 @@
+.sp1 {
+  .ss-stage {
+    background: transparent;
+  }
+
+  /* Pinned top and sides, off the bottom just under the composer */
+  .sp1-win {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 496px;
+    height: 540px;
+    box-shadow: var(--ss-shadow-ground);
+  }
+
+  .sp1-body {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    height: 100%;
+    padding: 16px 20px 88px;
+    background: var(--ss-surface);
+  }
+
+  .sp1-thread {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 14px;
+    min-height: 0;
+    padding-bottom: 16px;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent, #000 28px);
+  }
+
+  .sp1-thread > *, .sp-composer {
+    will-change: transform;
+  }
+
+  .sp1-past {
+    display: grid;
+    gap: 8px;
+  }
+
+  .sp1-past-q {
+    justify-self: end;
+  }
+
+  .sp1-answer {
+    display: grid;
+    gap: 10px;
+  }
+
+  .sp1-line {
+    color: var(--ss-text-strong);
+    font-size: 14px;
+  }
+
+  /* Narrow: the app on a phone, pinned a gutter from the top, off the bottom */
+  /* Shadows stay short: the stage clips them, and a long one shows its cut edge on a white page */
+  .sp1-phone {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    box-shadow: 0 0 0 1px rgb(50 50 93 / 0.06), 0 24px 48px -24px rgb(50 50 93 / 0.18);
+  }
+
+  .sp1-screen {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 623px;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    padding: 58px 16px 16px;
+    background: var(--ss-surface);
+  }
+
+  .sp1-title {
+    padding: 6px 0 10px;
+    text-align: center;
+    color: var(--ss-text-strong);
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .sp1-screen .sp-row {
+    grid-template-columns: 96px minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .sp1-screen .sp-card__who {
+    display: none;
+  }
+}
+
+/* The phone draws at 0.83: its type is set a step up so it reads at 10px or more */
+.sp1 .sp1-screen {
+  .sp-bubble, .sp-composer__field .ss-field__box { font-size: 16px; }
+  .sp-pdf__name, .sp-row, .sp-steps__line, .sp-card__note { font-size: 14px; }
+  .sp-card__title { font-size: 16px; }
+  .sp-pdf__meta, .sp-tag, .sp-card__src { font-size: 13px; }
+  .sp-row { min-height: 34px; }
+  .sp1-past { display: none; }
+}
